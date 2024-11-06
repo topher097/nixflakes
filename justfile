@@ -12,5 +12,10 @@ lockfile-pin:
     git commit -m "pin: update flake.lock"
     git push
 
+windows-11:
+    quickget windows 11 English
+    quickemu --ignore-msrs-always
+    quickemu --vm windows-11-English.conf
+
 gadd:
     git add .

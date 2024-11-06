@@ -8,7 +8,7 @@
     ./${DE}
     ./stylix
     ./tailscale
-    ./trunkio
+    #./trunkio
     ./redshift   
   ];
 
