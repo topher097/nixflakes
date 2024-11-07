@@ -126,7 +126,7 @@
             modules = [
               ./.
               ./modules/apps/ms-teams     # teams-for-linux
-              #./modules/hardware/nvidia   # Nvidia hardware
+              ./modules/hardware/nvidia   # Nvidia hardware
               ./modules/virt              # Virtualization tools
             ];
           }; # pgi-desktop 

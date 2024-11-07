@@ -2,6 +2,7 @@
   pkgs,
   home-manager,
   username,
+  lib,
   ...
 }:
 let
@@ -22,8 +23,28 @@ let
   ];
 in
 {
+  environment.systemPackages = with pkgs; [ 
+    #nordic
+  ];
+
   # ---- Home Configuration ----
   home-manager.users.${username} = {
+
+    # gtk.theme = lib.mkForce {
+    #     name = "Nordic";
+    #     package = pkgs.nordic;
+    # };
+
+    home.pointerCursor = lib.mkForce {
+      gtk.enable = true;
+      x11.enable = true;
+      #name = "Bibata";
+      #package = pkgs.bibata-cursors;
+      #size = 20;
+      name = "Adwaita";
+      package = pkgs.gnome.adwaita-icon-theme;
+      size = 24;
+    };
 
     home.packages = gnomeExtensionsList;
 
@@ -48,14 +69,12 @@ in
         "firefox.desktop"
         "code.desktop"
         "discord.desktop"
-        "virt-manager.desktop"
+        #"virt-manager.desktop"
         "wezterm.desktop"
       ];
 
       "org/gnome/desktop/interface" = {
         enable-hot-corners = false;
-
-        #gtk-theme = "Nordic";
 
         ## Clock
         clock-show-weekday = true;
@@ -73,11 +92,11 @@ in
         ];
       };
 
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-        binding = "<Super>q";
-        command = "foot  > /dev/null 2>&1 &";
-        name = "open-terminal";
-      };
+      # "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      #   binding = "<Super>q";
+      #   command = "foot  > /dev/null 2>&1 &";
+      #   name = "open-terminal";
+      # };
 
       "org/gnome/shell/keybindings" = {
         show-screenshot-ui = [ "<Shift><Super>s" ];
@@ -85,11 +104,11 @@ in
 
       "org/gnome/desktop/wm/preferences" = {
         # Workspace Indicator panel
-        workspace-names = [
-          "Browser"
-          "Code"
-          "Virt"
-        ];
+        # workspace-names = [
+        #   "Browser"
+        #   "Code"
+        #   "Virt"
+        # ];
         button-layout = "appmenu:minimize,maximize,close";
       };
 
@@ -173,8 +192,6 @@ in
   };
 
   programs.dconf.enable = true;
-
-  environment.systemPackages = with pkgs; [ nordic ];
 
   environment.gnome.excludePackages =
     (with pkgs; [

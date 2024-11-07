@@ -1,5 +1,10 @@
-{ pkgs, config, username, ... }:
-{
+{ 
+  pkgs,
+  config,
+  username,
+  home-manager,
+  ...
+}: {
   # Environment variables
   # ---- I often have these enabled elsewhere but you may still want these if you are having issues ----
   # Force wayland when possible
@@ -8,12 +13,16 @@
   # Fix disappearing cursor on Hyprland
   # environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
 
+  # To fix the issue of suspension being broken on awakening, read this article and copy the contents of the file to /etc/modprobe.d/nvidia-power-management.conf
+  # LINK: https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend
+  # Copy command: sudo mkdir /etc/modprobe.d -p && sudo cp ./modules/hardware/nvidia/nvidia-power-management.conf /etc/modprobe.d/nvidia-power-management.conf 
+
   # Enable NVIDIA
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.graphics = {
-    enable = true;
-    #   driSupport32Bit = true;
-  };
+  # hardware.graphics = {
+  #   enable = true;
+  #   #   driSupport32Bit = true;
+  # };
 
   hardware.nvidia = {
     modesetting.enable = true;
