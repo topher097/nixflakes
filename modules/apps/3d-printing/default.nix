@@ -1,0 +1,8 @@
+{ 
+    pkgs,
+    ...
+}: {
+    imports = [
+        ./orca-slicer
+    ];
+}
