@@ -9,6 +9,7 @@
     #./obsidian
     ./vscode
     ./spotify
+    ./3d-printing
   ];
   
   home-manager.users.${username} = {
