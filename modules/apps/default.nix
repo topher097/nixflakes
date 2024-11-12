@@ -10,6 +10,7 @@
     ./vscode
     ./spotify
     ./3d-printing
+    ./discord
   ];
   
   home-manager.users.${username} = {

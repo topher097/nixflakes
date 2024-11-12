@@ -83,6 +83,12 @@
       url = "github:ovlach/nix-orca-slicer";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Nixcord
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+      #inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -134,6 +140,11 @@
               ./modules/apps/ms-teams     # teams-for-linux
               ./modules/hardware/nvidia   # Nvidia hardware
               ./modules/virt              # Virtualization tools
+              home-manager.nixosModules.home-manager {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.users.topher = import ./home.nix;
+              }
             ];
           }; # pgi-desktop 
 
@@ -154,6 +165,11 @@
               ./.
               ./modules/hardware/nvidia   # Nvidia hardware
               ./modules/virt              # Virtualization tools
+              home-manager.nixosModules.home-manager {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.users.topher = import ./home.nix;
+              }
             ];
           }; # topher-laptop
 
