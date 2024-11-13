@@ -50,7 +50,7 @@
     fzf
     tree
     eza
-    devenv
+    unstable.devenv
     cachix
     wget
     service-wrapper
