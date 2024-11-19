@@ -5,5 +5,6 @@
     ./network
     ./audio
     ./webcam
+    ./printer
   ];
 }
