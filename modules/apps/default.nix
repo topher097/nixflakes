@@ -11,6 +11,7 @@
     ./spotify
     ./3d-printing
     ./discord
+    ./inkscape
   ];
   
   home-manager.users.${username} = {
