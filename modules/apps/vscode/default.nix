@@ -11,8 +11,9 @@
     # https://github.com/microsoft/vscode/issues/181533
     programs.vscode = {
       enable = true;
-      enableUpdateCheck = true;
-      enableExtensionUpdateCheck = true;
+      package = pkgs.unstable.vscode;
+      enableUpdateCheck = false;
+      enableExtensionUpdateCheck = false;
       extensions = with pkgs.vscode-extensions; [
         golang.go
         #vscodevim.vim
@@ -25,7 +26,8 @@
       ];
       userSettings = {
         "window.titleBarStyle" = "custom";
-        "workbench.colorTheme" = lib.mkForce "Dark+ Modern";
+        "workbench.colorTheme" = lib.mkForce "Default Dark+";
+        "workbench.preferredHighContrastColorTheme" = lib.mkForce "Default Dark Modern";
         "workbench.colorCustomizations" = {
           "[Default Dark+]" = {
               "editorBracketHighlight.foreground1" = "#5b8fdd";
@@ -37,6 +39,7 @@
               "editorBracketHighlight.unexpectedBracket.foreground" = "#f31154";
             };
         };
+        "editor.semanticHighlighting.enabled" = true;
         "editor.tokenColorCustomizations" = {
           "textMateRules" = [
             {
@@ -58,7 +61,7 @@
             "source.organizeImports.ruff" = "explicit";
           };
         };
-        "editor.defaultFormatter" = "trunk.io";
+        #"editor.defaultFormatter" = "trunk.io";
         #"editor.fontFamily" = "'M+1Code Nerd Font','Droid Sans Mono', 'monospace'";
         "github.copilot.enable" = {
           "*" = true;
@@ -72,20 +75,20 @@
         };
         "editor.inlineSuggest.enabled" = true;
         #"powershell.powerShellAdditionalExePaths" = "/run/current-system/sw/bin/pwsh";
-        "files.exclude" = {
-          "**/.trunk/*actions/" = true;
-          "**/.trunk/*logs/" = true;
-          "**/.trunk/*notifications/" = true;
-          "**/.trunk/*out/" = true;
-          "**/.trunk/*plugins/" = true;
-        };
-        "files.watcherExclude" = {
-          "**/.trunk/*actions/" = true;
-          "**/.trunk/*logs/" = true;
-          "**/.trunk/*notifications/" = true;
-          "**/.trunk/*out/" = true;
-          "**/.trunk/*plugins/" = true;
-        };
+        # "files.exclude" = {
+        #   "**/.trunk/*actions/" = true;
+        #   "**/.trunk/*logs/" = true;
+        #   "**/.trunk/*notifications/" = true;
+        #   "**/.trunk/*out/" = true;
+        #   "**/.trunk/*plugins/" = true;
+        # };
+        # "files.watcherExclude" = {
+        #   "**/.trunk/*actions/" = true;
+        #   "**/.trunk/*logs/" = true;
+        #   "**/.trunk/*notifications/" = true;
+        #   "**/.trunk/*out/" = true;
+        #   "**/.trunk/*plugins/" = true;
+        # };
       };
     };
   };
