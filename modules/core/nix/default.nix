@@ -14,7 +14,7 @@
     extraSystemBuilderCmds = ''
       ln -sv ${pkgs.path} $out/nixpkgs
     '';
-    stateVersion = "24.05";
+    stateVersion = "24.11";
   };
 
   # # Enable Flakes and nix-commands, enable removing channels
@@ -51,7 +51,7 @@
     backupFileExtension = "backup";
     users.${username} = {
       # The home.stateVersion option does not have a default and must be set
-      home.stateVersion = "24.05";
+      home.stateVersion = "24.11";
       nixpkgs.config.allowUnfree = true;
     };
   };

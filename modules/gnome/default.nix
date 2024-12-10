@@ -42,7 +42,7 @@ in
       #package = pkgs.bibata-cursors;
       #size = 20;
       name = "Adwaita";
-      package = pkgs.gnome.adwaita-icon-theme;
+      package = pkgs.adwaita-icon-theme;
       size = 24;
     };
 
@@ -199,7 +199,7 @@ in
       gnome-tour
       gedit
     ])
-    ++ (with pkgs.gnome; [
+    ++ (with pkgs; [
       gnome-music
       #epiphany
       #geary

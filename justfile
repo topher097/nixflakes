@@ -14,3 +14,9 @@ lockfile-pin:
 
 gadd:
     git add .
+
+# https://nix.dev/manual/nix/2.18/package-management/garbage-collection
+gc:
+    nix-env --delete-generations old
+    nix-store --gc
+    nix-collect-garbage -d

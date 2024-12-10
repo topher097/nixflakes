@@ -26,7 +26,7 @@
             discord = {
                 enable = false;   # Don't install Discord, using vencord instead
                 vencord = {
-                    package = pkgs.vencord;    # Must do this for 24.05
+                    package = pkgs.vencord;    # Must do this for 24.05+
                     enable = true;
                 };
                 openASAR.enable = false;
