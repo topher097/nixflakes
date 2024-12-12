@@ -196,10 +196,20 @@
             inherit system;
             specialArgs = {
               username = "topher";
-              hostName = "winix";
+              hostName = "winix-pgi-laptop";
               inherit system outputs attrs;
             } // attrs;
-            modules = [ ./wsl.nix ];
+            modules = [ 
+              ./wsl.nix 
+              {
+                wsl.enable = true;
+              }
+              home-manager.nixosModules.home-manager {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.users.topher = import ./home.nix;
+              }
+            ];
           }; # winix
 
       };
