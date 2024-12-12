@@ -4,6 +4,15 @@ switch:
 test:
     sudo nixos-rebuild test --flake . --show-trace
 
+wsl-test:
+    sudo nixos-rebuild test --flake .#winix --show-trace
+
+wsl-switch:
+    sudo nixos-rebuild switch --flake .#winix --show-trace
+
+update:
+    sudo nix-channel --update
+
 # cachix-push:
 #     nix build --json | jq -r '.[].outputs | to_entries[].value' | cachix push topher097
 
