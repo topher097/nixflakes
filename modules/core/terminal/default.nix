@@ -49,6 +49,7 @@
     zoxide
     fzf
     tree
+    wget
     eza
     unstable.devenv
     cachix

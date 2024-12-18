@@ -1,4 +1,4 @@
-{ home-manager, nixpkgs, ... }:
+{ home-manager, nixpkgs, pkgs, ... }:
 {
   imports = [
     home-manager.nixosModules.home-manager
@@ -7,4 +7,15 @@
     ./modules/core/terminal
     ./modules/core/nix
   ];
+
+  # https://nix-community.github.io/NixOS-WSL/how-to/vscode.html
+  environment.systemPackages = [
+    pkgs.wget
+  ];
+
+  programs.nix-ld = {
+    enable = true;
+    package = pkgs.nix-ld-rs;
+  };
+
 }
