@@ -17,13 +17,16 @@
   # LINK: https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend
   # Copy command: sudo mkdir /etc/modprobe.d -p && sudo cp ./modules/hardware/nvidia/nvidia-power-management.conf /etc/modprobe.d/nvidia-power-management.conf 
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
   # Enable NVIDIA
   services.xserver.videoDrivers = [ "nvidia" ];
-  # hardware.graphics = {
-  #   enable = true;
-  #   #   driSupport32Bit = true;
-  # };
+  services.xserver.enable = true;
 
+  # Define nvidia settings
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
@@ -34,10 +37,12 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  # Include nvtop for GPU usage monitoring
   environment.systemPackages = with pkgs; [
     nvtopPackages.nvidia   # btop for nvidia GPUs
   ];
 
+  # Define the groups to have the user join
   users.users.${username} = {
     extraGroups = [
       "video"
