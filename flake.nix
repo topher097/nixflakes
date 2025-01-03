@@ -89,6 +89,11 @@
       url = "github:kaylorben/nixcord";
       #inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Ghostty home-manager
+    ghostty = {
+      url = "github:clo4/ghostty-hm-module";
+    };
   };
 
   outputs =
@@ -98,6 +103,7 @@
       nixpkgs,
       envfs,
       home-manager,
+      ghostty,
       nur,
       ...
     } @ attrs:
