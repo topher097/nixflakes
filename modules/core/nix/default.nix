@@ -40,7 +40,7 @@
       nix-path = config.nix.nixPath;
     };
     # Opinionated: disable channels
-    channel.enable = false;
+    channel.enable = true;
 
     # Opinionated: make flake registry and nix path match flake inputs
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
@@ -53,6 +53,9 @@
       # The home.stateVersion option does not have a default and must be set
       home.stateVersion = "24.11";
       nixpkgs.config.allowUnfree = true;
+
+      # This is so we can have mismatched home-manager and nixpkgs versions without a warning
+      home.enableNixpkgsReleaseCheck = false;
     };
   };
 

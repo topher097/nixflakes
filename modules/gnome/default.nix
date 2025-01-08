@@ -8,11 +8,11 @@
 let
   gnomeExtensionsList = with pkgs.gnomeExtensions; [
     user-themes
-    blur-my-shell
-    pano
+    #blur-my-shell
+    #pano
     desktop-cube
     desktop-clock
-    pop-shell
+    # pop-shell
     vitals
     docker
     unblank
@@ -92,11 +92,11 @@ in
         ];
       };
 
-      # "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      #   binding = "<Super>q";
-      #   command = "foot  > /dev/null 2>&1 &";
-      #   name = "open-terminal";
-      # };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+        binding = "<Super>q";
+        command = "ghostty";
+        name = "open-terminal";
+      };
 
       "org/gnome/shell/keybindings" = {
         show-screenshot-ui = [ "<Shift><Super>s" ];
@@ -136,28 +136,28 @@ in
         unmaximize = "disabled";
       };
 
-      "org/gnome/shell/extensions/pop-shell" = {
-        tile-by-default = true;
-      };
+      # "org/gnome/shell/extensions/pop-shell" = {
+      #   tile-by-default = true;
+      # };
 
-      # Configure blur-my-shell
-      "org/gnome/shell/extensions/blur-my-shell" = {
-        brightness = 0.85;
-        dash-opacity = 0.25;
-        sigma = 15; # Sigma means blur amount
-        static-blur = true;
-      };
-      "org/gnome/shell/extensions/blur-my-shell/panel".blur = true;
-      "org/gnome/shell/extensions/blur-my-shell/appfolder" = {
-        blur = true;
-        style-dialogs = 0;
-      };
+      # # Configure blur-my-shell
+      # "org/gnome/shell/extensions/blur-my-shell" = {
+      #   brightness = 0.85;
+      #   dash-opacity = 0.25;
+      #   sigma = 15; # Sigma means blur amount
+      #   static-blur = true;
+      # };
+      # "org/gnome/shell/extensions/blur-my-shell/panel".blur = true;
+      # "org/gnome/shell/extensions/blur-my-shell/appfolder" = {
+      #   blur = true;
+      #   style-dialogs = 0;
+      # };
 
-      # Configure Pano
-      "org/gnome/shell/extensions/pano" = {
-        global-shortcut = [ "<Super>comma" ];
-        incognito-shortcut = [ "<Shift><Super>less" ];
-      };
+      # # Configure Pano
+      # "org/gnome/shell/extensions/pano" = {
+      #   global-shortcut = [ "<Super>comma" ];
+      #   incognito-shortcut = [ "<Shift><Super>less" ];
+      # };
 
       # Set the default window for primary applications
       "org/gnome/shell/extensions/auto-move-windows" = {

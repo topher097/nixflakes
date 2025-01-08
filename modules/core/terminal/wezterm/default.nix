@@ -5,7 +5,7 @@
   ...
 }:
 {
-  environment.systemPackages = with pkgs; [ wezterm ];
+  environment.systemPackages = with pkgs; [ unstable.wezterm ];
 
   home-manager.users.${username} = _: {
     home.file = {

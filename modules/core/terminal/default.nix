@@ -6,6 +6,7 @@
     ./fonts
     ./fish
     #./foot
+    ./ghostty
     ./wezterm
     ./starship
     ./tmux

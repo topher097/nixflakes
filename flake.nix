@@ -11,7 +11,7 @@
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager";  #/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -51,7 +51,7 @@
     };
 
     stylix = {
-      url = "github:danth/stylix/release-24.11";
+      url = "github:danth/stylix"; #"github:danth/stylix/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -89,6 +89,7 @@
       url = "github:kaylorben/nixcord";
       #inputs.nixpkgs.follows = "nixpkgs";
     };
+
   };
 
   outputs =
@@ -140,11 +141,11 @@
               ./modules/apps/ms-teams     # teams-for-linux
               ./modules/hardware/nvidia   # Nvidia hardware
               ./modules/virt              # Virtualization tools
-              home-manager.nixosModules.home-manager {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.users.topher = import ./home.nix;
-              }
+              # home-manager.nixosModules.home-manager {
+              #   home-manager.useGlobalPkgs = true;
+              #   home-manager.useUserPackages = true;
+              #   home-manager.users.topher = import ./home.nix;
+              # }
             ];
           }; # pgi-desktop 
 
@@ -165,11 +166,11 @@
               ./.
               ./modules/hardware/nvidia   # Nvidia hardware
               ./modules/virt              # Virtualization tools
-              home-manager.nixosModules.home-manager {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.users.topher = import ./home.nix;
-              }
+              # home-manager.nixosModules.home-manager {
+              #   home-manager.useGlobalPkgs = true;
+              #   home-manager.useUserPackages = true;
+              #   home-manager.users.topher = import ./home.nix;
+              # }
             ];
           }; # topher-laptop
 
