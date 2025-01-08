@@ -94,7 +94,7 @@ in
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
         binding = "<Super>q";
-        command = "ghostty  > /dev/null 2>&1 &";
+        command = "ghostty";
         name = "open-terminal";
       };
 

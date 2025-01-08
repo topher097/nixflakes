@@ -90,10 +90,6 @@
       #inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Ghostty home-manager
-    ghostty = {
-      url = "github:clo4/ghostty-hm-module";
-    };
   };
 
   outputs =
@@ -103,7 +99,6 @@
       nixpkgs,
       envfs,
       home-manager,
-      ghostty,
       nur,
       ...
     } @ attrs:
@@ -146,11 +141,11 @@
               ./modules/apps/ms-teams     # teams-for-linux
               ./modules/hardware/nvidia   # Nvidia hardware
               ./modules/virt              # Virtualization tools
-              home-manager.nixosModules.home-manager {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.users.topher = import ./home.nix;
-              }
+              # home-manager.nixosModules.home-manager {
+              #   home-manager.useGlobalPkgs = true;
+              #   home-manager.useUserPackages = true;
+              #   home-manager.users.topher = import ./home.nix;
+              # }
             ];
           }; # pgi-desktop 
 
