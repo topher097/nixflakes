@@ -18,6 +18,9 @@ local config = {}
 --- Use config builder object if possible
 if wezterm.config_builder then config = wezterm.config_builder() end
 
+-- Need this to fix characters rendering as blocks rather than text
+clonfig.front_end = "WebGpu"
+
 --- Settings
 config.default_prog = { fish_path, "-l" }
 

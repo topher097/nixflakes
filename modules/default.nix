@@ -9,7 +9,7 @@
     ./stylix
     ./tailscale
     ./trunkio
-    ./redshift   
+    ./redshift
   ];
 
   # Used for trunk-io
