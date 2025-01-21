@@ -9,10 +9,10 @@ let
   gnomeExtensionsList = with pkgs.gnomeExtensions; [
     user-themes
     #blur-my-shell
-    #pano
+    pano
     desktop-cube
     desktop-clock
-    # pop-shell
+    pop-shell
     vitals
     docker
     unblank
