@@ -9,9 +9,7 @@
     ./stylix
     ./tailscale
     ./trunkio
-    ./redshift
+    ./redshift   
+    ./steam
   ];
-
-  # Used for trunk-io
-  # programs.nix-ld.enable = true;
 }
