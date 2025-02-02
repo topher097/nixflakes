@@ -3,9 +3,10 @@
   # https://github.com/donovanglover/nix-config
   # ---- System Configuration ----
   programs.bash = {
-    # interactiveShellInit = ''
-    #   nitch
-    # '';
+    interactiveShellInit = ''
+      export EZA_COLORS='da=1;34:gm=1;34:Su=1;34'
+      nitch
+    '';
     # shellAliases = {
     #   cp = "cp -ia";
     #   ls = "ls -la";

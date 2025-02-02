@@ -38,19 +38,17 @@
     unstable.lazygit
   ];
 
-  # Aliases for different tools
+  # Git aliases
+  home-manager.users.${username}.programs.git = {
+    enable = true;
+    package = pkgs.gitAndTools.gitFull;
+    # Prepend these aliases with `git` to use them
+    aliases = {
+      undo = "reset HEAD~1 --mixed";
+    };
 
-# Git aliases
-home-manager.users.${username}.programs.git = {
-  enable = true;
-  package = pkgs.gitAndTools.gitFull;
-  # Prepend these aliases with `git` to use them
-  aliases = {
-    undo = "reset HEAD~1 --mixed";
-  };
-
-  extraConfig = {
-      credential.helper = "oauth";
+    extraConfig = {
+      #credential.helper = "oauth";
       color = {
         ui = "auto";
       };
@@ -79,31 +77,30 @@ home-manager.users.${username}.programs.git = {
     };
   };
 
-  # Shell-agnostic aliases
-  environment.interactiveShellInit = ''
-    export EZA_COLORS='da=1;34:gm=1;34:Su=1;34'
-    alias eza='eza --show-symlinks --almost-all --tree --git-ignore'
-    alias ls='eza'
+  environment.shellAliases = {
+    cp = "cp -ia";
+    ls = "ls -la --color=auto";
+    mv = "mv -i";
+    eza = "eza --show-symlinks --almost-all --tree --git-ignore";
+    z = "zoxide";
+    "..." = "cd ../..";
 
-    alias z='zoxide'
-    alias t='tmux'
-    alias n='nvim'
-    alias e='exit'
-    alias c='clear'
-    alias r='ranger'
-    alias h='htop'
-    alias nv='nvtop'
-    alias b='btop'
-    alias mv='mv -i'
-    alias cp='cp -i'
+    lg = "lazygit";
+    gaa = "git add --all";
+    gc = "git commit -m";
+    gca = "git commit --amend";
+    gs = "git status";
 
-    alias lg='lazygit'
-    alias gaa='git add --all'
-    alias gc='git commit -m'
-    alias gca='git commit --amend'
-    alias gs='git status'
+    h = "htop";
+    b = "btop";
+    nv = "nvtop";
 
-    nitch
-  '';
+    c = "clear";
+    e = "exit";
+
+    n = "nvim";
+    t = "tmux";
+    r = "ranger";
+  };
 
 }
