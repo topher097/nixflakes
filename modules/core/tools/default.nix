@@ -36,6 +36,7 @@
     service-wrapper
     just
     unstable.lazygit
+    ranger
   ];
 
   # Git aliases
