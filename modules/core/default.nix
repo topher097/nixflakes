@@ -4,5 +4,6 @@
     ./nix
     ./security
     ./terminal
+    ./tools
   ];
 }
