@@ -4,6 +4,11 @@ switch:
 test:
     sudo nixos-rebuild test --flake . --show-trace
 
+vm:
+    nixos-rebuild build-vm --flake . 
+    ./result/bin/run-nixos-vm
+    trash put result nixos.qcow2"
+
 wsl-test:
     sudo nixos-rebuild test --flake .#winix --show-trace
 
