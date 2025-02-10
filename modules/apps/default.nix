@@ -5,7 +5,7 @@
     ./firefox
     ./gitkraken
     #./jetbrains
-    #./libreoffice
+    ./libreoffice
     #./obsidian
     ./vscode
     ./spotify
