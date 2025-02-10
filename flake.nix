@@ -166,6 +166,7 @@
               ./.
               ./modules/hardware/nvidia   # Nvidia hardware
               ./modules/virt              # Virtualization tools
+              ./modules/apps/ms-teams
               # home-manager.nixosModules.home-manager {
               #   home-manager.useGlobalPkgs = true;
               #   home-manager.useUserPackages = true;
