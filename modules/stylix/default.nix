@@ -1,10 +1,17 @@
 { stylix, pkgs, ... }:
 {
   imports = [ stylix.nixosModules.stylix ];
+
   stylix = {
     enable = true;
     image = ../../assets/backgrounds/moon.jpg;
     polarity = "dark";
+
+    # Can set a custom theme. Find them here: https://tinted-theming.github.io/tinted-gallery/
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
+
+    # Stylix will automatically enable most targets (or at least try to)
+    autoEnable = true;
 
     fonts = {
       serif = {
@@ -28,5 +35,4 @@
       };
     };
   };
-
 }

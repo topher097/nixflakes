@@ -26,19 +26,19 @@
       ];
       userSettings = {
         "window.titleBarStyle" = "custom";
-        "workbench.colorTheme" = lib.mkForce "Default Dark+";
-        "workbench.preferredHighContrastColorTheme" = lib.mkForce "Default Dark Modern";
-        "workbench.colorCustomizations" = {
-          "[Default Dark+]" = {
-              "editorBracketHighlight.foreground1" = "#5b8fdd";
-              "editorBracketHighlight.foreground2" = "#da89af";
-              "editorBracketHighlight.foreground3" = "#19f9d8";
-              "editorBracketHighlight.foreground4" = "#b58ceb";
-              "editorBracketHighlight.foreground5" = "#cde97f";
-              "editorBracketHighlight.foreground6" = "#7cf07c";
-              "editorBracketHighlight.unexpectedBracket.foreground" = "#f31154";
-            };
-        };
+        #"workbench.colorTheme" = lib.mkForce "Default Dark+";
+        #"workbench.preferredHighContrastColorTheme" = lib.mkForce "Default Dark Modern";
+        # "workbench.colorCustomizations" = {
+        #   "[Default Dark+]" = {
+        #       "editorBracketHighlight.foreground1" = "#5b8fdd";
+        #       "editorBracketHighlight.foreground2" = "#da89af";
+        #       "editorBracketHighlight.foreground3" = "#19f9d8";
+        #       "editorBracketHighlight.foreground4" = "#b58ceb";
+        #       "editorBracketHighlight.foreground5" = "#cde97f";
+        #       "editorBracketHighlight.foreground6" = "#7cf07c";
+        #       "editorBracketHighlight.unexpectedBracket.foreground" = "#f31154";
+        #     };
+        # };
         "editor.semanticHighlighting.enabled" = true;
         "editor.tokenColorCustomizations" = {
           "textMateRules" = [

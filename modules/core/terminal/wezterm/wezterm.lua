@@ -24,7 +24,7 @@ clonfig.front_end = "WebGpu"
 --- Settings
 config.default_prog = { fish_path, "-l" }
 
-config.color_scheme = "Tokyo Night"
+-- onfig.color_scheme = "Tokyo Night"
 config.font = wezterm.font_with_fallback({
   { family = "Iosevka Nerd Font",       scale = 1.2, weight = "Medium", },
   { family = "FantasqueSansM Nerd Font", scale = 1.3, },
