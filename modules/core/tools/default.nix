@@ -78,6 +78,11 @@
     };
   };
 
+  # Enable thunderbird
+  programs.thunderbird = {
+    enable = true;
+  };
+
   environment.shellAliases = {
     cp = "cp -ia";
     ls = "ls -la --color=auto";
@@ -85,6 +90,7 @@
     eza = "eza --show-symlinks --almost-all --tree --git-ignore";
     z = "zoxide";
     "..." = "cd ../..";
+    j = "just";
 
     lg = "lazygit";
     gaa = "git add --all";
