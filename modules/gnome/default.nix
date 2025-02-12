@@ -68,9 +68,9 @@ in
       "org/gnome/shell".favorite-apps = [
         "firefox.desktop"
         "code.desktop"
-        "discord.desktop"
+        "vesktop.desktop"
         #"virt-manager.desktop"
-        "wezterm.desktop"
+        "ghostty.desktop"
       ];
 
       "org/gnome/desktop/interface" = {
@@ -160,9 +160,9 @@ in
       # };
 
       # Set the default window for primary applications
-      "org/gnome/shell/extensions/auto-move-windows" = {
-        application-list = [ "firefox.desktop:1" ];
-      };
+      # "org/gnome/shell/extensions/auto-move-windows" = {
+      #   application-list = [ "firefox.desktop:1" ];
+      # };
 
       # The open applications bar
       "org/gnome/shell/extensions/window-list" = {
