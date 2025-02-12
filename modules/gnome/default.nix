@@ -17,8 +17,8 @@ let
     docker
     unblank
     custom-accent-colors
-    # tailscale-qs
-    # tailscale-status
+    tailscale-qs
+    tailscale-status
     forge   # Tiling manager
   ];
 in
