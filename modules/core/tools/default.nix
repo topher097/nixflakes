@@ -37,6 +37,8 @@
     just
     unstable.lazygit
     ranger
+    ntfs3g
+    exfat
   ];
 
   # Git aliases
