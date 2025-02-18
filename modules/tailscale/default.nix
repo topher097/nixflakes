@@ -4,14 +4,13 @@
   services.tailscale = {
     enable = true;
     extraUpFlags = [
-      "--shields-up"
+      # "--shields-up"
       "--operator=${username}"
       "--ssh"
-      "--reset"
     ];
   };
 
-  # Setup the magic DNS (100.100.100.100) and other DNS servers
+  # Setup the magic DNS (100.100.100.100) and other DNS namespaces
   networking.nameservers = [ "100.100.100.100" "8.8.8.8" "1.1.1.1" ];
   networking.search = [ "tail8dc3e.ts.net" ];   # Found in the DNS section on tailscale admin console
 
