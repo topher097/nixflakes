@@ -97,6 +97,7 @@
         "remote.SSH.remotePlatform" = {
           "pgi-desktop.tail8dc3e.ts.net" = "linux";
         };
+        "remote.SSH.localServerDownload" = "always";
       };
     };
   };
