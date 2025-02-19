@@ -89,6 +89,15 @@
         #   "**/.trunk/*out/" = true;
         #   "**/.trunk/*plugins/" = true;
         # };
+
+        # For tailscale ssh
+        "remote.SSH.useLocalServer" = false;
+        "remote.SSH.connectTimeout" = 30;      # In seconds   
+        "tailscale.ssh.connectionTimeout" = 30000;   # In ms
+        "remote.SSH.remotePlatform" = {
+          "pgi-desktop.tail8dc3e.ts.net" = "linux";
+        };
+        "remote.SSH.localServerDownload" = "always";
       };
     };
   };
