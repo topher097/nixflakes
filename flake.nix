@@ -90,6 +90,12 @@
       #inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Portainer
+    portainer-on-nixos = {
+      url = "gitlab:cbleslie/portainer-on-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
