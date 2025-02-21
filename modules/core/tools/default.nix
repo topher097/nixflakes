@@ -91,6 +91,7 @@
     mv = "mv -i";
     eza = "eza --show-symlinks --almost-all --tree --git-ignore";
     z = "zoxide";
+    zi = "zoxide query --interactive";
     "..." = "cd ../..";
     j = "just";
 
