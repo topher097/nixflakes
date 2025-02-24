@@ -26,6 +26,9 @@
   services.xserver.videoDrivers = [ "nvidia" ];
   services.xserver.enable = true;
 
+  # For gpu use in containers
+  hardware.nvidia-container-toolkit.enable = true;
+
   # Define nvidia settings
   hardware.nvidia = {
     modesetting.enable = true;
