@@ -72,12 +72,6 @@
       url = "github:nix-community/NUR";
     };
 
-    # Firefox style
-    penguin-fox = {
-      url = github:p3nguin-kun/penguinFox;
-      flake = false;
-    };
-
     # Orca slicer
     orca-slicer = {
       url = "github:ovlach/nix-orca-slicer";

@@ -5,7 +5,7 @@
     ./firefox
     ./gitkraken
     #./jetbrains
-    #./libreoffice
+    ./libreoffice
     #./obsidian
     ./vscode
     ./spotify
@@ -21,6 +21,10 @@
     ];
 
     programs.zathura = {
+      enable = true;
+    };
+
+    programs.yazi = {
       enable = true;
     };
   };
