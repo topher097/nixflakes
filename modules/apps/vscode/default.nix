@@ -17,7 +17,7 @@
         enableExtensionUpdateCheck = false;
         extensions = with pkgs.vscode-extensions; [
           github.copilot
-          mvllow.rose-pine
+          #mvllow.rose-pine
           eamodio.gitlens
           tailscale.vscode-tailscale
           ms-vscode-remote.vscode-remote-extensionpack
@@ -36,7 +36,8 @@
         ];
         userSettings = {
           "window.titleBarStyle" = "custom";
-          "workbench.colorTheme" = lib.mkForce "Rosé Pine Moon";
+          #"workbench.colorTheme" = lib.mkForce "Rosé Pine Moon";
+          "workbench.colorTheme" = "Stylix";
           "editor.semanticHighlighting.enabled" = true;
           "editor.minimap.renderCharacters" = false;
           "editor.minimap.showSlider" = "always";
@@ -69,6 +70,8 @@
             "pgi-desktop.tail8dc3e.ts.net" = "linux";
           };
           "remote.SSH.localServerDownload" = "always";
+          "remote.SSH.showLoginTerminal" = "true";
+
         };
       };
     };
