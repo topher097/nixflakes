@@ -9,7 +9,6 @@
     #./obsidian
     ./vscode
     ./spotify
-    ./3d-printing
     ./discord
     ./inkscape
   ];

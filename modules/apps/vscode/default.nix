@@ -12,92 +12,64 @@
     programs.vscode = {
       enable = true;
       package = pkgs.unstable.vscode;
-      enableUpdateCheck = false;
-      enableExtensionUpdateCheck = false;
-      extensions = with pkgs.vscode-extensions; [
-        golang.go
-        #vscodevim.vim
-        github.copilot
-        #github.github-vscode-theme
-        #github.vscode-github-actions
-        ms-python.python
-        #ms-vscode.powershell
-        bbenoist.nix
-      ];
-      userSettings = {
-        "window.titleBarStyle" = "custom";
-        #"workbench.colorTheme" = lib.mkForce "Default Dark+";
-        #"workbench.preferredHighContrastColorTheme" = lib.mkForce "Default Dark Modern";
-        # "workbench.colorCustomizations" = {
-        #   "[Default Dark+]" = {
-        #       "editorBracketHighlight.foreground1" = "#5b8fdd";
-        #       "editorBracketHighlight.foreground2" = "#da89af";
-        #       "editorBracketHighlight.foreground3" = "#19f9d8";
-        #       "editorBracketHighlight.foreground4" = "#b58ceb";
-        #       "editorBracketHighlight.foreground5" = "#cde97f";
-        #       "editorBracketHighlight.foreground6" = "#7cf07c";
-        #       "editorBracketHighlight.unexpectedBracket.foreground" = "#f31154";
-        #     };
-        # };
-        "editor.semanticHighlighting.enabled" = true;
-        "editor.tokenColorCustomizations" = {
-          "textMateRules" = [
-            {
-              "scope" = "string.quoted.docstring.multi.python";
-              "settings" = {
-                "foreground" = "#c18972";
-              };
-            }
-          ];
-        };
-        "editor.minimap.renderCharacters" = false;
-        "editor.minimap.showSlider" = "always";
-        "editor.minimap.size" = "fit";
-        "[python]" = {
-          "editor.defaultFormatter" = null;
-          "editor.formatOnType" = true;
-          "editor.codeActionsOnSave" = {
-            "source.fixAll.ruff" = "always";
-            "source.organizeImports.ruff" = "explicit";
+      profiles.default = {
+        enableUpdateCheck = false;
+        enableExtensionUpdateCheck = false;
+        extensions = with pkgs.vscode-extensions; [
+          github.copilot
+          mvllow.rose-pine
+          eamodio.gitlens
+          tailscale.vscode-tailscale
+          ms-vscode-remote.vscode-remote-extensionpack
+          #oderwat.indent-rainbow
+          ms-toolsai.jupyter
+          ms-python.python
+          bbenoist.nix
+          charliermarsh.ruff
+          nefrob.vscode-just-syntax
+          tamasfe.even-better-toml
+          redhat.vscode-yaml
+          zainchen.json
+          yzhang.markdown-all-in-one
+          mechatroner.rainbow-csv
+          grapecity.gc-excelviewer
+        ];
+        userSettings = {
+          "window.titleBarStyle" = "custom";
+          "workbench.colorTheme" = lib.mkForce "Rosé Pine Moon";
+          "editor.semanticHighlighting.enabled" = true;
+          "editor.minimap.renderCharacters" = false;
+          "editor.minimap.showSlider" = "always";
+          "editor.minimap.size" = "fit";
+          "[python]" = {
+            "editor.defaultFormatter" = null;
+            "editor.formatOnType" = true;
+            "editor.codeActionsOnSave" = {
+              "source.fixAll.ruff" = "always";
+              "source.organizeImports.ruff" = "explicit";
+            };
           };
-        };
-        #"editor.defaultFormatter" = "trunk.io";
-        #"editor.fontFamily" = "'M+1Code Nerd Font','Droid Sans Mono', 'monospace'";
-        "github.copilot.enable" = {
-          "*" = true;
-          "plaintext" = false;
-          "markdown" = true;
-          "scminput" = false;
-          "python" = true;
-          "c++" = true;
-          "c" = true;
-          "yaml" = true;
-        };
-        "editor.inlineSuggest.enabled" = true;
-        #"powershell.powerShellAdditionalExePaths" = "/run/current-system/sw/bin/pwsh";
-        # "files.exclude" = {
-        #   "**/.trunk/*actions/" = true;
-        #   "**/.trunk/*logs/" = true;
-        #   "**/.trunk/*notifications/" = true;
-        #   "**/.trunk/*out/" = true;
-        #   "**/.trunk/*plugins/" = true;
-        # };
-        # "files.watcherExclude" = {
-        #   "**/.trunk/*actions/" = true;
-        #   "**/.trunk/*logs/" = true;
-        #   "**/.trunk/*notifications/" = true;
-        #   "**/.trunk/*out/" = true;
-        #   "**/.trunk/*plugins/" = true;
-        # };
+          "github.copilot.enable" = {
+            "*" = true;
+            "plaintext" = false;
+            "markdown" = true;
+            "scminput" = false;
+            "python" = true;
+            "c++" = true;
+            "c" = true;
+            "yaml" = true;
+          };
+          "editor.inlineSuggest.enabled" = true;
 
-        # For tailscale ssh
-        "remote.SSH.useLocalServer" = false;
-        "remote.SSH.connectTimeout" = 30;      # In seconds   
-        "tailscale.ssh.connectionTimeout" = 30000;   # In ms
-        "remote.SSH.remotePlatform" = {
-          "pgi-desktop.tail8dc3e.ts.net" = "linux";
+          # For tailscale ssh
+          "remote.SSH.useLocalServer" = false;
+          "remote.SSH.connectTimeout" = 30;      # In seconds   
+          "tailscale.ssh.connectionTimeout" = 30000;   # In ms
+          "remote.SSH.remotePlatform" = {
+            "pgi-desktop.tail8dc3e.ts.net" = "linux";
+          };
+          "remote.SSH.localServerDownload" = "always";
         };
-        "remote.SSH.localServerDownload" = "always";
       };
     };
   };

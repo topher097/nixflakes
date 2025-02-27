@@ -141,11 +141,8 @@
               ./modules/apps/ms-teams     # teams-for-linux
               ./modules/hardware/nvidia   # Nvidia hardware
               ./modules/virt              # Virtualization tools
-              # home-manager.nixosModules.home-manager {
-              #   home-manager.useGlobalPkgs = true;
-              #   home-manager.useUserPackages = true;
-              #   home-manager.users.topher = import ./home.nix;
-              # }
+              ./modules/virt/portainer.nix    # Portainer docker auto run
+              ./modules/apps/3d-printing  # 3D printing tools
             ];
           }; # pgi-desktop 
 
@@ -167,11 +164,6 @@
               ./modules/apps/ms-teams     # teams-for-linux
               ./modules/hardware/nvidia   # Nvidia hardware
               ./modules/virt              # Virtualization tools
-              # home-manager.nixosModules.home-manager {
-              #   home-manager.useGlobalPkgs = true;
-              #   home-manager.useUserPackages = true;
-              #   home-manager.users.topher = import ./home.nix;
-              # }
             ];
           }; # topher-laptop
 
