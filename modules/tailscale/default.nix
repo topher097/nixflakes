@@ -14,4 +14,9 @@
   networking.nameservers = [ "100.100.100.100" "8.8.8.8" "1.1.1.1" ];
   networking.search = [ "tail8dc3e.ts.net" ];   # Found in the DNS section on tailscale admin console
 
+  # davfs2 for mounting taildrive
+  # LINK: https://tailscale.com/kb/1369/taildrive?tab=linux#sharing-and-accessing-folders-with-taildrive
+  environment.systemPackages = with pkgs; [
+    davfs2
+  ];
 }

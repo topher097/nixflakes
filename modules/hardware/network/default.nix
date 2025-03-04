@@ -1,4 +1,4 @@
-{ lib, hostName, username, ... }:
+{ lib, hostName, username, pkgs, ... }:
 {
   systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
 
@@ -12,4 +12,13 @@
   users.users.${username} = {
     extraGroups = [ "networkmanager" ];
   };
+
+  environment.systemPackages = with pkgs; [
+    iftop
+    nload
+    unixtools.netstat
+    bmon
+    speedtest-cli
+  ];
+
 }

@@ -71,7 +71,7 @@
           };
           "remote.SSH.localServerDownload" = "always";
           "remote.SSH.showLoginTerminal" = "true";
-
+          
         };
       };
     };
