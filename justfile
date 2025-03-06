@@ -1,3 +1,13 @@
+user := file_stem(home_directory())
+
+# Own the current directory as the logged in user
+own:
+    sudo chown -R {{ user }} .
+
+# Set the remote URL for the git repository, useful if the repository is moved to a different location
+set-remote:
+    git remote set-url origin git@github.com:topher097/nixflakes.git
+
 switch:
     sudo nixos-rebuild switch --flake . --show-trace
 
