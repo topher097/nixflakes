@@ -35,6 +35,9 @@
           yzhang.markdown-all-in-one
           mechatroner.rainbow-csv
           grapecity.gc-excelviewer
+          johnpapa.vscode-peacock
+          ibm.output-colorizer
+          tomoki1207.pdf
         ];
         userSettings = {
           "window.titleBarStyle" = "custom";
