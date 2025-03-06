@@ -24,6 +24,8 @@
           #oderwat.indent-rainbow
           ms-toolsai.jupyter
           ms-python.python
+          ms-python.vscode-pylance
+          ms-python.python
           bbenoist.nix
           charliermarsh.ruff
           nefrob.vscode-just-syntax
