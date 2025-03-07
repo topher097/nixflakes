@@ -20,12 +20,12 @@
           #mvllow.rose-pine
           eamodio.gitlens
           tailscale.vscode-tailscale
+          ms-vscode-remote.remote-ssh
           ms-vscode-remote.vscode-remote-extensionpack
           #oderwat.indent-rainbow
           ms-toolsai.jupyter
           ms-python.python
           ms-python.vscode-pylance
-          ms-python.python
           bbenoist.nix
           charliermarsh.ruff
           nefrob.vscode-just-syntax
@@ -40,7 +40,6 @@
           tomoki1207.pdf
         ];
         userSettings = {
-          "window.titleBarStyle" = "custom";
           #"workbench.colorTheme" = lib.mkForce "Rosé Pine Moon";
           "workbench.colorTheme" = "Stylix";
           "editor.semanticHighlighting.enabled" = true;
@@ -66,6 +65,8 @@
             "yaml" = true;
           };
           "editor.inlineSuggest.enabled" = true;
+          "markdown.preview.fontFamily" = "IBM Plex Sans";
+          "markdown.preview.fontSize" = 16.0;
 
           # For tailscale ssh
           "remote.SSH.useLocalServer" = false;
@@ -75,7 +76,13 @@
             "pgi-desktop.tail8dc3e.ts.net" = "linux";
           };
           "remote.SSH.localServerDownload" = "always";
-          "remote.SSH.showLoginTerminal" = "true";
+          "remote.SSH.showLoginTerminal" = true;
+          "update.mode" = "none";
+          "window.titleBarStyle" = "custom";
+
+          # Not sure what these are for
+          "scm.inputFontFamily" = "IBM Plex Mono";
+          "screencastMode.fontSize" = 64.0;
           
         };
       };
