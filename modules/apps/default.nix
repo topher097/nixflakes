@@ -4,6 +4,7 @@
     #./1password
     ./firefox
     ./gitkraken
+    ./expressvpn
     #./jetbrains
     ./libreoffice
     #./obsidian
