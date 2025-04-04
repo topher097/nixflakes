@@ -1,5 +1,9 @@
 user := file_stem(home_directory())
 
+# CCF VPN command
+ccf-vpn:
+    gio open "https://34.235.184.118"
+
 # Own the current directory as the logged in user
 own:
     sudo chown -R {{ user }} .
@@ -17,7 +21,7 @@ test:
 vm:
     nixos-rebuild build-vm --flake . 
     ./result/bin/run-nixos-vm
-    trash put result nixos.qcow2"
+    trash put result nixos.qcow2
 
 wsl-test:
     sudo nixos-rebuild test --flake .#winix --show-trace
@@ -40,8 +44,10 @@ gadd:
     git add .
 
 # https://nix.dev/manual/nix/2.18/package-management/garbage-collection
+# https://nixos-and-flakes.thiscute.world/nixos-with-flakes/other-useful-tips#viewing-and-deleting-historical-data
 gc:
     nix-env --delete-generations old
     nix-store --gc
     nix-collect-garbage --delete-old
+    sudo nix profile wipe-history --older-than 14d --profile /nix/var/nix/profiles/system
     devenv gc

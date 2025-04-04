@@ -90,6 +90,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # For OpenVPN
+    update-systemd-resolved = {
+      url = "github:jonathanio/update-systemd-resolved";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
@@ -100,6 +106,7 @@
       envfs,
       home-manager,
       nur,
+      update-systemd-resolved,
       ...
     } @ attrs:
     let
@@ -143,6 +150,9 @@
               ./modules/virt              # Virtualization tools
               ./modules/virt/portainer.nix    # Portainer docker auto run
               ./modules/apps/3d-printing  # 3D printing tools
+
+              update-systemd-resolved.nixosModules.update-systemd-resolved
+              ./modules/openvpn/ccf.nix
             ];
           }; # pgi-desktop 
 
@@ -206,6 +216,15 @@
             ];
           }; # winix
 
+      };
+
+      # LINK: https://nixos-and-flakes.thiscute.world/nixos-with-flakes/other-useful-tips#reducing-disk-usage
+      boot.loader.systemd-boot.configurationLimit = 10;
+      nix.settings.auto-optimise-store = true;
+      nix.gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 1w";
       };
 
       # All systems/hosts get these packages installed
