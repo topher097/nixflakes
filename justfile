@@ -27,6 +27,7 @@ wsl-switch:
 
 update:
     sudo nix-channel --update
+    sudo nix flake update
 
 # cachix-push:
 #     nix build --json | jq -r '.[].outputs | to_entries[].value' | cachix push topher097

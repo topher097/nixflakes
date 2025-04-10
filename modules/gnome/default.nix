@@ -93,7 +93,7 @@ in
       };
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-        binding = "<Super>q";
+        binding = "<Super>t";
         command = "ghostty";
         name = "open-terminal";
       };
@@ -114,7 +114,7 @@ in
 
       "org/gnome/desktop/wm/keybindings" = {
         toggle-message-tray = "disabled";
-        close = [ "<Super>w" ];
+        close = [ "<Shift><Super>q" ];
         maximize = "disabled";
         minimize = "disabled";
         move-to-monitor-down = "disabled";

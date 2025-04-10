@@ -13,6 +13,9 @@
     # Stylix will automatically enable most targets (or at least try to)
     autoEnable = true;
 
+    # Disable checks for release build number not matching NixOS version
+    enableReleaseChecks = false;
+
     fonts = {
       serif = {
         package = pkgs.ibm-plex;
