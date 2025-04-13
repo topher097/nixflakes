@@ -17,7 +17,10 @@ test:
 vm:
     nixos-rebuild build-vm --flake . 
     ./result/bin/run-nixos-vm
-    trash put result nixos.qcow2"
+    trash put result nixos.qcow2
+
+windows-11:
+    nix run .#nixosConfigurations.windows-11.config.microvm.declaredRunner --show-trace
 
 wsl-test:
     sudo nixos-rebuild test --flake .#winix --show-trace

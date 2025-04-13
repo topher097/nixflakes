@@ -90,6 +90,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # MicroVM
+    microvm = {
+      url = "github:astro/microvm.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
   };
 
   outputs =
@@ -100,6 +106,7 @@
       envfs,
       home-manager,
       nur,
+      microvm,
       ...
     } @ attrs:
     let
@@ -123,6 +130,34 @@
       overlays = import ./overlays { inherit attrs; };
 
       nixosConfigurations = {
+
+        windows-11 =
+          nixpkgs.lib.nixosSystem {
+            specialArgs = {
+              username = "topher";
+              hostName = "windows-11";
+              #hyprlandConfig = "laptop";
+              #DE = "gnome";
+              inherit outputs attrs;
+            } // attrs;
+            system = "x86_64-linux";
+            system.stateVersion = "24.11";
+            modules = [
+              # Include the microvm module
+              microvm.nixosModules.microvm
+              # Add more modules here
+              {
+                
+                networking.hostName = "windows-11";
+                microvm = {
+                  user = "topher";
+                  mem = "10000";  # 10GB
+                  vcpu = "4";
+                  hypervisor = "cloud-hypervisor";
+               };
+              }
+            ];
+          }; # windows-11
 
         pgi-desktop =
           let
