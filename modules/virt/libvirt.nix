@@ -1,5 +1,10 @@
-{ pkgs, username, ... }:
-{
+# LINK: https://www.reddit.com/r/NixOS/comments/177wcyi/comment/k4vok4n/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+{ 
+  pkgs,
+  username,
+  config,
+  ...
+}: {
   virtualisation = {
     libvirtd = {
       enable = true;
@@ -16,14 +21,19 @@
   users.users.${username}.extraGroups = [ "libvirtd" ];
 
   environment.systemPackages = with pkgs; [
-    spice
+    virt-manager
+    virt-viewer
+    spice 
     spice-gtk
     spice-protocol
-    virt-viewer
-    #virtio-win
-    #win-spice
+    win-virtio
+    win-spice
+    gnome.adwaita-icon-theme
   ];
+
   programs.virt-manager.enable = true;
+  programs.dconf.enable = true;
+  services.spice-vdagentd.enable = true;
 
   home-manager.users.${username} = {
     dconf.settings = {
