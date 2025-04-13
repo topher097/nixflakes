@@ -11,5 +11,6 @@
     ./trunkio
     ./redshift   
     ./steam
+    ./microtik
   ];
 }
