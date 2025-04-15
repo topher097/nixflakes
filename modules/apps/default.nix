@@ -12,6 +12,7 @@
     ./spotify
     ./discord
     ./inkscape
+    ./filezilla
   ];
   
   home-manager.users.${username} = {
