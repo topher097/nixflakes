@@ -14,7 +14,6 @@ pkgs.stdenv.mkDerivation {
     libidn2
     libexif
     libfilezilla
-    # libfilezilla-common
     libfm
     libfm-extra
     libnghttp2
