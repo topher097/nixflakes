@@ -84,6 +84,53 @@
           "scm.inputFontFamily" = "IBM Plex Mono";
           "screencastMode.fontSize" = 64.0;
           
+          # Stuff for Vim VSCode
+          "vim.easymotion" = true;
+          "vim.incsearch" = true;
+          "vim.useSystemClipboard" = true;
+          "vim.useCtrlKeys" = true;
+          "vim.hlsearch" = true;
+          "vim.insertModeKeyBindings" = [
+            {
+              "before"= ["j" "j"];
+              "after"= ["<Esc>"];
+            }
+          ];
+          "vim.normalModeKeyBindingsNonRecursive"= [
+            {
+              "before"= ["<leader>" "d"];
+              "after"= ["d" "d"];
+            }
+            {
+              "before"= ["<C-n>"];
+              "commands"= [":nohl"];
+            }
+            {
+              "before"= ["K"];
+              "commands"= ["lineBreakInsert"];
+              "silent"= true;
+            }
+          ];
+          "vim.normalModeKeyBindings" = [
+            {
+              "before"= [":"];
+              "commands"= [
+                  "workbench.action.showCommands"
+              ];
+              "silent"= true;
+            }
+          ];
+          "vim.leader" = "<space>";
+          "vim.handleKeys" = {
+            "<C-a>"= false;
+            "<C-f>"= false;
+          };
+
+          # To improve performance
+          "extensions.experimental.affinity" = {
+            "vscodevim.vim" = 1;
+          };
+          
         };
       };
     };
