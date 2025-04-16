@@ -4,4 +4,5 @@ result
 *.iso
 .venv
 
+.envrc.private
 .devenv/
