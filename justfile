@@ -8,38 +8,37 @@ own:
 set-remote:
     git remote set-url origin git@github.com:topher097/nixflakes.git
 
-switch:
-    sudo nixos-rebuild switch --flake . --show-trace
-
+# NixOS flake test
 test:
     sudo nixos-rebuild test --flake . --show-trace
 
-vm:
-    nixos-rebuild build-vm --flake . 
-    ./result/bin/run-nixos-vm
-    trash put result nixos.qcow2
+# NixOS flake
+switch:
+    sudo nixos-rebuild switch --flake . --show-trace
 
-windows-11:
-    nix run .#nixosConfigurations.windows-11.config.microvm.declaredRunner --show-trace
-
+# NixOS flake test when in WSL
 wsl-test:
     sudo nixos-rebuild test --flake .#winix --show-trace
 
+# NixOS flake switch when in WSL
 wsl-switch:
     sudo nixos-rebuild switch --flake .#winix --show-trace
 
+# Update the flake inputs and the nix channel
 update:
     sudo nix-channel --update
     sudo nix flake update
 
-# cachix-push:
-#     nix build --json | jq -r '.[].outputs | to_entries[].value' | cachix push topher097
-
+# Pin the lockfile to the current inputs
 lockfile-pin:
     git add flake.lock
     git commit -m "pin: update flake.lock"
     git push
 
+# Upgrade the inputs and update the lockfile
+upgrade: update test lockfile-pin
+
+# Add all changes to the git repository
 gadd:
     git add .
 
