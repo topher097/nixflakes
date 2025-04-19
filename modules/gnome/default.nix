@@ -93,7 +93,7 @@ in
       };
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-        binding = "<Super>z";
+        binding = "<Shift><Super>z";
         command = "ghostty";
         name = "open-terminal";
       };
