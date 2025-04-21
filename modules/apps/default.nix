@@ -13,6 +13,7 @@
     ./discord
     ./inkscape
     ./filezilla
+    ./brave
   ];
   
   home-manager.users.${username} = {
