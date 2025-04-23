@@ -17,6 +17,15 @@
         set -x TERM xterm-256color
       end
 
+      if not set -q SSH_AUTH_SOCK
+        if not set -q PRIVATE_SSH_PATH
+          echo "SSH_AUTH_SOCK not set, and no PRIVATE_SSH_PATH found for SSH access."
+        else
+          eval (ssh-agent -c)
+          ssh-add "$PRIVATE_SSH_PATH"
+        end
+      end
+
       nitch
     '';
   };

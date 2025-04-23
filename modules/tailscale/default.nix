@@ -1,5 +1,11 @@
 # LINK: https://tailscale.com/download/linux/nixos
-{ username, hostName, pkgs, ... }:
+{ 
+  username,
+  home-manager,
+  hostName,
+  pkgs,
+  ... 
+}:
 {
   services.tailscale = {
     enable = true;
@@ -19,6 +25,16 @@
     extraGroups = [ "davfs2" ];
   };
 
+  # Set the SSH config to allow host forwarding
+  home-manager.users.${username}.programs.ssh = {
+    enable = true;
+    extraConfig = ''
+    Host *.ts.net
+      ForwardAgent yes
+    '';
+  };
+  # home-manager.useGlobalPkgs = true;
+  # home-manager.useUserPackages = true;
 
   # Setup the magic DNS (100.100.100.100) and other DNS namespaces
   networking.nameservers = [ "100.100.100.100" "8.8.8.8" "1.1.1.1" ];
