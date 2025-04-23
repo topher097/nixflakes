@@ -13,9 +13,9 @@
       ${pkgs.zoxide}/bin/zoxide init fish | source
       export EZA_COLORS='da=1;34:gm=1;34:Su=1;34'
       
-      # if [[ "$TERM_PROGRAM" == "ghostty" ]]; then
-      #   export TERM=xterm-256color
-      # fi
+      if test "$TERM_PROGRAM" = "ghostty"
+        set -x TERM xterm-256color
+      end
 
       nitch
     '';
