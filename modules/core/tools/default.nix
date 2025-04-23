@@ -40,7 +40,6 @@
     ntfs3g
     exfat
     rpi-imager
-    any-nix-shell
   ];
   
   nix.extraOptions = ''

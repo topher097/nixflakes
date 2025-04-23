@@ -249,20 +249,20 @@
           pkgs = nixpkgsFor.${system};
         in
         {
-          default = pkgs.mkShellNoCC {
+          default = pkgs.mkShell {    # Can use mkShellNoCC, but do more research on that...
             buildInputs = with pkgs; [
               nixfmt
               statix
               #tophvim.nixosModules.${system}.default
             ];
 
-            shellHook = ''
-              if [[ "$TERM_PROGRAM" == "ghostty" ]]; then
-                export TERM=xterm-256color
-              fi
-              export NIXPKGS_ALLOW_UNFREE=1
-              export EZA_COLORS = "da=1;34:gm=1;34:Su=1;34";
-            '';
+            # shellHook = ''
+            #   if [[ "$TERM_PROGRAM" == "ghostty" ]]; then
+            #     export TERM=xterm-256color
+            #   fi
+            #   export NIXPKGS_ALLOW_UNFREE=1
+            #   export EZA_COLORS = "da=1;34:gm=1;34:Su=1;34";
+            # '';
           };
         }
       );

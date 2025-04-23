@@ -1,4 +1,10 @@
 {
+  pkgs,
+  home-manager,
+  username,
+  ...
+}:
+{
   programs.starship = {
     enable = true;
     settings = {
@@ -34,7 +40,6 @@
       bun = {
         symbol = "bun ";
       };
-
       cmake = {
         symbol = "cmake ";
       };
