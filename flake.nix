@@ -11,7 +11,7 @@
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
     home-manager = {
-      url = "github:nix-community/home-manager";  #/release-24.11";
+      url = "github:nix-community/home-manager/0b491b460f52e87e23eb17bbf59c6ae64b7664c1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -51,7 +51,7 @@
     };
 
     stylix = {
-      url = "github:danth/stylix"; #"github:danth/stylix/release-24.11";
+      url = "github:danth/stylix/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

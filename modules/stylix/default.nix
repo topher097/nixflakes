@@ -14,7 +14,7 @@
     autoEnable = true;
 
     # Disable checks for release build number not matching NixOS version
-    enableReleaseChecks = false;
+    #enableReleaseChecks = false;
 
     fonts = {
       serif = {
