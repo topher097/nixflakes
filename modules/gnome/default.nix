@@ -20,11 +20,12 @@ let
     tailscale-qs
     tailscale-status
     forge   # Tiling manager
+    #impatience    # Super fast animations
   ];
 in
 {
   environment.systemPackages = with pkgs; [ 
-    #nordic
+    gnome.mutter
   ];
 
   # ---- Home Configuration ----
@@ -66,15 +67,16 @@ in
       "org/gnome/shell".disabled-extensions = [ ];
 
       "org/gnome/shell".favorite-apps = [
-        "firefox.desktop"
+        "brave.desktop"
         "code.desktop"
         "vesktop.desktop"
-        #"virt-manager.desktop"
-        "ghostty.desktop"
       ];
 
       "org/gnome/desktop/interface" = {
         enable-hot-corners = false;
+
+        # disable animations
+        enable-animations = false;
 
         ## Clock
         clock-show-weekday = true;
@@ -89,17 +91,32 @@ in
       "org/gnome/settings-daemon/plugins/media-keys" = {
         custom-keybindings = [
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
         ];
       };
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-        binding = "<Shift><Super>z";
+        binding = "<Super><Shift>a";
         command = "ghostty";
         name = "open-terminal";
       };
 
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+        binding = "<Super><Shift>s";
+        command = "vscode";
+        name = "open-vscode";
+      };
+
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+        binding = "<Super><Shift>d";
+        command = "brave";
+        name = "open-browser";
+      };
+
+      # Screen-shot keybinding
       "org/gnome/shell/keybindings" = {
-        show-screenshot-ui = [ "<Shift><Super>s" ];
+        show-screenshot-ui = [ "<Shift><Super>z" ];
       };
 
       "org/gnome/desktop/wm/preferences" = {
@@ -134,6 +151,20 @@ in
         move-to-center = "disabled";
         toggle-maximized = "disabled";
         unmaximize = "disabled";
+
+        # New keybindings for switching to specific workspaces
+        switch-to-workspace-1 = [ "<Super>1" "<Super>KP_1" "<Alt>1" "<Alt>KP_1" ];
+        switch-to-workspace-2 = [ "<Super>2" "<Super>KP_2" "<Alt>2" "<Alt>KP_2" ];
+        switch-to-workspace-3 = [ "<Super>3" "<Super>KP_3" "<Alt>3" "<Alt>KP_3" ];
+        switch-to-workspace-4 = [ "<Super>4" "<Super>KP_4" "<Alt>4" "<Alt>KP_4" ];
+        switch-to-workspace-5 = [ "<Super>5" "<Super>KP_5" "<Alt>5" "<Alt>KP_5" ];
+      };
+
+      # Set a fixed number of workspaces
+      "org/gnome/mutter" = {
+        enable = true;
+        dynamic-workspaces = false;
+        num-workspaces = 5;
       };
 
       # "org/gnome/shell/extensions/pop-shell" = {
