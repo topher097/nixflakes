@@ -14,6 +14,7 @@
     ./inkscape
     ./filezilla
     ./brave
+    ./torrent
   ];
   
   home-manager.users.${username} = {
