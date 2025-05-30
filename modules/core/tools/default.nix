@@ -41,6 +41,8 @@
     exfat
     rpi-imager
     p7zip-rar
+    mpv
+    vlc
 
   ];
   
