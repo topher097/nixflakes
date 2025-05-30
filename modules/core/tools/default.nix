@@ -40,6 +40,8 @@
     ntfs3g
     exfat
     rpi-imager
+    p7zip-rar
+
   ];
   
   nix.extraOptions = ''
