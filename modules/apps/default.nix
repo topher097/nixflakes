@@ -15,6 +15,7 @@
     ./filezilla
     ./brave
     ./torrent
+    ./jellyfin
   ];
   
   home-manager.users.${username} = {

@@ -18,6 +18,12 @@
   # Setup nix-ld
   programs.nix-ld.enable = true;
 
+  # Enable auto upgrading
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = true;
+  };
+
 
   # packageOverrides = pkgs_: (with pkgs_; {
   #   # stable = import <nixos> { inherit config; };
