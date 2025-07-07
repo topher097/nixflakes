@@ -1,0 +1,416 @@
+sudo nixos-rebuild test --flake . --show-trace
+warning: Git tree '/home/topher/Documents/nixflakes' is dirty
+building the system configuration...
+warning: Git tree '/home/topher/Documents/nixflakes' is dirty
+error:
+       … while calling anonymous lambda
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/attrsets.nix:1529:14:
+         1528|         zipAttrsWith (
+         1529|           n: values:
+             |              ^
+         1530|           let
+
+       … while calling the 'head' builtin
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/attrsets.nix:1534:13:
+         1533|           if length values == 1 || pred here (elemAt values 1) (head values) then
+         1534|             head values
+             |             ^
+         1535|           else
+
+       … while calling anonymous lambda
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/attrsets.nix:1182:17:
+         1181|         mapAttrs (
+         1182|           name: value:
+             |                 ^
+         1183|           if isAttrs value && cond value then recurse (path ++ [ name ]) value else f (path ++ [ name ]) value
+
+       … from call site
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/attrsets.nix:1183:85:
+         1182|           name: value:
+         1183|           if isAttrs value && cond value then recurse (path ++ [ name ]) value else f (path ++ [ name ]) value
+             |                                                                                     ^
+         1184|         );
+
+       … while calling anonymous lambda
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:273:71:
+          272|           # For definitions that have an associated option
+          273|           declaredConfig = mapAttrsRecursiveCond (v: !isOption v) (_: v: v.value) options;
+             |                                                                       ^
+          274|
+
+       … while evaluating the attribute 'value'
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1084:7:
+         1083|     // {
+         1084|       value = addErrorContext "while evaluating the option `${showOption loc}':" value;
+             |       ^
+         1085|       inherit (res.defsFinal') highestPrio;
+
+       … while evaluating the option `system.build.toplevel':
+
+       … while evaluating the attribute 'mergedValue'
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1131:5:
+         1130|     # Type-check the remaining definitions, and merge them. Or throw if no definitions.
+         1131|     mergedValue =
+             |     ^
+         1132|       if isDefined then
+
+       … while evaluating a branch condition
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1132:7:
+         1131|     mergedValue =
+         1132|       if isDefined then
+             |       ^
+         1133|         if all (def: type.check def.value) defsFinal then
+
+       … while evaluating the attribute 'values'
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1125:9:
+         1124|       {
+         1125|         values = defs''';
+             |         ^
+         1126|         inherit (defs'') highestPrio;
+
+       … while evaluating a branch condition
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1119:11:
+         1118|           # Avoid sorting if we don't have to.
+         1119|           if any (def: def.value._type or "" == "order") defs''.values then
+             |           ^
+         1120|             sortProperties defs''.values
+
+       … while calling the 'any' builtin
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1119:14:
+         1118|           # Avoid sorting if we don't have to.
+         1119|           if any (def: def.value._type or "" == "order") defs''.values then
+             |              ^
+         1120|             sortProperties defs''.values
+
+       … while evaluating the attribute 'values'
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1252:7:
+         1251|     {
+         1252|       values = concatMap (def: if getPrio def == highestPrio then [ (strip def) ] else [ ]) defs;
+             |       ^
+         1253|       inherit highestPrio;
+
+       … while calling the 'concatMap' builtin
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1252:16:
+         1251|     {
+         1252|       values = concatMap (def: if getPrio def == highestPrio then [ (strip def) ] else [ ]) defs;
+             |                ^
+         1253|       inherit highestPrio;
+
+       … while calling the 'concatMap' builtin
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1099:17:
+         1098|         # Process mkMerge and mkIf properties.
+         1099|         defs' = concatMap (
+             |                 ^
+         1100|           m:
+
+       … while calling anonymous lambda
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1100:11:
+         1099|         defs' = concatMap (
+         1100|           m:
+             |           ^
+         1101|           map (
+
+       … while calling the 'map' builtin
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1101:11:
+         1100|           m:
+         1101|           map (
+             |           ^
+         1102|             value:
+
+       … while evaluating definitions from `/nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/nixos/modules/system/activation/top-level.nix':
+
+       … from call site
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1110:80:
+         1109|               }
+         1110|           ) (addErrorContext "while evaluating definitions from `${m.file}':" (dischargeProperties m.value))
+             |                                                                                ^
+         1111|         ) defs;
+
+       … while calling 'dischargeProperties'
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1203:5:
+         1202|   dischargeProperties =
+         1203|     def:
+             |     ^
+         1204|     if def._type or "" == "merge" then
+
+       … while evaluating a branch condition
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1204:5:
+         1203|     def:
+         1204|     if def._type or "" == "merge" then
+             |     ^
+         1205|       concatMap dischargeProperties def.contents
+
+       … while evaluating the attribute 'value'
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:770:21:
+          769|             inherit (module) file;
+          770|             inherit value;
+             |                     ^
+          771|           }) module.config
+
+       … from call site
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/nixos/modules/system/activation/top-level.nix:80:26:
+           79|   # Handle assertions and warnings
+           80|   baseSystemAssertWarn = lib.asserts.checkAssertWarn config.assertions config.warnings baseSystem;
+             |                          ^
+           81|
+
+       … while calling 'checkAssertWarn'
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/asserts.nix:193:27:
+          192|   checkAssertWarn =
+          193|     assertions: warnings: val:
+             |                           ^
+          194|     let
+
+       … while evaluating a branch condition
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/asserts.nix:197:5:
+          196|     in
+          197|     if failedAssertions != [ ] then
+             |     ^
+          198|       throw "\nFailed assertions:\n${concatStringsSep "\n" (map (x: "- ${x}") failedAssertions)}"
+
+       … while calling the 'map' builtin
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/asserts.nix:195:26:
+          194|     let
+          195|       failedAssertions = map (x: x.message) (filter (x: !x.assertion) assertions);
+             |                          ^
+          196|     in
+
+       … while calling the 'filter' builtin
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/asserts.nix:195:46:
+          194|     let
+          195|       failedAssertions = map (x: x.message) (filter (x: !x.assertion) assertions);
+             |                                              ^
+          196|     in
+
+       … from call site
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/nixos/modules/system/activation/top-level.nix:80:54:
+           79|   # Handle assertions and warnings
+           80|   baseSystemAssertWarn = lib.asserts.checkAssertWarn config.assertions config.warnings baseSystem;
+             |                                                      ^
+           81|
+
+       … while calling anonymous lambda
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/attrsets.nix:1182:17:
+         1181|         mapAttrs (
+         1182|           name: value:
+             |                 ^
+         1183|           if isAttrs value && cond value then recurse (path ++ [ name ]) value else f (path ++ [ name ]) value
+
+       … from call site
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/attrsets.nix:1183:85:
+         1182|           name: value:
+         1183|           if isAttrs value && cond value then recurse (path ++ [ name ]) value else f (path ++ [ name ]) value
+             |                                                                                     ^
+         1184|         );
+
+       … while calling anonymous lambda
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:273:71:
+          272|           # For definitions that have an associated option
+          273|           declaredConfig = mapAttrsRecursiveCond (v: !isOption v) (_: v: v.value) options;
+             |                                                                       ^
+          274|
+
+       … while evaluating the attribute 'value'
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1084:7:
+         1083|     // {
+         1084|       value = addErrorContext "while evaluating the option `${showOption loc}':" value;
+             |       ^
+         1085|       inherit (res.defsFinal') highestPrio;
+
+       … while evaluating the option `assertions':
+
+       (10 duplicate frames omitted)
+
+       … while evaluating definitions from `/nix/store/y5nl727s75c1fb5gmbgmdsx53b17l99r-source/nixos/common.nix':
+
+       … from call site
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1110:80:
+         1109|               }
+         1110|           ) (addErrorContext "while evaluating definitions from `${m.file}':" (dischargeProperties m.value))
+             |                                                                                ^
+         1111|         ) defs;
+
+       … while calling 'dischargeProperties'
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1203:5:
+         1202|   dischargeProperties =
+         1203|     def:
+             |     ^
+         1204|     if def._type or "" == "merge" then
+
+       … from call site
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1208:31:
+         1207|       if isBool def.condition then
+         1208|         if def.condition then dischargeProperties def.content else [ ]
+             |                               ^
+         1209|       else
+
+       … while calling 'dischargeProperties'
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1203:5:
+         1202|   dischargeProperties =
+         1203|     def:
+             |     ^
+         1204|     if def._type or "" == "merge" then
+
+       … while evaluating a branch condition
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1204:5:
+         1203|     def:
+         1204|     if def._type or "" == "merge" then
+             |     ^
+         1205|       concatMap dischargeProperties def.contents
+
+       … while evaluating the attribute 'content'
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1363:23:
+         1362|     _type = "if";
+         1363|     inherit condition content;
+             |                       ^
+         1364|   };
+
+       … from call site
+         at /nix/store/y5nl727s75c1fb5gmbgmdsx53b17l99r-source/nixos/common.nix:121:20:
+          120|
+          121|       assertions = lib.flatten (flip lib.mapAttrsToList cfg.users (user: config:
+             |                    ^
+          122|         flip map config.assertions (assertion: {
+
+       … while calling 'flatten'
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/lists.nix:437:13:
+          436|   */
+          437|   flatten = x: if isList x then concatMap (y: flatten y) x else [ x ];
+             |             ^
+          438|
+
+       … while calling the 'concatMap' builtin
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/lists.nix:437:33:
+          436|   */
+          437|   flatten = x: if isList x then concatMap (y: flatten y) x else [ x ];
+             |                                 ^
+          438|
+
+       … while calling anonymous lambda
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/lists.nix:437:44:
+          436|   */
+          437|   flatten = x: if isList x then concatMap (y: flatten y) x else [ x ];
+             |                                            ^
+          438|
+
+       … from call site
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/lists.nix:437:47:
+          436|   */
+          437|   flatten = x: if isList x then concatMap (y: flatten y) x else [ x ];
+             |                                               ^
+          438|
+
+       … while calling 'flatten'
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/lists.nix:437:13:
+          436|   */
+          437|   flatten = x: if isList x then concatMap (y: flatten y) x else [ x ];
+             |             ^
+          438|
+
+       … while evaluating a branch condition
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/lists.nix:437:16:
+          436|   */
+          437|   flatten = x: if isList x then concatMap (y: flatten y) x else [ x ];
+             |                ^
+          438|
+
+       … while calling the 'isList' builtin
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/lists.nix:437:19:
+          436|   */
+          437|   flatten = x: if isList x then concatMap (y: flatten y) x else [ x ];
+             |                   ^
+          438|
+
+       … while calling anonymous lambda
+         at /nix/store/y5nl727s75c1fb5gmbgmdsx53b17l99r-source/nixos/common.nix:121:74:
+          120|
+          121|       assertions = lib.flatten (flip lib.mapAttrsToList cfg.users (user: config:
+             |                                                                          ^
+          122|         flip map config.assertions (assertion: {
+
+       … from call site
+         at /nix/store/y5nl727s75c1fb5gmbgmdsx53b17l99r-source/nixos/common.nix:122:9:
+          121|       assertions = lib.flatten (flip lib.mapAttrsToList cfg.users (user: config:
+          122|         flip map config.assertions (assertion: {
+             |         ^
+          123|           inherit (assertion) assertion;
+
+       … while calling 'flip'
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/trivial.nix:306:11:
+          305|   flip =
+          306|     f: a: b:
+             |           ^
+          307|     f b a;
+
+       … while calling the 'map' builtin
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/trivial.nix:307:5:
+          306|     f: a: b:
+          307|     f b a;
+             |     ^
+          308|
+
+       … from call site
+         at /nix/store/y5nl727s75c1fb5gmbgmdsx53b17l99r-source/nixos/common.nix:122:18:
+          121|       assertions = lib.flatten (flip lib.mapAttrsToList cfg.users (user: config:
+          122|         flip map config.assertions (assertion: {
+             |                  ^
+          123|           inherit (assertion) assertion;
+
+       … while calling anonymous lambda
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/types.nix:832:30:
+          831|                 loc: defs:
+          832|                 mapAttrs (n: v: v.value) (
+             |                              ^
+          833|                   filterAttrs (n: v: v ? value) (
+
+       … while evaluating the attribute 'value'
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1148:41:
+         1147|
+         1148|     optionalValue = if isDefined then { value = mergedValue; } else { };
+             |                                         ^
+         1149|   };
+
+       … from call site
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:1134:11:
+         1133|         if all (def: type.check def.value) defsFinal then
+         1134|           type.merge loc defsFinal
+             |           ^
+         1135|         else
+
+       … while calling 'merge'
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/types.nix:1233:18:
+         1232|           merge =
+         1233|             loc: defs:
+             |                  ^
+         1234|             (base.extendModules {
+
+       … while evaluating the attribute 'config'
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:359:9:
+          358|         options = checked options;
+          359|         config = checked (removeAttrs config [ "_module" ]);
+             |         ^
+          360|         _module = checked (config._module);
+
+       … while calling the 'seq' builtin
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:359:18:
+          358|         options = checked options;
+          359|         config = checked (removeAttrs config [ "_module" ]);
+             |                  ^
+          360|         _module = checked (config._module);
+
+       … while calling the 'throw' builtin
+         at /nix/store/0if5dcj3vd4887n2rfj3ja5jx0vfb282-source/lib/modules.nix:331:13:
+          330|           else
+          331|             throw baseMsg
+             |             ^
+          332|         else
+
+       error: The option `home-manager.users.topher.i18n.inputMethod.fcitx5.settings' does not exist. Definition values:
+       - In `/nix/store/nw7q2kgnl6imzmryyj3ik8hmc15mifd2-source/modules/fcitx5/hm.nix':
+           {
+             _type = "if";
+             condition = true;
+             content = {
+               _type = "if";
+           ...
+error: Recipe `test` failed on line 13 with exit code 1

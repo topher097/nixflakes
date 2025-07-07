@@ -25,7 +25,7 @@ let
 in
 {
   environment.systemPackages = with pkgs; [ 
-    gnome.mutter
+    mutter
   ];
 
   # ---- Home Configuration ----
@@ -48,6 +48,8 @@ in
     };
 
     home.packages = gnomeExtensionsList;
+
+    i18n.inputMethod.fcitx5.waylandFrontend = true;
 
     dconf.settings = {
       "org/gnome/shell".enabled-extensions =

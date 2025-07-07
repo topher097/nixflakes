@@ -16,7 +16,7 @@
 }: {
 
     home-manager.sharedModules = [
-        attrs.nixcord.homeManagerModules.nixcord
+        attrs.nixcord.homeModules.nixcord
     ];
 
     home-manager.users.${username} = _: {
