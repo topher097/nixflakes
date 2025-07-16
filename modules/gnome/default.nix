@@ -10,7 +10,7 @@ let
     user-themes
     #blur-my-shell
     #pano
-    desktop-cube
+    # desktop-cube
     desktop-clock
     # pop-shell
     vitals
@@ -21,6 +21,9 @@ let
     tailscale-status
     forge   # Tiling manager
     #impatience    # Super fast animations
+    always-show-workspace-thumbnails
+    simple-workspaces-bar
+
   ];
 in
 {
