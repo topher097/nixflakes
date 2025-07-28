@@ -44,6 +44,7 @@
     mpv
     vlc
     unstable.uv
+    devbox
   ];
   
   nix.extraOptions = ''

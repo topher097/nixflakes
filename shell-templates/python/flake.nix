@@ -27,7 +27,7 @@
         packages = [
           python
           pythonWithEnv
-          pkgs.uv
+          #pkgs.uv
         ];
         #UV_PYTHON_PREFERENCE = "only-system";
         #UV_PYTHON = "${pkgs.python312Full}";

@@ -46,5 +46,6 @@ gadd:
 gc:
     nix-env --delete-generations old
     nix-store --gc
+    nix store gc
     nix-collect-garbage --delete-old
     devenv gc
