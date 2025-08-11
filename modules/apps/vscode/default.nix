@@ -87,6 +87,7 @@
           # Stuff for Vim VSCode
           "vim.easymotion" = true;
           "vim.incsearch" = true;
+          "vim.surround" = true;
           "vim.useSystemClipboard" = true;
           "vim.useCtrlKeys" = true;
           "vim.hlsearch" = true;
