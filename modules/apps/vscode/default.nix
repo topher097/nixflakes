@@ -88,6 +88,9 @@
           "vim.easymotion" = true;
           "vim.incsearch" = true;
           "vim.surround" = true;
+          "vim.commentary" = true;
+          "vim.indent-object" = true;
+          "vim.camelCaseMotion.enable" = true;
           "vim.useSystemClipboard" = true;
           "vim.useCtrlKeys" = true;
           "vim.hlsearch" = true;
