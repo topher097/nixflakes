@@ -45,7 +45,7 @@
                 frameless = true; # set some Vencord options
                 plugins = {
                     alwaysAnimate.enable = true;
-                    hideAttachments.enable = true; 
+                    #hideAttachments.enable = true; 
                     ignoreActivities = {    # Enable a plugin and set some options
                         enable = true;
                         ignorePlaying = true;
