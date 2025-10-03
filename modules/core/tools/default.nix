@@ -43,8 +43,9 @@
     p7zip-rar
     mpv
     vlc
-    uv
+    unstable.uv
     devbox
+    ffmpeg-full
   ];
   
   nix.extraOptions = ''
