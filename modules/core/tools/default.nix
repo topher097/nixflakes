@@ -43,7 +43,7 @@
     p7zip-rar
     mpv
     vlc
-    unstable.uv
+    uv
     devbox
   ];
   

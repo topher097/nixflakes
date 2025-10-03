@@ -18,6 +18,10 @@
   # Setup nix-ld
   programs.nix-ld.enable = true;
 
+  environment.variables = {
+    NIX_REMOTE = "daemon";
+  };
+
 
   # packageOverrides = pkgs_: (with pkgs_; {
   #   # stable = import <nixos> { inherit config; };
