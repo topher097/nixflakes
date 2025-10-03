@@ -30,7 +30,7 @@
     tree
     wget
     eza
-    unstable.devenv
+    devenv
     cachix
     wget
     service-wrapper
