@@ -46,6 +46,9 @@
     unstable.uv
     devbox
     ffmpeg-full
+    rclone
+    unstable.rclone-ui
+    jq
   ];
   
   nix.extraOptions = ''
