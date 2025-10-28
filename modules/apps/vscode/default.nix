@@ -16,13 +16,11 @@
         enableUpdateCheck = false;
         enableExtensionUpdateCheck = false;
         extensions = with pkgs.vscode-extensions; [
-          github.copilot
-          #mvllow.rose-pine
+          #github.copilot
           eamodio.gitlens
           tailscale.vscode-tailscale
           ms-vscode-remote.remote-ssh
           ms-vscode-remote.vscode-remote-extensionpack
-          #oderwat.indent-rainbow
           ms-toolsai.jupyter
           ms-python.python
           ms-python.vscode-pylance
@@ -54,16 +52,18 @@
               "source.organizeImports.ruff" = "explicit";
             };
           };
-          "github.copilot.enable" = {
-            "*" = true;
-            "plaintext" = false;
-            "markdown" = true;
-            "scminput" = false;
-            "python" = true;
-            "c++" = true;
-            "c" = true;
-            "yaml" = true;
-          };
+          # Disable copilot
+          "github.copilot.enable" = false;
+          # "github.copilot.enable" = {
+          #   "*" = true;
+          #   "plaintext" = false;
+          #   "markdown" = true;
+          #   "scminput" = false;
+          #   "python" = true;
+          #   "c++" = true;
+          #   "c" = true;
+          #   "yaml" = true;
+          # };
           "editor.inlineSuggest.enabled" = true;
           "markdown.preview.fontFamily" = "IBM Plex Sans";
           "markdown.preview.fontSize" = 16.0;
@@ -88,8 +88,8 @@
           "vim.easymotion" = true;
           "vim.incsearch" = true;
           "vim.surround" = true;
-          "vim.commentary" = true;
-          "vim.indent-object" = true;
+          #"vim.commentary" = true;
+          #"vim.indent-object" = true;
           "vim.camelCaseMotion.enable" = true;
           "vim.useSystemClipboard" = true;
           "vim.useCtrlKeys" = true;
@@ -134,6 +134,9 @@
           "extensions.experimental.affinity" = {
             "vscodevim.vim" = 1;
           };
+
+          # Amp code
+          "amp.tab.enabled" = true;
           
         };
       };
