@@ -137,7 +137,25 @@
 
           # Amp code
           "amp.tab.enabled" = true;
-          
+          "amp.permissions" = [
+            {
+              "tool" = "Bash";
+              "action" = "allow";
+              "context" = "thread";
+            }
+            # {
+            #   "tool" = "Bash";
+            #   "matches" = {
+            #     "cmd" = {
+            #       "rm -rf *"
+            #       "find *"
+            #       "git commit *"
+            #     };
+            #   };
+            #   "action" = "reject";
+            #   "context" = "subagent";
+            # }
+          ];
         };
       };
     };
