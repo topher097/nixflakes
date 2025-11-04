@@ -15,6 +15,7 @@
     ./filezilla
     ./brave
     ./torrent
+    ./waydroid
   ];
   
   home-manager.users.${username} = {

@@ -178,6 +178,7 @@
               ./modules/virt              # Virtualization tools
               #./modules/virt/portainer.nix    # Portainer docker auto run
               ./modules/apps/3d-printing  # 3D printing tools
+              ./modules/apps/waydroid     # Android container
             ];
           }; # pgi-desktop 
 
@@ -199,6 +200,7 @@
               ./modules/apps/ms-teams     # teams-for-linux
               ./modules/hardware/nvidia   # Nvidia hardware
               ./modules/virt              # Virtualization tools
+              ./modules/apps/waydroid     # Android container
             ];
           }; # topher-laptop
 
