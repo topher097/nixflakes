@@ -14,7 +14,7 @@
     extraSystemBuilderCmds = ''
       ln -sv ${pkgs.path} $out/nixpkgs
     '';
-    stateVersion = "25.05";
+    stateVersion = "25.11";
   };
 
   # # Enable Flakes and nix-commands, enable removing channels
@@ -51,7 +51,7 @@
     backupFileExtension = "backup";
     users.${username} = {
       # The home.stateVersion option does not have a default and must be set
-      home.stateVersion = "25.05";
+      home.stateVersion = "25.11";
       nixpkgs.config.allowUnfree = true;
 
       # This is so we can have mismatched home-manager and nixpkgs versions without a warning
