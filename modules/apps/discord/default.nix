@@ -84,16 +84,15 @@
                         enable = true;
                     };
                     noDevtoolsWarning.enable = true;
-                    openInApp = {
-                        enable = true;
-                        spotify = true;
-                        steam = true;
-                    };
+                    # openInApp = {
+                    #     enable = true;
+                    #     steam = true;
+                    # };
                     reverseImageSearch.enable = true;
-                    volumeBooster = {
-                        enable = true;
-                        multiplier = 2;       # This is a multiplier, 1 is system's 100%
-                    };
+                    # volumeBooster = {
+                    #     enable = true;
+                    #     multiplier = 2;       # This is a multiplier, 1 is system's 100%
+                    # };
                     youtubeAdblock.enable = true;
                     webScreenShareFixes.enable = true;
                 };

@@ -40,10 +40,10 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  # Include nvtop for GPU usage monitoring
-  environment.systemPackages = with pkgs; [
-    nvtopPackages.nvidia   # btop for nvidia GPUs
-  ];
+  # # Include nvtop for GPU usage monitoring
+  # environment.systemPackages = with pkgs; [
+  #   nvtopPackages.nvidia   # btop for nvidia GPUs
+  # ];
 
   # Define the groups to have the user join
   users.users.${username} = {

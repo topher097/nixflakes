@@ -59,7 +59,7 @@
   # Git aliases
   home-manager.users.${username}.programs.git = {
     enable = true;
-    package = pkgs.gitAndTools.gitFull;
+    package = pkgs.gitFull;
     # Prepend these aliases with `git` to use them
     aliases = {
       undo = "reset HEAD~1 --mixed";
