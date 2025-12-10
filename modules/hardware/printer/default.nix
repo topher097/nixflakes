@@ -1,6 +1,7 @@
 # https://nixos.wiki/wiki/Printing
 {
     config,
+    pkgs,
     ...
 }: {
     services.printing.enable = true;
@@ -22,6 +23,16 @@
         allowFrom = [ "all" ];
         browsing = true;
         defaultShared = true;
+        openFirewall = true;
+    };
+
+    # Include Brother printer drivers; use pkgs.brlaser for many Brother models
+    services.printing.drivers = [ pkgs.brlaser ];
+
+    # Enable Avahi for network printer discovery (useful for IPP printers)
+    services.avahi = {
+        enable = true;
+        nssmdns = true;
         openFirewall = true;
     };
 }
