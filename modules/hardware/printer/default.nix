@@ -29,10 +29,4 @@
     # Include Brother printer drivers; use pkgs.brlaser for many Brother models
     services.printing.drivers = [ pkgs.brlaser ];
 
-    # Enable Avahi for network printer discovery (useful for IPP printers)
-    services.avahi = {
-        enable = true;
-        nssmdns = true;
-        openFirewall = true;
-    };
 }
