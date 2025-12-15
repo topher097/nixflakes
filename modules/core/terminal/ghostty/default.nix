@@ -13,19 +13,15 @@
       enableFishIntegration = true;
       installVimSyntax = true;
 
-      # settings = {
-      #   background-blur-radius = 20;
-      #   #theme = "dark:catppuccin-mocha,light:catppuccin-latte";
-      #   #window-theme = "dark";
-      #   #window-theme = "system"; # TODO make vim and terminal somehow respect this?
-      #   background-opacity = 0.8;
-      #   minimum-contrast = 1.1;
-
-      #   # # Keybindings
-      #   # keybind = [
-      #   #   "global:ctrl+shift+`=toggle_quick_terminal"
-      #   # ];
-      # };
+      settings = {
+        # Keybindings
+        keybind = [
+          "ctrl+shift+h=goto_split:left"
+          "ctrl+shift+l=goto_split:right"
+          "ctrl+shift+j=goto_split:bottom"
+          "ctrl+shift+k=goto_split:top"
+        ];
+      };
     };
     
     #programs.vim.plugins = [ghostty.vim];

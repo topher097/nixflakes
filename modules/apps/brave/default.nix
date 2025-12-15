@@ -7,7 +7,7 @@
     # Configure Brave with homemanagers
     home-manager.users.${username}.programs.chromium = {
         enable = true;
-        package = pkgs.unstable.brave;
+        package = pkgs.brave;
         extensions = [
             { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
             { id = "cmedhionkhpnakcndndgjdbohmhepckk"; } # adblock for youtube
