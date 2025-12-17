@@ -18,7 +18,7 @@ let
     unblank
     tailscale-qs
     tailscale-status
-    forge   # Tiling manager
+    #forge   # Tiling manager
     #impatience    # Super fast animations
     always-show-workspace-thumbnails
     simple-workspaces-bar
