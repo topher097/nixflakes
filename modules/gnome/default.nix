@@ -213,13 +213,20 @@ in
   };
 
   # ---- System Configuration ----
-  services.xserver = {
+  # services.xserver = {
+  #   enable = true;
+  #   desktopManager.gnome.enable = true;
+  #   displayManager.gdm = {
+  #     enable = true;
+  #     wayland = true;
+  #   };
+  # };
+  services.desktopManager.gnome = {
     enable = true;
-    desktopManager.gnome.enable = true;
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-    };
+  };
+  services.displayManager.gdm = {
+    enable = true;
+    wayland = true;
   };
   services.gnome = {
     evolution-data-server.enable = true;

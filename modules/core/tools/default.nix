@@ -61,11 +61,11 @@
     enable = true;
     package = pkgs.gitFull;
     # Prepend these aliases with `git` to use them
-    aliases = {
-      undo = "reset HEAD~1 --mixed";
-    };
 
-    extraConfig = {
+    settings = {
+      aliases = {
+        undo = "reset HEAD~1 --mixed";
+      };
       #credential.helper = "oauth";
       color = {
         ui = "auto";

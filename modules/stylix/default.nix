@@ -1,4 +1,4 @@
-{ stylix, pkgs, ... }:
+{ stylix, pkgs, lib, ... }:
 {
   imports = [ stylix.nixosModules.stylix ];
 
@@ -6,6 +6,8 @@
     enable = true;
     image = ../../assets/backgrounds/moon.jpg;
     polarity = "dark";
+
+    targets.qt.platform = lib.mkForce "qtct";
 
     # Can set a custom theme. Find them here: https://tinted-theming.github.io/tinted-gallery/
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";

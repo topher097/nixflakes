@@ -19,8 +19,10 @@
   };
 
   # Setup global git user and email
-  home-manager.users.${username}.programs.git = {
-    userName = "topher097";
-    userEmail = "cmendres400@gmail.com";
+  home-manager.users.${username}.programs.git.settings = {
+    user = {
+      name = "topher097";
+      email = "cmendres400@gmail.com";
+    };
   };
 }

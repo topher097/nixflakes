@@ -62,7 +62,7 @@
                         eagerLoad = true;
                     };
                     biggerStreamPreview.enable = true;
-                    clearURLs.enable = true;
+                    clearUrLs.enable = true;
                     ctrlEnterSend = {
                         enable = true;
                         submitRule = "ctrl+enter";
