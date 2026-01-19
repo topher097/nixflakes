@@ -11,7 +11,7 @@
     ./trunkio
     ./redshift   
     ./steam
-    ./sway
+    #./sway
     ./mikrotik
   ];
 }

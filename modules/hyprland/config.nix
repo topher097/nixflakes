@@ -9,7 +9,7 @@ in
     home-manager.users.${username} = _: {
         home.file = {
             ".config/wallpapers".source = "${configDir}/wallpapers";
-            ".config/config".source = "${configDir}/config";
+            ".config/hypr".source = "${configDir}/hypr";
             ".config/swayidle".source = "${configDir}/swayidle";
             ".config/swaylock".source = "${configDir}/swaylock";
             ".config/wlogout".source = "${configDir}/wlogout";

@@ -7,11 +7,6 @@
       #  Host *
       #    IdentityAgent ~/.1password/agent.sock
 
-      #	Host git.eriim.dev
-      #	  HostName eriim.dev
-      #	  Port 23231
-      #     '';
-
       # Configure 1password to handle SSH commit signing
       ".gitconfig".text = ''
         [user]
