@@ -16,6 +16,10 @@ test:
 switch:
     sudo nixos-rebuild switch --flake . --show-trace
 
+# NixOS flake build (without switching or adding to GRUB menu)
+build:
+    sudo nixos-rebuild build --flake . --show-trace
+
 # NixOS flake test when in WSL
 wsl-test:
     sudo nixos-rebuild test --flake .#winix --show-trace

@@ -168,7 +168,7 @@
               username = "topher";
               hostName = "pgi-desktop";
               hyprlandConfig = "desktop";
-              DE = "gnome";
+              DE = "hyprland";
               inherit system outputs attrs;
             } // attrs;
             modules = [

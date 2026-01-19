@@ -9,14 +9,7 @@
 {
   imports = [
     hyprland.nixosModules.default
-    ./config
-    ./hypridle
-    #./hyprlock
-    ./mako
-    ./swaylock
-    ./redshift
-    ./waybar
-    ./wofi
+    ./config.nix
   ];
 
   home-manager.users.${username} = _: {
@@ -24,27 +17,24 @@
       enable = true;
       cursorTheme.name = "Adwaita";
       cursorTheme.package = pkgs.adwaita-icon-theme;
-      #theme.name = "adw-gtk3-dark";
-      #theme.package = pkgs.adw-gtk3;
     };
   };
 
   environment = {
-    # Deprecated 
-    #sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [
-      gammastep
-      grim
-      swww
-      hyprpicker.packages.${system}.default
-      lxqt.lxqt-policykit
-      slurp
+      hyprpaper
+      kitty
+      libnotify
+      mako
+      qt5.qtwayland
+      qt6.qtwayland
+      swayidle
+      swaylock-effects
+      wlogout
       wl-clipboard
-      # Required if applications are having trouble opening links
-      xdg-utils
-      xfce.thunar
-      xfce.tumbler
+      wofi
+      waybar
     ];
   };
 
