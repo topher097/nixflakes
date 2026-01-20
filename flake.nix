@@ -136,6 +136,7 @@
               username = "topher";
               hostName = "pgi-desktop";
               hyprlandConfig = "desktop";
+              hyprlandScale = "1.25";
               DE = "hyprland";    # options: gnome, hyprland
               inherit system outputs attrs;
             } // attrs;
@@ -158,7 +159,8 @@
               username = "topher";
               hostName = "topher-laptop";
               hyprlandConfig = "laptop";
-              DE = "gnome";
+              hyprlandScale = "1.0";
+              DE = "hyprland";
               inherit system outputs attrs;
             } // attrs;
             modules = [

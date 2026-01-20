@@ -13,10 +13,17 @@
   ];
 
   home-manager.users.${username} = _: {
-    gtk = {
-      enable = true;
-      cursorTheme.name = "Adwaita";
-      cursorTheme.package = pkgs.adwaita-icon-theme;
+    # gtk = {
+    #   enable = true;
+    #   cursorTheme.name = "Adwaita";
+    #   cursorTheme.package = pkgs.adwaita-icon-theme;
+    # };
+    home.pointerCursor = {
+      gtk.enable = true;
+      x11.enable = true;
+      package = pkgs.adwaita-icon-theme;
+      name = "Adwaita";
+      size = 16;
     };
   };
 
