@@ -22,8 +22,8 @@
           ms-vscode-remote.remote-ssh
           ms-vscode-remote.vscode-remote-extensionpack
           ms-toolsai.jupyter
-          ms-python.python
-          ms-python.vscode-pylance
+          #ms-python.python
+          #ms-python.vscode-pylance
           bbenoist.nix
           charliermarsh.ruff
           nefrob.vscode-just-syntax
