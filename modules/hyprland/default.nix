@@ -27,11 +27,20 @@
     };
   };
 
+  ## Fonts for different emojis and text
+  #fonts.packages = with pkgs; [                                                                    
+  #  noto-fonts                                                                                           
+  #  noto-fonts-cjk                                                                                       
+  #  noto-fonts-emoji                                                                                     
+  #  liberation_ttf
+  #  nerdfonts
+  #  roboto-mono
+  #  font-awesome
+  #];
+
   environment = {
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [
-      hyprpaper
-      hyprshot
       libnotify
       mako
       pamixer
@@ -39,9 +48,9 @@
       qt6.qtwayland
       hypridle
       hyprlock
-      killall
-      #swayidle
-      #swaylock-effects
+      hyprpaper
+      hyprshot
+      (python3.withPackages (ps: with ps; [requests]))  # for waybar weather script
       xfce.thunar
       wlogout
       wl-clipboard

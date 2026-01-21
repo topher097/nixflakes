@@ -11,6 +11,7 @@ set-remote:
 # NixOS flake test
 test:
     sudo nixos-rebuild test --flake . --show-trace
+    hyprctl reload
 
 # NixOS flake
 switch:

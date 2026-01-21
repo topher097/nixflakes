@@ -4,7 +4,7 @@
     packages = with pkgs; [
       jetbrains-mono
       monaspace
-      nerdfonts
+      inter-nerdfont
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
