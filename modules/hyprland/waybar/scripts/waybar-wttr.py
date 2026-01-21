@@ -58,9 +58,10 @@ WEATHER_CODES = {
 
 data = {}
 
-
-weather = requests.get("https://wttr.in/?format=j1").json()
-
+try:
+    weather = requests.get("https://wttr.in/?format=j1").json()
+except requests.exceptions.ConnectionError:
+    exit()
 
 def format_time(time):
     return time.replace("00", "").zfill(2)

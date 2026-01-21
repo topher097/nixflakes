@@ -53,6 +53,7 @@
       (python3.withPackages (ps: with ps; [requests]))  # for waybar weather script
       xfce.thunar
       pavucontrol
+      rofi
       wlogout
       wl-clipboard
       wofi

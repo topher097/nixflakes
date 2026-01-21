@@ -42,18 +42,11 @@
             "*":[1,2,3,4,5]
         },
         "format-icons":{
-            // "1": "󰣇",
-            // "2": "",
-            // "3": "",
-            // "4": "󰇮",
-            // "5": "",
-            // "6": "",
-            // "7": "",
-            "active": "󱓻"
+            "active": "\uf0c8"
         }
     },
     "hyprland/language": {
-        "format": "{} ",
+        "format": "{} \uf0ac",
         "min-length": 5,
         "tooltip": false
     },
@@ -62,8 +55,8 @@
         "capslock": true,
         "format": "{name} {icon} ",
         "format-icons": {
-            "locked": " ",
-            "unlocked": ""
+            "locked": "\uf023",
+            "unlocked": "\uf09c"
         }
     },
     "hyprland/mode": {
@@ -73,19 +66,19 @@
     // CUSTOM MODULES
 
     "custom/lock": {
-        "format": "  ",
+        "format": " \uf023 ",
         "on-click": "hyprlock",
         "tooltip": true,
         "tooltip-format": "Lock"
     },
     "custom/reboot": {
-        "format": "  ",
+        "format": " \uf2f1 ",
         "on-click": "systemctl reboot",
         "tooltip": true,
         "tooltip-format": "Reboot"
     },
     "custom/power": {
-        "format": "  ",
+        "format": " \uf011 ",
         "on-click": "systemctl poweroff",
         "tooltip": true,
         "tooltip-format": "Shutdown"
@@ -98,7 +91,7 @@
         "return-type": "json"
     },
     "custom/mem": {
-        "format": "{} ",
+        "format": "{} \uf538",
         "interval": 3,
         "exec": "free -h | awk '/Mem:/{printf $3}'",
         "tooltip": false
@@ -115,64 +108,72 @@
         // "scroll-step": 1, // %, can be a float
         "reverse-scrolling": 1,
         "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": "婢 {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format-bluetooth": "\uf294 {volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "\uf294 {icon} {format_source}",
+        "format-muted": "\uf131 {format_source}",
+        "format-source": "{volume}% \uf130",
+        "format-source-muted": "\uf6a9",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["奄", "奔", "墳"]
+            "headphone": "\uf025",
+            "hands-free": "\uf025",
+            "headset": "\uf025",
+            "phone": "\uf095",
+            "car": "\uf1b9",
+            "default": ["\uf028"]
         },
-        "on-click": "pavucontrol",
-        "min-length": 13
+        "on-click": "pkill pavucontrol || pavucontrol",
+        "min-length": 10
     },
     "network": {
-        "format-wifi": " 󰤨 {essid} ",
-        "format-ethernet": " Wired ",
-        "tooltip-format": "<span color='#FF1493'> 󰅧 </span>{bandwidthUpBytes}  <span color='#00BFFF'> 󰅢 </span>{bandwidthDownBytes}",
-        "format-linked": " 󱘖 {ifname} (No IP) ",
-        "format-disconnected": "  Disconnected ",
-        "format-alt": " 󰤨 {signalStrength}% ",
+        "format-wifi": "\uf1eb {essid} ",
+        "format-ethernet": "\uf6ff Wired ",
+        "tooltip-format": "<span color='#FF1493'> \uf093 </span>{bandwidthUpBytes}  <span color='#00BFFF'> \uf019 </span>{bandwidthDownBytes}",
+        "format-linked": "\uf0c1 {ifname} (No IP) ",
+        "format-disconnected": "\uf127 Disconnected ",
+        "format-alt": "\uf012 {signalStrength}% ",
         "interval": 1
     },
     "memory": {
-        "format": "  {used:0.1f}G/{total:0.1f}G ",
-        "tooltip": true,
-        "tooltip-format": "RAM: {used:0.2f}G/{total:0.2f}G"
+        "format": "\uf538 {used:0.1f}G/{total:0.1f}G ",
+        "tooltip": false,
+        "tooltip-format": "Usage: {used:0.2f}G/{total:0.2f}G"
     },
     "cpu": {
-        "format": "  {usage}% ",
+        "format": "\uf2db {usage}% ",
         "tooltip": true
     },
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureF}°F {icon}",
-        "format-icons": ["", "", "", "", ""],
+        "critical-threshold": 75,
+        "format-critical": "\uf071 {temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["\uf2cb", "\uf2ca", "\uf2c9", "\uf2c8", "\uf2c7"],
         "tooltip": false
     },
     "backlight": {
         "device": "intel_backlight",
         "format": "{percent}% {icon}",
-        "format-icons": ["","","","", "", "", ""],
+        "format-icons": ["\uf185"],
         "min-length": 7
     },
     "bluetooth": {
-        "format": "  {status} ",
-        "format-connected": "  {device_alias} ",
-        "format-connected-battery": "  {device_alias}{device_battery_percentage}% ",
-        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "format-on": "\uf294",
+        "format-off": "\uf715",
+        "format-disabled": "", // an empty format will hide the module
+        "format-connected": "\uf294 {num_connections}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        //"tooltip-format-connected": "{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+        
+        "on-click": "$HOME/.config/waybar/scripts/rofi-bluetooth.sh &"
+
+        // "format": "  {status} ",
+        // "format-connected": "  {device_alias} ",
+        // "format-connected-battery": "  {device_alias}{device_battery_percentage}% ",
+        // "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        // "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        // "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        // "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        // "on-click": "pkill blueman || blueman-manager"
     },
     "battery": {
         "states": {
@@ -180,12 +181,12 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% .",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         "interval": 1,
         "tooltip": true,
-        "format-icons": ["", "", "", "", "", "", "", "", "", ""]
+        "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"]  // order is empty to full
 	    //"on-update": "$HOME/.config/waybar/scripts/check_battery.sh"
     },
     "tray": {
