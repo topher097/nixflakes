@@ -8,10 +8,15 @@ own:
 set-remote:
     git remote set-url origin git@github.com:topher097/nixflakes.git
 
+# Reload the waybar with config and style file from repo
+waybar:
+    bash sh/launch_waybar.sh --config ./modules/hyprland/waybar/config.jsonc --style ./modules/hyprland/waybar/style.css
+
 # NixOS flake test
 test:
     sudo nixos-rebuild test --flake . --show-trace
     hyprctl reload
+    bash sh/launch_waybar.sh
 
 # NixOS flake
 switch:

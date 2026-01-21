@@ -1,206 +1,135 @@
 * {
-    border: none;
-    border-radius: 0;
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: "Noto Color Emoji", Roboto, sans-serif;
-    min-height: 20px;
+  font-family: "Roboto Mono", "Font Awesome 6 Free Solid", "Font Awesome 6 Brands";;
+  font-size: 14px;
+  border-radius: 0;
+  min-height: 0;
+  border: none;
+  font-weight: bold;
 }
 
-window#waybar {
-    background: transparent;
+#workspaces{
+  background-color: rgba(24,24,37,1.0);
+  border: none;
+  box-shadow: none;
 }
 
-window#waybar.hidden {
-    opacity: 0.2;
+#tray{
+  margin: 6px 3px;
+  background-color: rgba(36, 36, 52, 1.0);
+  padding: 6px 12px;
+  border-radius: 6px;
+  border-width: 0px;
 }
 
-#workspaces {
-    margin-right: 8px;
-    border-radius: 10px;
-    transition: none;
-    background: #383c4a;
+#waybar {
+  background-color: #181825;
+  transition-property: background-color;
+  transition-duration: 0.5s;
 }
 
-#workspaces button {
-    transition: none;
-    color: #7c818c;
-    background: transparent;
-    padding: 5px;
-    font-size: 18px;
-}
-
-#workspaces button.persistent {
-    color: #7c818c;
-    font-size: 12px;
-}
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-#workspaces button:hover {
-    transition: none;
-    box-shadow: inherit;
-    text-shadow: inherit;
-    border-radius: inherit;
-    color: #383c4a;
-    background: #7c818c;
-}
-
-#workspaces button.focused {
-    color: white;
-}
-
-#language {
-    padding-left: 16px;
-    padding-right: 8px;
-    border-radius: 10px 0px 0px 10px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
-}
-
-#keyboard-state {
-    margin-right: 8px;
-    padding-right: 16px;
-    border-radius: 0px 10px 10px 0px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
-}
-
-#custom-pacman {
-    padding-left: 16px;
-    padding-right: 8px;
-    border-radius: 10px 0px 0px 10px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
-}
-
-#custom-mail {
-    margin-right: 8px;
-    padding-right: 16px;
-    border-radius: 0px 10px 10px 0px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
-}
-
-#mode {
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
+#window,
+#clock,
+#custom-weather,
+#custom-lock,
+#custom-power,
+#custom-reboot,
+#bluetooth,
+#battery,
+#pulseaudio,
+#backlight,
+#temperature,
+#memory,
+#cpu,
+#network{
+  border-radius: 4px;
+  margin: 4px 2px;
+  padding: 4px 8px;
+  background-color: #1e1e2e;
+  color: #181825;
 }
 
 #clock {
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px 0px 0px 10px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
+  background-color: #89b4fa;
 }
-
 #custom-weather {
-    padding-right: 16px;
-    border-radius: 0px 10px 10px 0px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
+  background-color: #296a4c;
+}
+#custom-power{
+  background-color: #f38ba8;
+}
+#custom-reboot{
+  background-color: #a6e3a1;
+}
+#bluetooth{
+  background-color: #f9e2af;
+}
+#battery{
+  background-color: #cba6f7;
+}
+#pulseaudio{
+  background-color: #89dceb;
+}
+#backlight{
+  background-color: #a6a3a1;
+}
+#temperature{
+  background-color: #74c7ec;
+}
+#memory{
+  background-color: #f7768e;
+}
+#cpu{
+  background-color: #f38ba8;
+}
+#network{
+  background-color: #fab387;
+}
+#custom-lock{
+  background-color: #94e2d5;
+}
+#window{
+  background-color: #74c7ec;
 }
 
-#pulseaudio {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
+#waybar.hidden {
+  opacity: 0.5;
 }
 
-#pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
+#workspaces button {
+  all: initial;
+  /* Remove GTK theme values (waybar #1351) */
+  min-width: 0;
+  /* Fix weird spacing in materia (waybar #450) */
+  box-shadow: inset 0 -3px transparent;
+  /* Use box-shadow instead of border so the text isn't offset */
+  padding: 4px 12px;
+  margin: 4px 2px;
+  border-radius: 4px;
+  background-color: rgba(36, 36, 52, 1.0);
+  color: #cdd6f4;
 }
 
-#custom-mem {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
+#workspaces button.active {
+  color: #1e1e2e;
+  background-color: #cdd6f4;
 }
 
-#temperature {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  color: #1e1e2e;
+  background-color: #cdd6f4;
 }
 
-#temperature.critical {
-    background-color: #eb4d4b;
+tooltip {
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #131822;
+  color: #C0C0C0;
 }
 
-#backlight {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
-}
-
-#battery {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
-}
-
-#battery.charging {
-    color: #ffffff;
-    background-color: #26A65B;
-}
-
-#battery.warning:not(.charging) {
-    background-color: #ffbe61;
-    color: black;
-}
-
-#battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#tray {
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
-}
-
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
+tooltip label {
+  padding: 5px;
+  background-color: #131822;
+  color: #C0C0C0;
 }
