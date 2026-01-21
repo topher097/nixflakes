@@ -34,10 +34,14 @@
       hyprshot
       libnotify
       mako
+      pamixer
       qt5.qtwayland
       qt6.qtwayland
-      swayidle
-      swaylock-effects
+      hypridle
+      hyprlock
+      killall
+      #swayidle
+      #swaylock-effects
       xfce.thunar
       wlogout
       wl-clipboard

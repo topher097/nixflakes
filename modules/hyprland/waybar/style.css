@@ -69,19 +69,6 @@ tooltip {
   border: 1px solid #181825;
 }
 
-#tray {
-  border-radius: 10px;
-  margin-right: 10px;
-}
-
-#workspaces {
-  background: #1e1e2e;
-  border-radius: 10px;
-  margin-left: 10px;
-  padding-right: 0px;
-  padding-left: 5px;
-}
-
 #custom-caffeine {
   color: #89dceb;
   border-radius: 10px 0px 0px 10px;
@@ -108,11 +95,37 @@ tooltip {
   margin-right: 60px;
 }
 
+
+/* ---------- LEFT ---------- */
+#workspaces {
+  background: #1e1e2e;
+  border-radius: 10px;
+  margin-left: 10px;
+  padding-right: 0px;
+  padding-left: 5px;
+}
+
+
+/* ---------- CENTER ---------- */
 #clock {
   color: #fab387;
   border-radius: 10px 0px 0px 10px;
-  margin-left: 5px;
   border-right: 0px;
+  margin-left: 0px;
+}
+
+#custom-weather {
+  border-radius: 0px 10px 10px 0px;
+  border-right: 0px;
+  margin-left: 0px;
+}
+
+
+/* ---------- RIGHT ---------- */
+#tray {
+  border-radius: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
 }
 
 #network {
@@ -123,13 +136,13 @@ tooltip {
 
 #pulseaudio {
   color: #89b4fa;
+  border-radius: 10px 0px 0px 10px;
   border-left: 0px;
   border-right: 0px;
 }
 
 #pulseaudio.microphone {
   color: #cba6f7;
-  border-radius: 0px 10px 10px 0px;
   border-left: 0px;
   border-right: 0px;
   margin-right: 5px;
@@ -138,12 +151,8 @@ tooltip {
 #battery {
   color: #a6e3a1;
   border-radius: 0 10px 10px 0;
-  margin-right: 10px;
-  border-left: 0px;
+  margin-right: 0px;
+  border-left: 10px;
 }
 
-#custom-weather {
-  border-radius: 0px 10px 10px 0px;
-  border-right: 0px;
-  margin-left: 0px;
-}
+
