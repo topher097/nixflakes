@@ -12,6 +12,10 @@ set-remote:
 waybar:
     bash sh/launch_waybar.sh --config ./modules/hyprland/waybar/config.jsonc --style ./modules/hyprland/waybar/style.css
 
+# Weather
+weather:
+    python modules/hyprland/waybar/scripts/waybar-wttr.py
+
 # NixOS flake test
 test:
     sudo nixos-rebuild test --flake . --show-trace
