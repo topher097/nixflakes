@@ -16,16 +16,12 @@
         enableUpdateCheck = false;
         enableExtensionUpdateCheck = false;
         extensions = with pkgs.vscode-extensions; [
-          #github.copilot
-          eamodio.gitlens
           tailscale.vscode-tailscale
           ms-vscode-remote.remote-ssh
           ms-vscode-remote.vscode-remote-extensionpack
           ms-toolsai.jupyter
-          #ms-python.python
-          #ms-python.vscode-pylance
+          vscodevim.vim
           bbenoist.nix
-          charliermarsh.ruff
           nefrob.vscode-just-syntax
           tamasfe.even-better-toml
           redhat.vscode-yaml
@@ -51,6 +47,8 @@
               "source.fixAll.ruff" = "always";
               "source.organizeImports.ruff" = "explicit";
             };
+            "defaultInterpreterPath" = ".venv/bin/python";
+            "locator" = "js";
           };
           # Disable copilot
           "github.copilot.enable" = false;
