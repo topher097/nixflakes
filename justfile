@@ -8,13 +8,27 @@ own:
 set-remote:
     git remote set-url origin git@github.com:topher097/nixflakes.git
 
+# Reload the waybar with config and style file from repo
+waybar:
+    bash sh/launch_waybar.sh --config ./modules/hyprland/waybar/config.jsonc --style ./modules/hyprland/waybar/style.css
+
+# Weather
+weather:
+    python modules/hyprland/waybar/scripts/waybar-wttr.py
+
 # NixOS flake test
 test:
     sudo nixos-rebuild test --flake . --show-trace
+    hyprctl reload
+    bash sh/launch_waybar.sh
 
 # NixOS flake
 switch:
     sudo nixos-rebuild switch --flake . --show-trace
+
+# NixOS flake build (without switching or adding to GRUB menu)
+build:
+    sudo nixos-rebuild build --flake . --show-trace
 
 # NixOS flake test when in WSL
 wsl-test:
@@ -44,8 +58,9 @@ gadd:
 
 # https://nix.dev/manual/nix/2.18/package-management/garbage-collection
 gc:
-    nix-env --delete-generations old
+    nix-env --delete-generations old --profile /nix/var/nix/profiles/system
     nix-store --gc
     nix store gc
+    nix-store --optimise
     nix-collect-garbage --delete-old
     devenv gc

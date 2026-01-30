@@ -35,11 +35,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    eriixpkgs = {
-      url = "github:erictossell/eriixpkgs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     tophpkgs = {
       url = "github:topher097/tophpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -132,33 +127,6 @@
 
       nixosConfigurations = {
 
-        # windows-11 =
-        #   nixpkgs.lib.nixosSystem {
-        #     specialArgs = {
-        #       username = "topher";
-        #       hostName = "windows-11";
-        #       #hyprlandConfig = "laptop";
-        #       #DE = "gnome";
-        #       inherit outputs attrs;
-        #     } // attrs;
-        #     system = "x86_64-linux";
-        #     modules = [
-        #       # Include the microvm module
-        #       microvm.nixosModules.microvm
-        #       # Add more modules here
-        #       {
-                
-        #         networking.hostName = "windows-11";
-        #         microvm = {
-        #           user = "topher";
-        #           mem = "10000";  # 10GB
-        #           vcpu = "4";
-        #           hypervisor = "cloud-hypervisor";
-        #        };
-        #       }
-        #     ];
-        #   }; # windows-11
-
         pgi-desktop =
           let
             system = "x86_64-linux";
@@ -168,7 +136,8 @@
               username = "topher";
               hostName = "pgi-desktop";
               hyprlandConfig = "desktop";
-              DE = "gnome";
+              hyprlandScale = "1.25";
+              DE = "hyprland";    # options: gnome, hyprland
               inherit system outputs attrs;
             } // attrs;
             modules = [
@@ -181,7 +150,6 @@
             ];
           }; # pgi-desktop 
 
-
         topher-laptop =
           let
             system = "x86_64-linux";
@@ -191,7 +159,8 @@
               username = "topher";
               hostName = "topher-laptop";
               hyprlandConfig = "laptop";
-              DE = "gnome";
+              hyprlandScale = "1.0";
+              DE = "hyprland";
               inherit system outputs attrs;
             } // attrs;
             modules = [

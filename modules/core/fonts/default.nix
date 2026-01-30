@@ -2,25 +2,11 @@
 {
   fonts = {
     packages = with pkgs; [
-      jetbrains-mono
-      monaspace
-      nerdfonts
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-color-emoji
-      roboto
+      noto-fonts                                                                                                                                                                             
+      noto-fonts-color-emoji                                                                                     
+      liberation_ttf
+      roboto-mono
+      font-awesome
     ];
-    fontconfig.defaultFonts = {
-      serif = [
-        "Georgia"
-        "Noto Color Emoji"
-      ];
-      sansSerif = [
-        "Roboto"
-        "Noto Color Emoji"
-      ];
-      monospace = [ "Monaspace Neon" ];
-      emoji = [ "Noto Color Emoji" ];
-    };
   };
 }

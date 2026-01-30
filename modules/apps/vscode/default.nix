@@ -15,17 +15,16 @@
       profiles.default = {
         enableUpdateCheck = false;
         enableExtensionUpdateCheck = false;
+        #extensions = import ./vscode-extensions.nix { pkgs = nixpkgs; };
         extensions = with pkgs.vscode-extensions; [
-          #github.copilot
-          eamodio.gitlens
           tailscale.vscode-tailscale
           ms-vscode-remote.remote-ssh
           ms-vscode-remote.vscode-remote-extensionpack
+          #ms-python.python
+          #ms-python.vscode-pylance
           ms-toolsai.jupyter
-          ms-python.python
-          ms-python.vscode-pylance
+          vscodevim.vim
           bbenoist.nix
-          charliermarsh.ruff
           nefrob.vscode-just-syntax
           tamasfe.even-better-toml
           redhat.vscode-yaml
@@ -44,6 +43,7 @@
           "editor.minimap.renderCharacters" = false;
           "editor.minimap.showSlider" = "always";
           "editor.minimap.size" = "fit";
+          #"python-env.workspaceSearchPaths" = ["${workspaceFolder}"];
           "[python]" = {
             "editor.defaultFormatter" = null;
             "editor.formatOnType" = true;
@@ -51,6 +51,9 @@
               "source.fixAll.ruff" = "always";
               "source.organizeImports.ruff" = "explicit";
             };
+            "defaultInterpreterPath" = ".venv/bin/python";
+            "locator" = "js";
+            "useEnvironmentsExtension" = false;   # This is experimental and breaks vscode on laptop...
           };
           # Disable copilot
           "github.copilot.enable" = false;

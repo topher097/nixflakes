@@ -2,8 +2,8 @@
 {
   imports = [
     #./1password
-    ./firefox
-    ./gitkraken
+    #./firefox
+    #./gitkraken
     ./expressvpn
     #./jetbrains
     ./libreoffice
@@ -11,7 +11,7 @@
     ./vscode
     ./spotify
     ./discord
-    ./inkscape
+    #./inkscape
     ./filezilla
     ./brave
     ./torrent

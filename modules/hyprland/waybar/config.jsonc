@@ -1,0 +1,196 @@
+{
+    //LINK: https://github.com/lgaboury/Sway-Waybar-Install-Script/tree/master/.config/waybar
+    
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    // "height": 30, // Waybar height (to be removed for auto height)
+    "margin": "5 5 0 5",
+    // "width": 1280, // Waybar width
+    // Choose the order of the modules
+    "modules-left": [
+        "hyprland/workspaces",
+        "custom/lock",
+        "custom/reboot",
+        "custom/power"
+    ],
+    "modules-center": [
+        "clock",
+        "custom/weather"
+    ],
+    "modules-right": [
+        "network",
+        "battery",
+        "bluetooth",
+        "pulseaudio",
+        "backlight",
+        "temperature",
+        "memory",
+        "cpu"
+    ],
+
+
+    //***************************
+    //*  Modules configuration  *
+    //***************************
+
+    "hyprland/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": true,
+        "format": "{icon}",
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "*":[1,2,3,4,5]
+        },
+        "format-icons":{
+            "active": "\uf0c8"
+        }
+    },
+    "hyprland/language": {
+        "format": "{} \uf0ac",
+        "min-length": 5,
+        "tooltip": false
+    },
+    "keyboard-state": {
+        //"numlock": true,
+        "capslock": true,
+        "format": "{name} {icon} ",
+        "format-icons": {
+            "locked": "\uf023",
+            "unlocked": "\uf09c"
+        }
+    },
+    "hyprland/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+
+    // CUSTOM MODULES
+
+    "custom/lock": {
+        "format": " \uf023 ",
+        "on-click": "hyprlock",
+        "tooltip": true,
+        "tooltip-format": "Lock"
+    },
+    "custom/reboot": {
+        "format": " \uf2f1 ",
+        "on-click": "systemctl reboot",
+        "tooltip": true,
+        "tooltip-format": "Reboot"
+    },
+    "custom/power": {
+        "format": " \uf011 ",
+        "on-click": "systemctl poweroff",
+        "tooltip": true,
+        "tooltip-format": "Shutdown"
+    },
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 1800,
+        "exec": "$HOME/.config/waybar/scripts/waybar-wttr.sh",
+        "return-type": "json"
+    },
+    "custom/mem": {
+        "format": "{} \uf538",
+        "interval": 3,
+        "exec": "free -h | awk '/Mem:/{printf $3}'",
+        "tooltip": false
+    },
+
+    // BASE MODULES
+
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%a, %d %b, %I:%M %p}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "reverse-scrolling": 1,
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "\uf294 {volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "\uf294 {icon} {format_source}",
+        "format-muted": "\uf131 {format_source}",
+        "format-source": "{volume}% \uf130",
+        "format-source-muted": "\uf6a9",
+        "format-icons": {
+            "headphone": "\uf025",
+            "hands-free": "\uf025",
+            "headset": "\uf025",
+            "phone": "\uf095",
+            "car": "\uf1b9",
+            "default": ["\uf028"]
+        },
+        "on-click": "pkill pavucontrol || pavucontrol",
+        "min-length": 10
+    },
+    "network": {
+        "format-wifi": "\uf1eb {essid} ",
+        "format-ethernet": "\uf6ff Wired ",
+        "tooltip-format": "<span color='#FF1493'> \uf093 </span>{bandwidthUpBytes}  <span color='#00BFFF'> \uf019 </span>{bandwidthDownBytes}",
+        "format-linked": "\uf0c1 {ifname} (No IP) ",
+        "format-disconnected": "\uf127 Disconnected ",
+        "format-alt": "\uf012 {signalStrength}% ",
+        "interval": 1
+    },
+    "memory": {
+        "format": "\uf538 {used:0.1f}G/{total:0.1f}G ",
+        "tooltip": false,
+        "tooltip-format": "Usage: {used:0.2f}G/{total:0.2f}G"
+    },
+    "cpu": {
+        "format": "\uf2db {usage}% ",
+        "tooltip": true
+    },
+    "temperature": {
+        "critical-threshold": 75,
+        "format-critical": "\uf071 {temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["\uf2cb", "\uf2ca", "\uf2c9", "\uf2c8", "\uf2c7"],
+        "tooltip": false
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{percent}% {icon}",
+        "format-icons": ["\uf185"],
+        "min-length": 7
+    },
+    "bluetooth": {
+        "format-on": "\uf294",
+        "format-off": "\uf715",
+        "format-disabled": "", // an empty format will hide the module
+        "format-connected": "\uf294 {num_connections}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        //"tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        
+        "on-click": "$HOME/.config/waybar/scripts/rofi-bluetooth.sh &"
+
+        // "format": "  {status} ",
+        // "format-connected": "  {device_alias} ",
+        // "format-connected-battery": "  {device_alias}{device_battery_percentage}% ",
+        // "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        // "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        // "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        // "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        // "on-click": "pkill blueman || blueman-manager"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% .",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "interval": 1,
+        "tooltip": true,
+        "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"]  // order is empty to full
+	    //"on-update": "$HOME/.config/waybar/scripts/check_battery.sh"
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 0
+    }
+}

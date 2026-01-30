@@ -9,42 +9,55 @@
 {
   imports = [
     hyprland.nixosModules.default
-    ./config
-    ./hypridle
-    #./hyprlock
-    ./mako
-    ./swaylock
-    ./redshift
-    ./waybar
-    ./wofi
+    ./config.nix
   ];
 
   home-manager.users.${username} = _: {
-    gtk = {
-      enable = true;
-      cursorTheme.name = "Adwaita";
-      cursorTheme.package = pkgs.adwaita-icon-theme;
-      #theme.name = "adw-gtk3-dark";
-      #theme.package = pkgs.adw-gtk3;
+    # gtk = {
+    #   enable = true;
+    #   cursorTheme.name = "Adwaita";
+    #   cursorTheme.package = pkgs.adwaita-icon-theme;
+    # };
+    home.pointerCursor = {
+      gtk.enable = true;
+      x11.enable = true;
+      package = pkgs.adwaita-icon-theme;
+      name = "Adwaita";
+      size = 16;
     };
   };
 
+  ## Fonts for different emojis and text
+  #fonts.packages = with pkgs; [                                                                    
+  #  noto-fonts                                                                                           
+  #  noto-fonts-cjk                                                                                       
+  #  noto-fonts-emoji                                                                                     
+  #  liberation_ttf
+  #  nerdfonts
+  #  roboto-mono
+  #  font-awesome
+  #];
+
   environment = {
-    # Deprecated 
-    #sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [
-      gammastep
-      grim
-      swww
-      hyprpicker.packages.${system}.default
-      lxqt.lxqt-policykit
-      slurp
-      wl-clipboard
-      # Required if applications are having trouble opening links
-      xdg-utils
+      libnotify
+      mako
+      pamixer
+      qt5.qtwayland
+      qt6.qtwayland
+      hypridle
+      hyprlock
+      hyprpaper
+      hyprshot
+      (python3.withPackages (ps: with ps; [requests]))  # for waybar weather script
       xfce.thunar
-      xfce.tumbler
+      pavucontrol
+      rofi
+      wlogout
+      wl-clipboard
+      wofi
+      waybar
     ];
   };
 
@@ -55,20 +68,21 @@
     gnome-keyring.enable = true;
   };
 
+  services.displayManager.gdm = {
+    enable = true;
+    wayland = true;
+  };
+
   security.pam.services.login.enableGnomeKeyring = true;
 
   xdg.portal = {
     enable = true;
-    config = {
-      common = {
-        default = [
-          "xdph"
-          "gtk"
-        ];
-        "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
-        "org.freedesktop.portal.FileChooser" = [ "xdg-desktop-portal-gtk" ];
-      };
-    };
-    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    wlr.enable = false;
+    xdgOpenUsePortal = false;
+    extraPortals = [
+      # pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
   };
+  programs.hyprland.portalPackage = pkgs.xdg-desktop-portal-hyprland;   
 }
