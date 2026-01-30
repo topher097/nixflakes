@@ -15,12 +15,13 @@
       profiles.default = {
         enableUpdateCheck = false;
         enableExtensionUpdateCheck = false;
+        #extensions = import ./vscode-extensions.nix { pkgs = nixpkgs; };
         extensions = with pkgs.vscode-extensions; [
           tailscale.vscode-tailscale
           ms-vscode-remote.remote-ssh
           ms-vscode-remote.vscode-remote-extensionpack
           #ms-python.python
-          ms-python.vscode-pylance
+          #ms-python.vscode-pylance
           ms-toolsai.jupyter
           vscodevim.vim
           bbenoist.nix
