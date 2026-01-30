@@ -19,6 +19,8 @@
           tailscale.vscode-tailscale
           ms-vscode-remote.remote-ssh
           ms-vscode-remote.vscode-remote-extensionpack
+          #ms-python.python
+          ms-python.vscode-pylance
           ms-toolsai.jupyter
           vscodevim.vim
           bbenoist.nix
@@ -40,6 +42,7 @@
           "editor.minimap.renderCharacters" = false;
           "editor.minimap.showSlider" = "always";
           "editor.minimap.size" = "fit";
+          #"python-env.workspaceSearchPaths" = ["${workspaceFolder}"];
           "[python]" = {
             "editor.defaultFormatter" = null;
             "editor.formatOnType" = true;
@@ -49,6 +52,7 @@
             };
             "defaultInterpreterPath" = ".venv/bin/python";
             "locator" = "js";
+            "useEnvironmentsExtension" = false;   # This is experimental and breaks vscode on laptop...
           };
           # Disable copilot
           "github.copilot.enable" = false;
