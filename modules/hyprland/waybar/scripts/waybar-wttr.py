@@ -92,19 +92,20 @@ def format_chances(hour):
             conditions.append(chances[event] + " " + hour[event] + "%")
     return ", ".join(conditions)
 
-tempint = int(weather["current_condition"][0][f"FeelsLike{temp_unit}"])
-extrachar = ""
-if tempint > 0 and tempint < 10:
-    extrachar = "+"
+# # Get the sign of the temperature
+# tempint = int(weather["current_condition"][0][f"FeelsLike{temp_unit}"])
+# extrachar = ""
+# if tempint > 0 and tempint < 10:
+#     extrachar = "+"
 
-
+# Set the text used in waybar
 data["text"] = (
     " "
     + WEATHER_CODES[weather["current_condition"][0]["weatherCode"]]
     + " "
-    + extrachar
+    #+ extrachar
     + weather["current_condition"][0][f"FeelsLike{temp_unit}"]
-    + "°"
+    + f"°{temp_unit}"
 )
 
 data["tooltip"] = (
