@@ -15,27 +15,27 @@
       profiles.default = {
         enableUpdateCheck = false;
         enableExtensionUpdateCheck = false;
-        #extensions = import ./vscode-extensions.nix { pkgs = nixpkgs; };
-        extensions = with pkgs.vscode-extensions; [
-          tailscale.vscode-tailscale
-          ms-vscode-remote.remote-ssh
-          ms-vscode-remote.vscode-remote-extensionpack
-          #ms-python.python
-          #ms-python.vscode-pylance
-          ms-toolsai.jupyter
-          vscodevim.vim
-          bbenoist.nix
-          nefrob.vscode-just-syntax
-          tamasfe.even-better-toml
-          redhat.vscode-yaml
-          zainchen.json
-          yzhang.markdown-all-in-one
-          mechatroner.rainbow-csv
-          grapecity.gc-excelviewer
-          johnpapa.vscode-peacock
-          ibm.output-colorizer
-          tomoki1207.pdf
-        ];
+        extensions = import ./vscode-extensions.nix { pkgs = pkgs; };
+        # extensions = with pkgs.vscode-extensions; [
+        #   tailscale.vscode-tailscale
+        #   ms-vscode-remote.remote-ssh
+        #   ms-vscode-remote.vscode-remote-extensionpack
+        #   #ms-python.python
+        #   #ms-python.vscode-pylance
+        #   ms-toolsai.jupyter
+        #   vscodevim.vim
+        #   bbenoist.nix
+        #   nefrob.vscode-just-syntax
+        #   tamasfe.even-better-toml
+        #   redhat.vscode-yaml
+        #   zainchen.json
+        #   yzhang.markdown-all-in-one
+        #   mechatroner.rainbow-csv
+        #   grapecity.gc-excelviewer
+        #   johnpapa.vscode-peacock
+        #   ibm.output-colorizer
+        #   tomoki1207.pdf
+        # ];
         userSettings = {
           #"workbench.colorTheme" = lib.mkForce "Rosé Pine Moon";
           "workbench.colorTheme" = "Stylix";
@@ -51,10 +51,10 @@
               "source.fixAll.ruff" = "always";
               "source.organizeImports.ruff" = "explicit";
             };
-            "defaultInterpreterPath" = ".venv/bin/python";
-            "locator" = "js";
-            "useEnvironmentsExtension" = false;   # This is experimental and breaks vscode on laptop...
           };
+          "python.defaultInterpreterPath" = ".venv/bin/python";
+          "python.locator" = "js";
+          "python.useEnvironmentsExtension" = false;   # This is experimental and breaks vscode on laptop...
           # Disable copilot
           "github.copilot.enable" = false;
           # "github.copilot.enable" = {
