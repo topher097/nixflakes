@@ -87,7 +87,7 @@
         "format": "{}",
         "tooltip": true,
         "interval": 1800,
-        "exec": "$HOME/.config/waybar/scripts/waybar-wttr.py",
+        "exec": "$HOME/.config/waybar/scripts/waybar-wttr.sh",
         "return-type": "json"
     },
     "custom/mem": {
