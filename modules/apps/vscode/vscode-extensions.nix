@@ -21,10 +21,16 @@ with pkgs.vscode-extensions; [
     ibm.output-colorizer
     tomoki1207.pdf
 ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+  # {
+  #   name = "python";
+  #   publisher = "ms-python";
+  #   version = "2026.1.2026012801";
+  #   sha256 = "xCMeiGcV7eK6sjD9Hh1PBoIqhoMAvE+S0fwh5M5QmWs=";
+  # }
   {
-    name = "python";
+    name = "vscode-pylance";
     publisher = "ms-python";
-    version = "2026.1.2026012801";
-    sha256 = "xCMeiGcV7eK6sjD9Hh1PBoIqhoMAvE+S0fwh5M5QmWs=";
+    version = "2025.12.102";
+    sha256 = "rNyKrO11pIAKA+PUnTs9vy0XpwaNdzCqk77nkT6pvZM=";
   }
 ]
