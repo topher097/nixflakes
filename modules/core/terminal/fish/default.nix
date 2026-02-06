@@ -11,6 +11,7 @@
       set fish_greeting
       ${pkgs.starship}/bin/starship init fish | source
       ${pkgs.zoxide}/bin/zoxide init fish | source
+      ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
       export EZA_COLORS='da=1;34:gm=1;34:Su=1;34'
       
       # Automatically set the TERM variable to xterm-256color if using ghostty
@@ -65,7 +66,7 @@
       # direnv hook fish | source
 
       eval (direnv hook fish)
-
+  
       nitch
     '';
   };

@@ -19,8 +19,6 @@
   
   home-manager.users.${username} = {
     home.packages = with pkgs; [
-      ticktick
-      remmina
     ];
 
     programs.zathura = {
@@ -29,6 +27,17 @@
 
     programs.yazi = {
       enable = true;
+    };
+
+    # Pomodor timer app
+    services.tomat = {
+        enable = true;
+        settings = {
+            timer = {
+                work = 25;
+                break = 5;
+            };
+        };
     };
   };
 }
