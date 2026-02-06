@@ -29,6 +29,7 @@
 
 #window,
 #clock,
+#custom-tomat,
 #custom-weather,
 #custom-lock,
 #custom-power,
@@ -89,6 +90,24 @@
 }
 #window{
   background-color: #74c7ec;
+}
+#custom-tomat.work {
+  background-color: #ff6b6b;
+}
+#custom-tomat.work-paused {
+  background-color: #ff9999;
+}
+#custom-tomat.break {
+  background-color: #4ecdc4;
+}
+#custom-tomat.break-paused {
+  background-color: #7dd3db;
+}
+#custom-tomat.long-break {
+  background-color: #45b7d1;
+}
+#custom-tomat.long-break-paused {
+  background-color: #74c0db;
 }
 
 #waybar.hidden {

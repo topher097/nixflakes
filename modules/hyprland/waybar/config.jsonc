@@ -11,7 +11,8 @@
         "hyprland/workspaces",
         "custom/lock",
         "custom/reboot",
-        "custom/power"
+        "custom/power",
+        "custom/tomat"
     ],
     "modules-center": [
         "clock",
@@ -64,7 +65,15 @@
     },
 
     // CUSTOM MODULES
-
+    "custom/tomat": {
+        "exec": "tomat status",
+        "interval": 1,
+        "return-type": "json",
+        "format": "{text}",
+        "tooltip": true,
+        "on-click": "tomat toggle",
+        "on-click-right": "tomat skip"
+    },
     "custom/lock": {
         "format": " \uf023 ",
         "on-click": "hyprlock",
