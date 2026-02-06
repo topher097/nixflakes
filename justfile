@@ -18,17 +18,17 @@ weather:
 
 # NixOS flake test
 test:
-    sudo nixos-rebuild test --flake . --show-trace
+    sudo nixos-rebuild test --flake . --show-trace --impure
     hyprctl reload
     bash sh/launch_waybar.sh
 
 # NixOS flake
 switch:
-    sudo nixos-rebuild switch --flake . --show-trace
+    sudo nixos-rebuild switch --flake . --show-trace --impure
 
 # NixOS flake build (without switching or adding to GRUB menu)
 build:
-    sudo nixos-rebuild build --flake . --show-trace
+    sudo nixos-rebuild build --flake . --show-trace --impure
 
 # NixOS flake test when in WSL
 wsl-test:

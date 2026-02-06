@@ -20,13 +20,14 @@
     ],
     "modules-right": [
         "network",
-        "battery",
         "bluetooth",
         "pulseaudio",
         "backlight",
         "temperature",
         "memory",
-        "cpu"
+        "cpu",
+        "battery",
+        "power-profiles-daemon",
     ],
 
 
@@ -107,7 +108,17 @@
     },
 
     // BASE MODULES
-
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
@@ -140,7 +151,8 @@
         "format-linked": "\uf0c1 {ifname} (No IP) ",
         "format-disconnected": "\uf127 Disconnected ",
         "format-alt": "\uf012 {signalStrength}% ",
-        "interval": 1
+        "interval": 1,
+        "on-click": "pkill nmtui-connect || nmtui-connect"
     },
     "memory": {
         "format": "\uf538 {used:0.1f}G/{total:0.1f}G ",

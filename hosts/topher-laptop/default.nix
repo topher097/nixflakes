@@ -1,5 +1,5 @@
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [./hardware-configuration.nix];
 
   #----Host specific config ----
   boot.kernelParams = [
@@ -21,9 +21,9 @@
   ]; 
  # usbcore.autosuspend = -1;
 
+  # Battery and power management is handled in modules/core/power/default.nix
+
   # ---- System Configurations ----
-  powerManagement.powertop.enable = true;
-  services.thermald.enable = true;
   services.xserver.displayManager.gdm.autoSuspend = false;
 
   systemd.services = {
