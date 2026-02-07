@@ -27,7 +27,7 @@
         "memory",
         "cpu",
         "battery",
-        "power-profiles-daemon",
+        "power-profiles-daemon"
     ],
 
 
