@@ -68,12 +68,6 @@
       url = "github:nix-community/NUR";
     };
 
-    # Orca slicer
-    orca-slicer = {
-      url = "github:ovlach/nix-orca-slicer";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Nixcord
     nixcord = {
       url = "github:kaylorben/nixcord";
@@ -103,6 +97,7 @@
       home-manager,
       nur,
       microvm,
+      nix-index-database,
       ...
     } @ attrs:
     let
@@ -146,7 +141,8 @@
               ./modules/hardware/nvidia   # Nvidia hardware
               ./modules/virt              # Virtualization tools
               #./modules/virt/portainer.nix    # Portainer docker auto run
-              ./modules/apps/3d-printing  # 3D printing tools
+              #./modules/apps/3d-printing  # 3D printing tools
+              nix-index-database.nixosModules.default
             ];
           }; # pgi-desktop 
 

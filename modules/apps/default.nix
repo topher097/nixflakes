@@ -1,17 +1,12 @@
 { pkgs, username, ... }:
 {
   imports = [
-    #./1password
-    #./firefox
-    #./gitkraken
     ./expressvpn
-    #./jetbrains
+    ./3d-printing
     ./libreoffice
-    #./obsidian
     ./vscode
     ./spotify
     ./discord
-    #./inkscape
     ./filezilla
     ./brave
     ./torrent
@@ -29,7 +24,7 @@
       enable = true;
     };
 
-    # Pomodor timer app
+    # Pomodoro timer app
     services.tomat = {
         enable = true;
         settings = {
