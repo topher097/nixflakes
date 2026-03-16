@@ -58,9 +58,9 @@ gadd:
 
 # https://nix.dev/manual/nix/2.18/package-management/garbage-collection
 gc:
-    nix-env --delete-generations old --profile /nix/var/nix/profiles/system
-    nix-store --gc
-    nix store gc
-    nix-store --optimise
-    nix-collect-garbage --delete-old
-    devenv gc
+    sudo nix-env --delete-generations old --profile /nix/var/nix/profiles/system
+    sudo nix-store --gc
+    sudo nix store gc
+    sudo nix-store --optimise
+    sudo nix-collect-garbage --delete-old
+    sudo devenv gc

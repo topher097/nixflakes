@@ -9,6 +9,7 @@
   imports = [
     ./starship
     ./nvim
+    ./mpv
   ];
 
   # Other system tools and packages
@@ -41,7 +42,6 @@
     exfat
     rpi-imager
     p7zip-rar
-    mpv
     vlc
     unstable.uv
     devbox
