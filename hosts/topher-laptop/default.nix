@@ -24,7 +24,7 @@
   # Battery and power management is handled in modules/core/power/default.nix
 
   # ---- System Configurations ----
-  services.xserver.displayManager.gdm.autoSuspend = false;
+  services.displayManager.gdm.autoSuspend = false;
 
   systemd.services = {
     # tune-power-management = {

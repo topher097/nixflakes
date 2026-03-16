@@ -28,10 +28,20 @@
   # Set the SSH config to allow host forwarding
   home-manager.users.${username}.programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
+
     extraConfig = ''
     Host *.ts.net
       ForwardAgent yes
-    '';
+    '';      
+    
+    matchBlocks = {
+      # Use a wildcard for default settings (typically placed at the end due to SSH config order rules)
+      "*" = {
+        serverAliveInterval = 120;
+        compression = true;
+      };
+    };
   };
   # home-manager.useGlobalPkgs = true;
   # home-manager.useUserPackages = true;
