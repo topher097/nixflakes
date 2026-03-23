@@ -25,10 +25,14 @@ test:
 # NixOS flake
 switch:
     sudo nixos-rebuild switch --flake . --show-trace --impure
+    hyprctl reload
+    bash sh/launch_waybar.sh
 
 # NixOS flake build (without switching or adding to GRUB menu)
 build:
     sudo nixos-rebuild build --flake . --show-trace --impure
+    hyprctl reload
+    bash sh/launch_waybar.sh
 
 # NixOS flake test when in WSL
 wsl-test:
