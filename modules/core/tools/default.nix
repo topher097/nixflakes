@@ -47,7 +47,6 @@
     devbox
     ffmpeg-full
     rclone
-    unstable.rclone-ui
     jq
   ];
   

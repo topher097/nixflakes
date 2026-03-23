@@ -1,5 +1,5 @@
-{ tophpkgs, system, ... }:
+{ system, tophvim, ... }:
 {
   environment.variables.EDITOR = "nvim";
-  environment.systemPackages = [ tophpkgs.packages.${system}.tophvim ];
+  environment.systemPackages = [ tophvim.packages.${system}.default ];
 }

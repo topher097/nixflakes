@@ -35,8 +35,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    tophpkgs = {
-      url = "github:topher097/tophpkgs";
+    tophvim = {
+      url = "github:topher097/tophvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
@@ -91,7 +91,7 @@
   outputs =
     {
       self,
-      tophpkgs,
+      tophvim,
       nixpkgs,
       envfs,
       home-manager,
