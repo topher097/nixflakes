@@ -64,6 +64,7 @@
     settings = {
       aliases = {
         undo = "reset HEAD~1 --mixed";
+        
       };
       #credential.helper = "oauth";
       color = {
@@ -77,6 +78,7 @@
         tool = "splice";
       };
       push = {
+        followTags = true;
         default = "simple";
       };
       pull = {
