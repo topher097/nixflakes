@@ -634,11 +634,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1774270522,
-        "narHash": "sha256-oS5dB/AxMfoU2uR/7d/0MRR9Kr+L8+P/j57k9P/uqzQ=",
+        "lastModified": 1774445873,
+        "narHash": "sha256-chWRF3JavLDD9tOI8Av/1LSAkpvk/+BYvNQvTB8Ctyo=",
         "ref": "refs/heads/main",
-        "rev": "64a2e4e26388f017fd9198a6d70424f1f251a5a0",
-        "revCount": 7051,
+        "rev": "8196711aaa78c8f62e6f720636ef707783685036",
+        "revCount": 7054,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -1097,11 +1097,11 @@
         "spectrum": "spectrum"
       },
       "locked": {
-        "lastModified": 1773872447,
-        "narHash": "sha256-IWTp4EMUfZwnuF5S/AjWfOFzCbbgkMzRwNd0qHC/EMg=",
+        "lastModified": 1774448302,
+        "narHash": "sha256-Z7QLau4WR38/pMPNVH3MEGeMybBTaAzn+PUCErMngFw=",
         "owner": "astro",
         "repo": "microvm.nix",
-        "rev": "b202882536b018a76f0b6e71a48677f41f4de9d8",
+        "rev": "da28962a2ba84718895b7325f600686c3b4ee099",
         "type": "github"
       },
       "original": {
@@ -1138,11 +1138,11 @@
         "nixpkgs-nixcord": "nixpkgs-nixcord"
       },
       "locked": {
-        "lastModified": 1774085563,
-        "narHash": "sha256-u12oksXYS8YNphdTsCTgCQcKuVNvCX/CKVjg7ki74YA=",
+        "lastModified": 1774456554,
+        "narHash": "sha256-FwlMuGluoa1iWkDsLrzi1ha5nGQzBbw3i+N385BQMgc=",
         "owner": "kaylorben",
         "repo": "nixcord",
-        "rev": "5bc81fedc7df61c80f5480610ff7e35192d8e1d4",
+        "rev": "82c0155f98000cc691d2b25cc36908b9ba6a05aa",
         "type": "github"
       },
       "original": {
@@ -1312,11 +1312,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1774288540,
-        "narHash": "sha256-yzvB7p1AI10n3fjKlMIYuKKY3Wb8VaZYYKo1UC+HQR4=",
+        "lastModified": 1774466305,
+        "narHash": "sha256-ulF8pWIQ2NQTtoYELLs34a8Ay6+i9/jOqHCQc3r6DJE=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "19e5ed046e31b815c3af7efffe0a78fc46eb86d7",
+        "rev": "d5709b7e032584d660a261d63b59e18afbf6630c",
         "type": "github"
       },
       "original": {
@@ -1645,11 +1645,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773945142,
-        "narHash": "sha256-FzOwjzmXSbG4VhdP9LypmVwwhkbjbgzyrUZbSXcPQ+s=",
+        "lastModified": 1774464282,
+        "narHash": "sha256-xB59pFvwMS+Fadj6SbplHPUqwW/pB9ySbb2dqzBDH1s=",
         "owner": "topher097",
         "repo": "tophvim",
-        "rev": "a7430b2846646e8605a578946cd87b49cde8e98c",
+        "rev": "cdcb3722b771530f4988c695082f260635e5f7db",
         "type": "github"
       },
       "original": {
