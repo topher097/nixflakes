@@ -1,0 +1,57 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "amp-cli@latest": {
+      "last_modified": "2026-03-23T13:48:00Z",
+      "resolved": "github:NixOS/nixpkgs/fdc7b8f7b30fdbedec91b71ed82f36e1637483ed#amp-cli",
+      "source": "devbox-search",
+      "version": "0.0.1773907698-g6757dd",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/b0zh2749mmx06id9gcf9zjk6qj9cq58h-amp-cli-0.0.1773907698-g6757dd",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/b0zh2749mmx06id9gcf9zjk6qj9cq58h-amp-cli-0.0.1773907698-g6757dd"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/256wanj70mm80a62s5yzd1bw6hb2lbcy-amp-cli-0.0.1773907698-g6757dd",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/256wanj70mm80a62s5yzd1bw6hb2lbcy-amp-cli-0.0.1773907698-g6757dd"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/7hjgrm60jh53yliqj3rnpchac0fm8w7k-amp-cli-0.0.1773907698-g6757dd",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/7hjgrm60jh53yliqj3rnpchac0fm8w7k-amp-cli-0.0.1773907698-g6757dd"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/n4dfjawql904v8likqqq8d38fpq9knzg-amp-cli-0.0.1773907698-g6757dd",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/n4dfjawql904v8likqqq8d38fpq9knzg-amp-cli-0.0.1773907698-g6757dd"
+        }
+      }
+    },
+    "github:NixOS/nixpkgs/nixpkgs-unstable": {
+      "last_modified": "2026-03-23T13:48:00Z",
+      "resolved": "github:NixOS/nixpkgs/fdc7b8f7b30fdbedec91b71ed82f36e1637483ed?lastModified=1774273680&narHash=sha256-a%2B%2BtZ1RQsDb1I0NHrFwdGuRlR5TORvCEUksM459wKUA%3D"
+    }
+  }
+}
