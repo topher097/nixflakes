@@ -34,6 +34,10 @@ build:
     hyprctl reload
     bash sh/launch_waybar.sh
 
+# Use the custom ranger preview composite of media files
+preview-composite $filepath:
+    python3 ./modules/core/tools/ranger/preview_composite.py --preview ${filepath}
+
 # NixOS flake test when in WSL
 wsl-test:
     sudo nixos-rebuild test --flake .#winix --show-trace

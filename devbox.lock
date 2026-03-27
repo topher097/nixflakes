@@ -49,9 +49,193 @@
         }
       }
     },
+    "chafa@latest": {
+      "last_modified": "2026-03-23T05:26:49Z",
+      "resolved": "github:NixOS/nixpkgs/4724d5647207377bede08da3212f809cbd94a648#chafa",
+      "source": "devbox-search",
+      "version": "1.18.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "bin",
+              "path": "/nix/store/r55qfsm377f84070kji3isvwggf85pck-chafa-1.18.1-bin",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/bfi59zn4j2v7yr9pni492pi9f9gs3qli-chafa-1.18.1-man",
+              "default": true
+            },
+            {
+              "name": "dev",
+              "path": "/nix/store/ivz9ml425vd7mv5r73sgf9wi2qrwdnb5-chafa-1.18.1-dev"
+            },
+            {
+              "name": "out",
+              "path": "/nix/store/5s2n4pw26xsrqflip0wfvrwm74pqmrjj-chafa-1.18.1"
+            }
+          ],
+          "store_path": "/nix/store/r55qfsm377f84070kji3isvwggf85pck-chafa-1.18.1-bin"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "bin",
+              "path": "/nix/store/4a3jsbvvdfpf39pwpzgf3dz5fcv4khan-chafa-1.18.1-bin",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/0vyc866v5svd4fab511gl292zzdzllr3-chafa-1.18.1-man",
+              "default": true
+            },
+            {
+              "name": "out",
+              "path": "/nix/store/cbghdby685grvg7svf2nnrf3jqkvampw-chafa-1.18.1"
+            },
+            {
+              "name": "dev",
+              "path": "/nix/store/2dv90gyi31icppryp6nwywb6gcxdlkny-chafa-1.18.1-dev"
+            }
+          ],
+          "store_path": "/nix/store/4a3jsbvvdfpf39pwpzgf3dz5fcv4khan-chafa-1.18.1-bin"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "bin",
+              "path": "/nix/store/jkswgq5b2prmqp9p59kl18n3qsargm2k-chafa-1.18.1-bin",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/xfvvak25ala7igki54mmjaqnfnlmkcjm-chafa-1.18.1-man",
+              "default": true
+            },
+            {
+              "name": "dev",
+              "path": "/nix/store/0v7843grhin93dqcrmfc5ixzy0x6rb97-chafa-1.18.1-dev"
+            },
+            {
+              "name": "out",
+              "path": "/nix/store/w4j2m1pa0nhvv2bm5fqm4l684qfgywzp-chafa-1.18.1"
+            }
+          ],
+          "store_path": "/nix/store/jkswgq5b2prmqp9p59kl18n3qsargm2k-chafa-1.18.1-bin"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "bin",
+              "path": "/nix/store/9cv32spq56337zhd19ymxkgfyxjbvr6f-chafa-1.18.1-bin",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/ckg215gqw737wcm3yqmy44bnms3hmpfv-chafa-1.18.1-man",
+              "default": true
+            },
+            {
+              "name": "dev",
+              "path": "/nix/store/85w8jlrmyp8h5wmza6bxk1k1i3kmak5p-chafa-1.18.1-dev"
+            },
+            {
+              "name": "out",
+              "path": "/nix/store/9mxk9sl0jpdjjjc87mhkp4b88larrds6-chafa-1.18.1"
+            }
+          ],
+          "store_path": "/nix/store/9cv32spq56337zhd19ymxkgfyxjbvr6f-chafa-1.18.1-bin"
+        }
+      }
+    },
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
       "last_modified": "2026-03-23T13:48:00Z",
       "resolved": "github:NixOS/nixpkgs/fdc7b8f7b30fdbedec91b71ed82f36e1637483ed?lastModified=1774273680&narHash=sha256-a%2B%2BtZ1RQsDb1I0NHrFwdGuRlR5TORvCEUksM459wKUA%3D"
+    },
+    "hyperfine@latest": {
+      "last_modified": "2026-03-21T07:29:51Z",
+      "resolved": "github:NixOS/nixpkgs/09061f748ee21f68a089cd5d91ec1859cd93d0be#hyperfine",
+      "source": "devbox-search",
+      "version": "1.20.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/aw5vvzlpysgrr3rdacjlcfqwhqx489cz-hyperfine-1.20.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/aw5vvzlpysgrr3rdacjlcfqwhqx489cz-hyperfine-1.20.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/xpidx827zkmqlyzqbxdbl7v230zjyjkd-hyperfine-1.20.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/xpidx827zkmqlyzqbxdbl7v230zjyjkd-hyperfine-1.20.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/fm6idav03svlh4vwswqhafz5j2cl98rb-hyperfine-1.20.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/fm6idav03svlh4vwswqhafz5j2cl98rb-hyperfine-1.20.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ykbyg57dvpzpfxh74arvr27lg965cqgl-hyperfine-1.20.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/ykbyg57dvpzpfxh74arvr27lg965cqgl-hyperfine-1.20.0"
+        }
+      }
+    },
+    "perf@latest": {
+      "last_modified": "2026-03-21T07:29:51Z",
+      "resolved": "github:NixOS/nixpkgs/09061f748ee21f68a089cd5d91ec1859cd93d0be#perf",
+      "source": "devbox-search",
+      "version": "6.19.9",
+      "systems": {
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/gcv03l5igminzxfi7g3bps9dsfjchzm0-perf-linux-6.19.9",
+              "default": true
+            },
+            {
+              "name": "debug",
+              "path": "/nix/store/8ksqck6lkzi1a59pv2p54p006j86qwkr-perf-linux-6.19.9-debug"
+            }
+          ],
+          "store_path": "/nix/store/gcv03l5igminzxfi7g3bps9dsfjchzm0-perf-linux-6.19.9"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/bw7lgmyckdapwxladgn58r66wpzvgwhl-perf-linux-6.19.9",
+              "default": true
+            },
+            {
+              "name": "debug",
+              "path": "/nix/store/cmm826bg90vz9vqnamyi5i02mjfhagrp-perf-linux-6.19.9-debug"
+            }
+          ],
+          "store_path": "/nix/store/bw7lgmyckdapwxladgn58r66wpzvgwhl-perf-linux-6.19.9"
+        }
+      }
     }
   }
 }

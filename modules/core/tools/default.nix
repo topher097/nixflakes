@@ -10,6 +10,7 @@
     ./starship
     ./nvim
     ./mpv
+    ./ranger
   ];
 
   # Other system tools and packages
@@ -37,7 +38,6 @@
     service-wrapper
     just
     unstable.lazygit
-    ranger
     ntfs3g
     exfat
     rpi-imager
