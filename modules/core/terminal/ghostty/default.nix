@@ -9,7 +9,7 @@
   home-manager.users.${username} = {
     programs.ghostty = {
       enable = true;
-      package = pkgs.ghostty;  # Use stable version (1.2.3) instead of unstable (1.3.x with kitty protocol bug)
+      package = pkgs.unstable.ghostty;  
       enableFishIntegration = true;
       installVimSyntax = true;
 
@@ -28,7 +28,5 @@
         ];
       };
     };
-    
-    #programs.vim.plugins = [ghostty.vim];
   };
 }

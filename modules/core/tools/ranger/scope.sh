@@ -55,6 +55,50 @@ COMPOSITE_SCRIPT="$HOME/.config/ranger/preview_composite.sh"
 COMPOSITE_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/preview_composite"
 mkdir -p "$COMPOSITE_CACHE_DIR" 2>/dev/null || true
 
+# Prefer a sibling script when running from a checkout/testing environment.
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
+if [[ -x "${SCRIPT_DIR}/preview_composite.sh" ]]; then
+    COMPOSITE_SCRIPT="${SCRIPT_DIR}/preview_composite.sh"
+fi
+
+render_composite_with_chafa() {
+    local thumb_path="$1"
+    shift
+    local metadata_cmd=("$@")
+
+    command -v chafa >/dev/null 2>&1 || return 1
+
+    local composite_tmp
+    composite_tmp=$(mktemp /tmp/ranger_composite_XXXXXX.png) || return 1
+
+    local cache_key
+    cache_key=$(printf "%s" "${FILE_PATH}" | sha256sum | awk '{print $1}')
+    local composite_cache="${COMPOSITE_CACHE_DIR}/${cache_key}_$(basename "${FILE_PATH}")_composite.png"
+
+    if ! bash "${COMPOSITE_SCRIPT}" "${thumb_path}" "${composite_tmp}" \
+        "${PV_WIDTH}" "${PV_HEIGHT}" "${metadata_cmd[@]}"; then
+        rm -f "${composite_tmp}"
+        return 1
+    fi
+
+    cp "${composite_tmp}" "${composite_cache}" 2>/dev/null || true
+
+    local chafa_width="${PV_WIDTH}"
+    local chafa_height="${PV_HEIGHT}"
+    [[ "${chafa_width}" =~ ^[0-9]+$ ]] || chafa_width=80
+    [[ "${chafa_height}" =~ ^[0-9]+$ ]] || chafa_height=40
+    (( chafa_width < 1 )) && chafa_width=1
+    (( chafa_height < 1 )) && chafa_height=1
+
+    chafa --animate=off --size "${chafa_width}x${chafa_height}" -- "${composite_tmp}" || {
+        rm -f "${composite_tmp}"
+        return 1
+    }
+
+    rm -f "${composite_tmp}"
+    return 0
+}
+
 handle_extension() {
     case "${FILE_EXTENSION_LOWER}" in
         ## Archive
@@ -509,13 +553,51 @@ handle_mime() {
 
         ## Image
         image/*)
-            ## Preview as text conversion
-            # img2txt --gamma=0.6 --width="${PV_WIDTH}" -- "${FILE_PATH}" && exit 4
+            ## Protocol-free in-pane preview for Ghostty: render composite as ANSI art.
+            render_composite_with_chafa "${FILE_PATH}" exiftool "${FILE_PATH}" && exit 5
             exiftool "${FILE_PATH}" && exit 5
             exit 1;;
 
-        ## Video and audio
-        video/* | audio/*)
+        ## Video
+        video/*)
+            local thumb_tmp
+            thumb_tmp=$(mktemp /tmp/ranger_video_thumb_XXXXXX.png)
+            local thumb_arg="-"
+            ffmpegthumbnailer -i "${FILE_PATH}" -o "${thumb_tmp}" -s 0 2>/dev/null || true
+            if [[ -s "${thumb_tmp}" ]] && identify "${thumb_tmp}" >/dev/null 2>&1; then
+                thumb_arg="${thumb_tmp}"
+            else
+                rm -f "${thumb_tmp}"
+            fi
+
+            if render_composite_with_chafa "${thumb_arg}" mediainfo "${FILE_PATH}"; then
+                rm -f "${thumb_tmp}"
+                exit 5
+            fi
+
+            rm -f "${thumb_tmp}"
+            mediainfo "${FILE_PATH}" && exit 5
+            exiftool "${FILE_PATH}" && exit 5
+            exit 1;;
+
+        ## Audio
+        audio/*)
+            local cover_tmp
+            cover_tmp=$(mktemp /tmp/ranger_audio_cover_XXXXXX.png)
+            local cover_arg="-"
+            ffmpeg -y -i "${FILE_PATH}" -map 0:v -map -0:V -c copy "${cover_tmp}" 2>/dev/null || true
+            if [[ -s "${cover_tmp}" ]] && identify "${cover_tmp}" >/dev/null 2>&1; then
+                cover_arg="${cover_tmp}"
+            else
+                rm -f "${cover_tmp}"
+            fi
+
+            if render_composite_with_chafa "${cover_arg}" mediainfo "${FILE_PATH}"; then
+                rm -f "${cover_tmp}"
+                exit 5
+            fi
+
+            rm -f "${cover_tmp}"
             mediainfo "${FILE_PATH}" && exit 5
             exiftool "${FILE_PATH}" && exit 5
             exit 1;;

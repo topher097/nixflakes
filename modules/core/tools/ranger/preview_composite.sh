@@ -150,7 +150,8 @@ create_composite() {
         stage1_args+=(-gravity north -composite)
     else
         stage1_args+=(-size "${canvas_w}x${canvas_h}" "xc:${BG_COLOR}")
-        # Warning banner (font not needed here — use built-in)
+        # Warning banner when no thumbnail exists. Keep this draw-only so we
+        # don't require a working font for fallback previews.
         local warn_banner_h=$(( line_h * 2 + PADDING ))
         local warn_y=$(( (image_area_h - warn_banner_h) / 2 ))
         (( warn_y < PADDING / 2 )) && warn_y=$(( PADDING / 2 ))
@@ -158,14 +159,10 @@ create_composite() {
         local warn_y2=$(( warn_y + warn_banner_h ))
         stage1_args+=(-fill "$WARN_BG_COLOR" -stroke "$WARN_COLOR" -strokewidth 1)
         stage1_args+=(-draw "rectangle ${PADDING},${warn_y} ${warn_x2},${warn_y2}")
-        local sym_y=$(( warn_y + PADDING / 2 + FONT_SIZE ))
-        stage1_args+=(-pointsize "$FONT_SIZE" -fill "$WARN_COLOR" -stroke none)
-        stage1_args+=(-gravity None -annotate "+$(( canvas_w / 2 - FONT_SIZE / 2 ))+${sym_y}" "⚠")
-        local msg="Thumbnail could not be generated"
-        local msg_w_est=$(( ${#msg} * FONT_SIZE * 6 / 10 ))
-        local msg_x=$(( (canvas_w - msg_w_est) / 2 ))
-        local msg_y=$(( warn_y + line_h + PADDING / 2 + FONT_SIZE ))
-        stage1_args+=(-annotate "+${msg_x}+${msg_y}" "$msg")
+        local mark_y=$(( warn_y + warn_banner_h / 2 ))
+        local mark_x1=$(( PADDING + 16 ))
+        local mark_x2=$(( canvas_w - PADDING - 16 ))
+        stage1_args+=(-draw "line ${mark_x1},${mark_y} ${mark_x2},${mark_y}")
     fi
 
     # Separator line
@@ -181,6 +178,9 @@ create_composite() {
     local font_arg=()
     if [[ -n "$font_path" ]]; then
         font_arg=(-font "$font_path")
+    else
+        # Keep text rendering working even when fontconfig cannot resolve a file path.
+        font_arg=(-font "monospace")
     fi
 
     (( meta_pid > 0 )) && wait "$meta_pid"

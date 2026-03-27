@@ -14,10 +14,8 @@
       ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
       export EZA_COLORS='da=1;34:gm=1;34:Su=1;34'
       
-      # Automatically set the TERM variable to xterm-256color if using ghostty
-      if test "$TERM_PROGRAM" = "ghostty"
-        set -x TERM xterm-256color
-      end
+      # Keep TERM from the terminal emulator itself (Ghostty sets this via
+      # programs.ghostty.settings.term), so don't override it in shell init.
 
       # Automatically set the SSH_AUTH_SOCK variable if using ssh-agent and not set
       if not set -q SSH_AUTH_SOCK
