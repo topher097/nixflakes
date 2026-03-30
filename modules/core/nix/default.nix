@@ -47,8 +47,20 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
+  system.activationScripts.home-manager-restart = {
+    text = ''
+      ${pkgs.systemd}/bin/systemctl restart home-manager-${username}.service || true
+    '';
+    deps = [
+      "users"
+      "groups"
+    ];
+  };
+
   home-manager = {
     backupFileExtension = "backup";
+    useGlobalPkgs = true;
+    useUserPackages = true;
     users.${username} = {
       # The home.stateVersion option does not have a default and must be set
       home.stateVersion = "25.11";

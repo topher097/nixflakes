@@ -9,7 +9,7 @@
   home-manager.users.${username} = {
     programs.ghostty = {
       enable = true;
-      package = pkgs.unstable.ghostty;  
+      #package = pkgs.unstable.ghostty;  
       enableFishIntegration = true;
       installVimSyntax = true;
 
