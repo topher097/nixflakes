@@ -9,6 +9,8 @@
     enable = true;
     interactiveShellInit = ''
       set fish_greeting
+      # Prevent stale nix store paths from persisting in fish_user_paths
+      set -U fish_user_paths
       ${pkgs.starship}/bin/starship init fish | source
       ${pkgs.zoxide}/bin/zoxide init fish | source
       ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
