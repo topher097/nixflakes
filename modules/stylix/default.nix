@@ -1,4 +1,4 @@
-{ stylix, pkgs, lib, ... }:
+{ config, stylix, pkgs, lib, username, ... }:
 {
   imports = [ stylix.nixosModules.stylix ];
 
@@ -39,5 +39,11 @@
         name = "Noto Color Emoji";
       };
     };
+  };
+
+  home-manager.users.${username}.xresources.properties = {
+    # nsxiv uses the Nsxiv Xresources class (not Sxiv).
+    "Nsxiv.window.background" = lib.mkForce config.lib.stylix.colors.withHashtag.base00;
+    "Nsxiv.window.foreground" = lib.mkForce config.lib.stylix.colors.withHashtag.base05;
   };
 }

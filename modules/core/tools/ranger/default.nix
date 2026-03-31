@@ -12,8 +12,11 @@
         # Image previews
         python3Packages.pillow
         w3m
+        chafa # In-pane image previews in scope.sh
         imagemagick # convert, identify for image rotation
         librsvg # rsvg-convert for SVG previews
+        # Maintained fork of sxiv: https://github.com/nsxiv/nsxiv
+        nsxiv # X11 image viewer used by rifle for image browsing
 
         # Video/audio previews
         ffmpegthumbnailer # Video thumbnails
@@ -47,16 +50,14 @@
         # Misc
         lynx # HTML preview fallback
         transmission_4 # BitTorrent info
-        fontconfig # fc-match for composite preview font discovery
-        chafa # Terminal image rendering for composite previews
       ];
 
       # Enable file preview
       settings = {
         preview_files = true;
         preview_directories = true;
-        preview_images = false;
-        # GHOSTTY LIMITATIONS - IMAGE PROTOCOLS CURRENTLY UNRELIABLE:
+        preview_images = true;
+        # GHOSTTY LIMITATIONS - RANGER IN-PANE IMAGE PROTOCOLS ARE UNRELIABLE:
         # 
         # Ghostty 1.3.x has multiple open ranger compatibility issues:
         # - Kitty image protocol probe can return EINVAL, which ranger rejects
@@ -66,12 +67,12 @@
         # - w3m: Requires X11, incompatible with Ghostty
         # - ueberzug: Requires X11/Wayland overlay, not compatible
         # 
-        # WORKAROUND: Disable preview_images and use scope.sh with chafa/text.
-        # The composite script still generates
-        # PNG files cached to ~/.cache/preview_composite/ for reference.
-        use_preview_script = true;
+        # WORKAROUND: Keep preview_images disabled and use scope.sh text previews.
+        # For actual image viewing, rifle launches nsxiv in a GUI window.
+        open_all_images = true;
+        use_preview_script = false;
         preview_script = "$HOME/.config/ranger/scope.sh";
-        #preview_script = "${./scope.sh}";
+        preview_images_method = "kitty";
       };
     };
 
@@ -79,11 +80,11 @@
     # extraPackages only adds them as propagatedBuildInputs (build-time),
     # which does NOT put them on the user's PATH.
     home.packages = with pkgs; [
-      # Image display tools (multiple options for compatibility)
+      # Image display tools
       imagemagick
       w3m # w3mimgdisplay for image rendering in terminal
-      chafa # terminal image rendering
-      viu # another image viewer option
+      chafa # in-pane image previews (ANSI)
+      nsxiv # ranger image opener for Ghostty sessions
       
       # Metadata/info tools
       exiftool
@@ -100,7 +101,6 @@
       
       # File/font detection
       file
-      fontconfig
       
       # Archives
       atool
@@ -112,7 +112,7 @@
     # Copy ranger command scripts and config files to home directory
     home.file = {
       ".config/ranger/scope.sh".source = ./scope.sh;
-      ".config/ranger/preview_composite.sh".source = ./preview_composite.sh;
+      ".config/ranger/rifle_nsxiv.sh".source = ./rifle_nsxiv.sh;
       ".config/ranger/commands.py".source = ./commands.py;
       ".config/ranger/commands_full.py".source = ./commands_full.py;
       ".config/ranger/rifle.conf".source = ./rifle.conf;
