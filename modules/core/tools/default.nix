@@ -11,6 +11,8 @@
     ./nvim
     ./mpv
     ./ranger
+    ./nsxiv
+    ./xplr
   ];
 
   # Other system tools and packages
@@ -127,6 +129,7 @@
     n = "nvim";
     t = "tmux";
     r = "ranger";
+    x = "xplr";
   };
 
 }
