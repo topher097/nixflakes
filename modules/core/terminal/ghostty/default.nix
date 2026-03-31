@@ -14,10 +14,15 @@
       installVimSyntax = true;
 
       settings = {
-        # Use xterm-kitty so ranger's kitty graphics protocol probe succeeds.
-        # Ghostty supports the protocol but its probe response (EINVAL) is not
-        # handled by ranger, which only expects OK or EBADF.
-        term = "xterm-kitty";
+        # Keep Ghostty's native TERM value.
+        #
+        # Forcing TERM=xterm-kitty can break ncurses consumers when the kitty
+        # terminfo entry is not installed in the runtime environment, leading to
+        # errors like:
+        #   _curses.error: setupterm: could not find terminal
+        #
+        # Ghostty ships xterm-ghostty terminfo and sets TERM accordingly.
+        term = "xterm-ghostty";
 
         # Keybindings
         keybind = [

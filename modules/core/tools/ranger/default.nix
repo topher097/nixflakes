@@ -56,18 +56,18 @@
         preview_files = true;
         preview_directories = true;
         preview_images = false;
-        # GHOSTTY LIMITATIONS - IMAGE PROTOCOLS DON'T WORK:
+        # GHOSTTY LIMITATIONS - IMAGE PROTOCOLS CURRENTLY UNRELIABLE:
         # 
-        # Ghostty 1.2.1 has broken/missing image protocol support:
-        # - Kitty: Probe returns EINVAL instead of OK/EBADF (bug)
-        #   https://github.com/ghostty-org/ghostty/discussions/5774
+        # Ghostty 1.3.x has multiple open ranger compatibility issues:
+        # - Kitty image protocol probe can return EINVAL, which ranger rejects
+        #   https://github.com/ranger/ranger/issues/3203
         # - Sixel: Not supported by Ghostty (by design)
         #   https://github.com/ghostty-org/ghostty/discussions/2496
         # - w3m: Requires X11, incompatible with Ghostty
         # - ueberzug: Requires X11/Wayland overlay, not compatible
         # 
-        # WORKAROUND: Disable preview_images and use scope.sh to display
-        # formatted metadata text instead. The composite script still generates
+        # WORKAROUND: Disable preview_images and use scope.sh with chafa/text.
+        # The composite script still generates
         # PNG files cached to ~/.cache/preview_composite/ for reference.
         use_preview_script = true;
         preview_script = "$HOME/.config/ranger/scope.sh";

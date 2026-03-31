@@ -90,7 +90,17 @@ render_composite_with_chafa() {
     (( chafa_width < 1 )) && chafa_width=1
     (( chafa_height < 1 )) && chafa_height=1
 
-    chafa --animate=off --size "${chafa_width}x${chafa_height}" -- "${composite_tmp}" || {
+    # Force symbol output and disable probing so ranger always gets text-mode
+    # stdout for exit code 5. Auto mode may emit kitty/sixel payloads that can
+    # break the preview pane when stdout is consumed by ranger.
+    chafa \
+        --format symbols \
+        --symbols block \
+        --animate=off \
+        --probe=off \
+        --relative=off \
+        --size "${chafa_width}x${chafa_height}" \
+        -- "${composite_tmp}" || {
         rm -f "${composite_tmp}"
         return 1
     }
