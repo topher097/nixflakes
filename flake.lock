@@ -1645,11 +1645,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1775506261,
-        "narHash": "sha256-JbxdDtesl8SiKQ/BaiowFrJeaV945DjjDQZ2WU8iPcw=",
+        "lastModified": 1775589787,
+        "narHash": "sha256-+XLr89Zzrt19c6mHIrxnW6105eT8V5oc0yym+yy+z1I=",
         "owner": "topher097",
         "repo": "tophvim",
-        "rev": "fb568b3980d91bd415736adefa56b8b209202255",
+        "rev": "3c741df47872b4f322c680b1e51284fe0495ce2c",
         "type": "github"
       },
       "original": {
