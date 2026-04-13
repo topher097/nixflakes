@@ -13,6 +13,10 @@ local preview_cache = {
   title = { format = "preview" },
 }
 
+-- State flag for toggling help panel visibility.
+-- When true, HelpMenu replaces the preview pane in the right column.
+local show_help = false
+
 -- Bump this when renderer behavior changes to force cache refresh.
 local preview_renderer_rev = "symbols-hq-v4"
 
@@ -146,37 +150,122 @@ local preview_pane = {
   Dynamic = "custom.preview_pane.render",
 }
 
-local split_preview = {
-  Horizontal = {
-    config = {
-      constraints = {
-        { Percentage = 55 },
-        { Percentage = 45 },
+-- Toggle function for help panel: flips state and refreshes layout.
+xplr.fn.custom.toggle_help = function(_ctx)
+  show_help = not show_help
+  return { "Refresh" }
+end
+
+-- Dynamic layout renderer: builds the default layout at runtime.
+-- Right column shows either Preview or HelpMenu based on show_help state,
+-- with Selection always visible below in a small fixed-height pane.
+xplr.fn.custom.default_layout = function(_ctx)
+  -- Top-right panel: preview or help
+  local top_right_panel = preview_pane
+  if show_help then
+    top_right_panel = "HelpMenu"
+  end
+
+  -- Right column: top panel + small selection pane at bottom
+  local right_column = {
+    Vertical = {
+      config = {
+        constraints = {
+          { Min = 0 },     -- top panel takes remaining space
+          { Length = 6 },  -- selection pane fixed at 6 lines
+        },
+      },
+      splits = {
+        top_right_panel,
+        "Selection",
       },
     },
-    splits = {
-      "Table",
-      preview_pane,
+  }
+
+  -- Main content: table with preview integrated
+  local main_content = {
+    Horizontal = {
+      config = {
+        constraints = {
+          { Percentage = 55 },
+          { Percentage = 45 },
+        },
+      },
+      splits = {
+        "Table",
+        right_column,
+      },
     },
+  }
+
+  -- Full layout: SortAndFilter on top, main content, InputAndLogs at bottom
+  return {
+    CustomLayout = {
+      Vertical = {
+        config = {
+          constraints = {
+            { Length = 3 },  -- SortAndFilter
+            { Min = 0 },     -- main content area
+            { Length = 3 },  -- InputAndLogs
+          },
+        },
+        splits = {
+          "SortAndFilter",
+          main_content,
+          "InputAndLogs",
+        },
+      },
+    },
+  }
+end
+
+-- Register the dynamic layout as the default layout.
+xplr.config.layouts.builtin.default = {
+  Dynamic = "custom.default_layout",
+}
+
+-- Global keybinding: ctrl-h toggles help panel (works in all modes).
+xplr.config.general.global_key_bindings.on_key["ctrl-h"] = {
+  help = "toggle help panel",
+  messages = {
+    { CallLuaSilently = "custom.toggle_help" },
   },
 }
 
-xplr.config.layouts.builtin.default = xplr.util.layout_replace(
-  xplr.config.layouts.builtin.default,
-  "Table",
-  split_preview
-)
+-- Clear mode.layout = "HelpMenu" overrides on builtin modes so transient modes
+-- (search, rename, create, etc.) don't take over the full screen with help.
+-- Per maintainer advice: https://github.com/sayanarijit/xplr/discussions/669
+local modes_to_clear = {
+  "action",
+  "create",
+  "create_directory",
+  "create_file",
+  "delete",
+  "filter",
+  "go_to",
+  "go_to_path",
+  "number",
+  "relative_path_does_contain",
+  "relative_path_does_end_with",
+  "relative_path_does_not_contain",
+  "relative_path_does_not_end_with",
+  "relative_path_does_not_start_with",
+  "relative_path_does_start_with",
+  "relative_path_is",
+  "relative_path_is_not",
+  "rename",
+  "search",
+  "selection_ops",
+  "sort",
+  "switch_layout",
+  "vroot",
+}
 
--- The builtin default layout is a top-level Horizontal split where the
--- right column contains Selection + HelpMenu. Narrow that right column so the
--- main browsing area (table + preview) gets more width.
-if xplr.config.layouts.builtin.default.Horizontal
-  and xplr.config.layouts.builtin.default.Horizontal.config
-then
-  xplr.config.layouts.builtin.default.Horizontal.config.constraints = {
-    { Percentage = 85 },
-    { Percentage = 15 },
-  }
+for _, mode_name in ipairs(modes_to_clear) do
+  local mode = xplr.config.modes.builtin[mode_name]
+  if mode then
+    mode.layout = nil
+  end
 end
 
 -- Open high-resolution images externally with nsxiv (matches ranger workflow).
