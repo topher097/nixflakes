@@ -14,7 +14,7 @@ waybar:
 
 # Weather
 weather:
-    python modules/hyprland/waybar/scripts/waybar-wttr.py
+    bash modules/hyprland/waybar/scripts/waybar-wttr.sh
 
 # NixOS flake test
 test:

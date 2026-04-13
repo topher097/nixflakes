@@ -5,7 +5,7 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    opencode
+    unstable.opencode
     bun
     libnotify
   ];

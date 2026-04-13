@@ -9,10 +9,17 @@
 {
   services.tailscale = {
     enable = true;
+    useRoutingFeatures = "client";
     extraUpFlags = [
       # "--shields-up"
       "--operator=${username}"
       "--ssh"
+    ];
+    extraSetFlags = [
+      # Route all internet traffic through Tailscale's currently suggested exit node,
+      # which can be a Mullvad exit node when the add-on is available.
+      "--exit-node=auto:any"
+      "--exit-node-allow-lan-access=true"
     ];
   };
 

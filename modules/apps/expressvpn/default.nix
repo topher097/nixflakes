@@ -3,7 +3,7 @@
     ...
 }: {
     environment.systemPackages = with pkgs; [
-        expressvpn
+        unstable.expressvpn
     ];
 
     services.expressvpn.enable = true;

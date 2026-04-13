@@ -19,6 +19,7 @@
         "custom/weather"
     ],
     "modules-right": [
+        "custom/tailscale-vpn",
         "network",
         "bluetooth",
         "pulseaudio",
@@ -99,6 +100,14 @@
         "interval": 1800,
         "exec": "$HOME/.config/waybar/scripts/waybar-wttr.sh",
         "return-type": "json"
+    },
+    "custom/tailscale-vpn": {
+        "exec": "$HOME/.config/waybar/scripts/waybar-tailscale-vpn.sh",
+        "return-type": "json",
+        "interval": 5,
+        "tooltip": true,
+        "on-click": "$HOME/.config/waybar/scripts/tailscale-exit-node-toggle.sh",
+        "on-click-right": "$HOME/.config/waybar/scripts/tailscale-exit-node-select.sh"
     },
     "custom/mem": {
         "format": "{} \uf538",

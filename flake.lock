@@ -1328,11 +1328,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1776083700,
-        "narHash": "sha256-wJj5k8sc6IpA2XP1D4fcxMrF2VpGADnecixst/WAU4Y=",
+        "lastModified": 1776100293,
+        "narHash": "sha256-tpmEtdyUewL+5YbnWd3ntBzNfzxteWyG9KhbLwZn/Cs=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "c23e617ae411463db348cabfa0973092702d25aa",
+        "rev": "91d731ebdeb74c63c19335c7563f54ebae2c77e8",
         "type": "github"
       },
       "original": {

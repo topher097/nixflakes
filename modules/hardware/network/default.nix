@@ -5,10 +5,14 @@
   networking = {
     networkmanager = {
       enable = true;
+      dns = "systemd-resolved";
       wifi.powersave = true;
     };
     inherit hostName;
   };
+
+  services.resolved.enable = true;
+
   users.users.${username} = {
     extraGroups = [ "networkmanager" ];
   };
