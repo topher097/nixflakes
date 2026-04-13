@@ -201,44 +201,6 @@
         }
       }
     },
-    "opencode@latest": {
-      "last_modified": "2026-03-27T11:17:38Z",
-      "resolved": "github:NixOS/nixpkgs/832efc09b4caf6b4569fbf9dc01bec3082a00611#opencode",
-      "source": "devbox-search",
-      "version": "1.3.2",
-      "systems": {
-        "aarch64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/wjgvg299pnnpvnqviq74f7w4hq6pbjzp-opencode-1.3.2",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/wjgvg299pnnpvnqviq74f7w4hq6pbjzp-opencode-1.3.2"
-        },
-        "aarch64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/9jp77g4drs1q7ccf642n0m29g5mr3q2k-opencode-1.3.2",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/9jp77g4drs1q7ccf642n0m29g5mr3q2k-opencode-1.3.2"
-        },
-        "x86_64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/yannk9n8nyp45y7agjk57fr211x0zc2c-opencode-1.3.2",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/yannk9n8nyp45y7agjk57fr211x0zc2c-opencode-1.3.2"
-        }
-      }
-    },
     "perf@latest": {
       "last_modified": "2026-03-21T07:29:51Z",
       "resolved": "github:NixOS/nixpkgs/09061f748ee21f68a089cd5d91ec1859cd93d0be#perf",

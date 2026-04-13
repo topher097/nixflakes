@@ -4,8 +4,7 @@
     "amp-cli@latest",
     "chafa@latest",
     "hyperfine@latest",
-    "perf@latest",
-    "opencode@latest"
+    "perf@latest"
   ],
   "shell": {
     "init_hook": [

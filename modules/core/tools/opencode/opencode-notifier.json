@@ -1,0 +1,29 @@
+{
+  "sound": false,
+  "notification": true,
+  "bell": false,
+  "timeout": 5,
+  "showProjectName": true,
+  "showSessionTitle": true,
+  "showIcon": true,
+  "suppressWhenFocused": false,
+  "enableOnDesktop": false,
+  "linux": {
+    "grouping": true
+  },
+  "events": {
+    "permission": false,
+    "complete": true,
+    "subagent_complete": false,
+    "error": false,
+    "question": false,
+    "user_cancelled": false,
+    "plan_exit": false,
+    "session_started": false,
+    "user_message": false,
+    "client_connected": false
+  },
+  "messages": {
+    "complete": "OpenCode finished: {sessionTitle}"
+  }
+}

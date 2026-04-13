@@ -10,6 +10,7 @@
     ./starship
     ./nvim
     ./mpv
+    ./opencode
     ./ranger
     ./nsxiv
     ./xplr
