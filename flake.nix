@@ -39,7 +39,7 @@
       url = "github:topher097/tophvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     NixOS-WSL = {
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -85,7 +85,7 @@
       url = "github:astro/microvm.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
   };
 
   outputs =
@@ -99,18 +99,21 @@
       microvm,
       nix-index-database,
       ...
-    } @ attrs:
+    }@attrs:
     let
       inherit (self) outputs;
       supportedSystems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-      nixpkgsFor = forAllSystems (system: import nixpkgs { 
-        inherit system; 
-        config = {
-          allowUnfree = true;
-        }; 
-      });
+      nixpkgsFor = forAllSystems (
+        system:
+        import nixpkgs {
+          inherit system;
+          config = {
+            allowUnfree = true;
+          };
+        }
+      );
     in
     {
       # Your custom packages
@@ -132,19 +135,20 @@
               hostName = "pgi-desktop";
               hyprlandConfig = "desktop";
               hyprlandScale = "1.25";
-              DE = "hyprland";    # options: gnome, hyprland
+              DE = "hyprland"; # options: gnome, hyprland
               inherit system outputs attrs;
-            } // attrs;
+            }
+            // attrs;
             modules = [
               ./.
-              ./modules/apps/ms-teams     # teams-for-linux
-              ./modules/hardware/nvidia   # Nvidia hardware
-              ./modules/virt              # Virtualization tools
+              ./modules/apps/ms-teams # teams-for-linux
+              ./modules/hardware/nvidia # Nvidia hardware
+              ./modules/virt # Virtualization tools
               #./modules/virt/portainer.nix    # Portainer docker auto run
               #./modules/apps/3d-printing  # 3D printing tools
               nix-index-database.nixosModules.default
             ];
-          }; # pgi-desktop 
+          }; # pgi-desktop
 
         topher-laptop =
           let
@@ -158,12 +162,14 @@
               hyprlandScale = "1.0";
               DE = "hyprland";
               inherit system outputs attrs;
-            } // attrs;
+            }
+            // attrs;
             modules = [
               ./.
-              ./modules/apps/ms-teams     # teams-for-linux
-              ./modules/hardware/nvidia   # Nvidia hardware
-              ./modules/virt              # Virtualization tools
+              ./modules/apps/ms-teams # teams-for-linux
+              ./modules/hardware/nvidia # Nvidia hardware
+              ./modules/virt # Virtualization tools
+              nix-index-database.nixosModules.default
             ];
           }; # topher-laptop
 
@@ -178,7 +184,8 @@
               hostName = "live-image";
               hyprlandConfig = "laptop";
               inherit system outputs attrs;
-            } // attrs;
+            }
+            // attrs;
             modules = [ ./minimal.nix ];
           }; # live-image
 
@@ -192,13 +199,15 @@
               username = "topher";
               hostName = "winix-pgi-laptop";
               inherit system outputs attrs;
-            } // attrs;
-            modules = [ 
-              ./wsl.nix 
+            }
+            // attrs;
+            modules = [
+              ./wsl.nix
               {
                 wsl.enable = true;
               }
-              home-manager.nixosModules.home-manager {
+              home-manager.nixosModules.home-manager
+              {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.users.topher = import ./home.nix;
@@ -215,7 +224,8 @@
           pkgs = nixpkgsFor.${system};
         in
         {
-          default = pkgs.mkShell {    # Can use mkShellNoCC, but do more research on that...
+          default = pkgs.mkShell {
+            # Can use mkShellNoCC, but do more research on that...
             buildInputs = with pkgs; [
               nixfmt
               statix

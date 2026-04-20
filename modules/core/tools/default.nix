@@ -14,6 +14,7 @@
     ./ranger
     ./nsxiv
     ./xplr
+    ./zellij
   ];
 
   # Other system tools and packages
