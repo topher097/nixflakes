@@ -5,11 +5,10 @@
   ],
   "agent": {
     "build": {
-      "model": "github-copilot/claude-opus-4.5"
+      "model": "opencode/glm-5.1"
     },
     "plan": {
-      "model": "github-copilot/gpt-5.4",
-      "variant": "high"
+      "model": "opencode/glm-5.1"
     }
   }
 }
