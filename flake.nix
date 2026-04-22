@@ -86,6 +86,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Caveman skill for opencode
+    caveman = {
+      url = "github:JuliusBrussee/caveman";
+      flake = false;
+    };
+
   };
 
   outputs =
