@@ -2,8 +2,10 @@
   home-manager,
   envfs,
   pkgs,
+  attrs,
   ...
-}: {
+}:
+{
   imports = [
     home-manager.nixosModules.home-manager
     ./assets
@@ -11,6 +13,10 @@
     ./modules
     ./users
   ];
+
+  home-manager.extraSpecialArgs = {
+    inputs = attrs;
+  };
 
   # Enable envfs
   services.envfs.enable = true;
@@ -21,7 +27,6 @@
   environment.variables = {
     NIX_REMOTE = "daemon";
   };
-
 
   # packageOverrides = pkgs_: (with pkgs_; {
   #   # stable = import <nixos> { inherit config; };

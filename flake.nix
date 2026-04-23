@@ -86,7 +86,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-# Agent skills declarative management
+    # Agent skills declarative management
     agent-skills = {
       url = "github:Kyure-A/agent-skills-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -95,7 +95,7 @@
     # Caveman skills (caveman, caveman-commit, caveman-help, caveman-review, compress)
     # Used by agent-skills-nix to install into ~/.config/opencode/skills
     caveman = {
-      url = github:JuliusBrussee/caveman;
+      url = "github:JuliusBrussee/caveman";
       flake = false;
     };
 
@@ -151,6 +151,7 @@
               hyprlandScale = "1.25";
               DE = "hyprland"; # options: gnome, hyprland
               inherit system outputs attrs;
+              inputs = attrs;
             }
             // attrs;
             modules = [
@@ -176,6 +177,7 @@
               hyprlandScale = "1.0";
               DE = "hyprland";
               inherit system outputs attrs;
+              inputs = attrs;
             }
             // attrs;
             modules = [
@@ -198,6 +200,7 @@
               hostName = "live-image";
               hyprlandConfig = "laptop";
               inherit system outputs attrs;
+              inputs = attrs;
             }
             // attrs;
             modules = [ ./minimal.nix ];
@@ -213,6 +216,7 @@
               username = "topher";
               hostName = "winix-pgi-laptop";
               inherit system outputs attrs;
+              inputs = attrs;
             }
             // attrs;
             modules = [
@@ -224,7 +228,9 @@
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
-                home-manager.extraSpecialArgs = { inputs = attrs.inputs; };
+                home-manager.extraSpecialArgs = {
+                  inputs = attrs;
+                };
                 home-manager.users.topher = import ./home.nix;
               }
             ];
