@@ -7,7 +7,7 @@
 {
   home-manager.users.${username}.programs.zellij = {
     enable = true;
-    package = pkgs.zellij;
+    package = pkgs.unstable.zellij;
     enableFishIntegration = true;
 
     # Keybinds for vim-zellij-navigator (smart-splits.nvim integration)

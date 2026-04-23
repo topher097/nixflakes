@@ -36,7 +36,7 @@
       ];
 
       targets.opencode = {
-        dest = /home/${username}/.config/opencode/skills;
+        dest = "/home/${username}/.config/opencode/skills";
         structure = "symlink-tree";
         enable = true;
       };
