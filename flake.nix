@@ -86,9 +86,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Caveman skill for opencode
+# Agent skills declarative management
+    agent-skills = {
+      url = "github:Kyure-A/agent-skills-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Caveman skills (caveman, caveman-commit, caveman-help, caveman-review, compress)
+    # Used by agent-skills-nix to install into ~/.config/opencode/skills
     caveman = {
-      url = "github:JuliusBrussee/caveman";
+      url = github:JuliusBrussee/caveman;
       flake = false;
     };
 
@@ -104,6 +111,7 @@
       nur,
       microvm,
       nix-index-database,
+      agent-skills,
       ...
     }@attrs:
     let
@@ -216,6 +224,7 @@
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = { inputs = attrs.inputs; };
                 home-manager.users.topher = import ./home.nix;
               }
             ];

@@ -10,7 +10,7 @@
     ./starship
     ./nvim
     ./mpv
-    ./opencode
+    ./llm-agents
     ./ranger
     ./nsxiv
     ./xplr
