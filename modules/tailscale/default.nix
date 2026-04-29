@@ -13,13 +13,13 @@
     extraUpFlags = [
       # "--shields-up"
       "--operator=${username}"
+      "--ssh"
     ];
     extraSetFlags = [
-      "--ssh"
       # Route all internet traffic through Tailscale's currently suggested exit node,
       # which can be a Mullvad exit node when the add-on is available.
       "--accept-routes"        # Accept subnet routes from peers (required on Linux, default on other OSes)
-      "--exit-node=auto:any"
+      # "--exit-node=auto:any"
       "--exit-node-allow-lan-access=true"
     ];
   };

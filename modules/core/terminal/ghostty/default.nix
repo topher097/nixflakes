@@ -22,8 +22,8 @@ settings = {
         keybind = [
           "ctrl+shift+h=goto_split:left"
           "ctrl+shift:l=goto_split:right"
-          "ctrl+shift=j=goto_split:bottom"
-          "ctrl+shift+k=goto_split:top"
+          "ctrl+shift=j=goto_split:down"
+          "ctrl+shift+k=goto_split:up"
         ];
       };
     };
