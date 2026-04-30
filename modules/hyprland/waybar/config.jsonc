@@ -15,8 +15,8 @@
         "custom/tomat"
     ],
     "modules-center": [
-        "clock",
-        "custom/weather"
+        "clock"
+        //"custom/weather"
     ],
     "modules-right": [
         "custom/tailscale-vpn",
@@ -24,7 +24,7 @@
         "bluetooth",
         "pulseaudio",
         "backlight",
-        "temperature",
+        //"temperature",
         "memory",
         "cpu",
         "battery",
@@ -151,7 +151,7 @@
             "default": ["\uf028"]
         },
         "on-click": "pkill pavucontrol || pavucontrol",
-        "min-length": 10
+        "min-length": 6
     },
     "network": {
         "format-wifi": "\uf1eb {essid} ",

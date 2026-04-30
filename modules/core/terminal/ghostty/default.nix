@@ -21,9 +21,13 @@ settings = {
         # Keybindings
         keybind = [
           "ctrl+shift+h=goto_split:left"
-          "ctrl+shift:l=goto_split:right"
-          "ctrl+shift=j=goto_split:down"
+          "ctrl+shift+l=goto_split:right"
+          "ctrl+shift+j=goto_split:down"
           "ctrl+shift+k=goto_split:up"
+          "ctrl+shift+alt+h=resize_split:left,10"
+          "ctrl+shift+alt+l=resize_split:right,10"
+          "ctrl+shift+alt+j=resize_split:down,10"
+          "ctrl+shift+alt+k=resize_split:up,10"
         ];
       };
     };
