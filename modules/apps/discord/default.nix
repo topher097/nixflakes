@@ -62,11 +62,11 @@
                         eagerLoad = true;
                     };
                     biggerStreamPreview.enable = true;
-                    ctrlEnterSend = {
-                        enable = true;
-                        submitRule = "ctrl+enter";
-                        sendMessageInTheMiddleOfACodeBlock = true;
-                    };
+                    # ctrlEnterSend = {
+                    #     enable = true;
+                    #     submitRule = "ctrl+enter";
+                    #     sendMessageInTheMiddleOfACodeBlock = true;
+                    # };
                     fakeNitro = {
                         enable = true;      # Allow streaming in nitro quality and send fake emojis/stickers
                     };
