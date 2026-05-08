@@ -1,5 +1,6 @@
 # https://nixos.wiki/wiki/Printing
 {
+    pkgs,
     config,
     ...
 }: {
@@ -23,5 +24,8 @@
         browsing = true;
         defaultShared = true;
         openFirewall = true;
+        drivers = with pkgs; [
+            brlaser
+        ];
     };
 }
