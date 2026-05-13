@@ -10,16 +10,13 @@
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "client";
-    extraUpFlags = [
-      # "--shields-up"
+    extraSetFlags = [
+      # NOTE: extraUpFlags is only applied when authKeyFile is set (NixOS bug #276912)
+      # so all flags must go in extraSetFlags which runs `tailscale set` on every boot
       "--operator=${username}"
       "--ssh"
-    ];
-    extraSetFlags = [
-      # Route all internet traffic through Tailscale's currently suggested exit node,
-      # which can be a Mullvad exit node when the add-on is available.
-      "--accept-routes"        # Accept subnet routes from peers (required on Linux, default on other OSes)
-      # "--exit-node=auto:any"
+      "--accept-routes"
+      "--exit-node=auto:any"
       "--exit-node-allow-lan-access=true"
     ];
   };
