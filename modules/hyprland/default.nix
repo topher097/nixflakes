@@ -52,6 +52,7 @@
       hyprshot
       (python3.withPackages (ps: with ps; [requests]))  # for waybar weather script
       jq # for waybar tailscale-vpn status script
+      auto-cpufreq # for waybar autocpu-freq widget
       xfce.thunar
       pavucontrol
       rofi

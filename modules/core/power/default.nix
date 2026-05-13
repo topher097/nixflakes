@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   vars,
   ...
 }: let
@@ -37,6 +38,10 @@ in {
         };
       };
     };
+
+    security.sudo.extraConfig = ''
+      %wheel ALL=(ALL) NOPASSWD: ${pkgs.auto-cpufreq}/bin/auto-cpufreq --force *
+    '';
 
     environment.shellAliases = {
       perfmode = "sudo auto-cpufreq --force=performance";

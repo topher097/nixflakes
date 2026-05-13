@@ -34,6 +34,7 @@
 #custom-lock,
 #custom-power,
 #custom-reboot,
+#custom-autocpu-freq,
 #custom-tailscale-vpn,
 #bluetooth,
 #battery,
@@ -104,6 +105,18 @@
 }
 #custom-lock{
   background-color: #94e2d5;
+}
+#custom-autocpu-freq{
+  background-color: #a6e3a1;
+}
+#custom-autocpu-freq.performance{
+  background-color: #f38ba8;
+}
+#custom-autocpu-freq.powersave{
+  background-color: #89b4fa;
+}
+#custom-autocpu-freq.balanced{
+  background-color: #f9e2af;
 }
 #window{
   background-color: #74c7ec;

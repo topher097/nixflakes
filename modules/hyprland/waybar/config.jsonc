@@ -12,6 +12,7 @@
         "custom/lock",
         "custom/reboot",
         "custom/power",
+        "custom/autocpu-freq",
         "custom/tomat"
     ],
     "modules-center": [
@@ -93,6 +94,15 @@
         "on-click": "systemctl poweroff",
         "tooltip": true,
         "tooltip-format": "Shutdown"
+    },
+    "custom/autocpu-freq": {
+        "exec": "$HOME/.config/waybar/scripts/waybar-autocpu-freq.sh",
+        "return-type": "json",
+        "format": "{text}",
+        "interval": 5,
+        "tooltip": true,
+        "on-click": "$HOME/.config/waybar/scripts/rofi-autocpu-freq.sh",
+        "on-click-right": "$HOME/.config/waybar/scripts/rofi-autocpu-freq.sh"
     },
     "custom/weather": {
         "format": "{}",
