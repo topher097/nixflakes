@@ -17,7 +17,6 @@ current=$(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor 2>/dev/null 
 entries=(
   "Auto (reset override)"
   "Powersave (force)"
-  "Balance (force)"
   "Performance (force)"
 )
 
@@ -40,10 +39,6 @@ case "$selection" in
   "Powersave (force)")
     cmd="sudo auto-cpufreq --force=powersave"
     label="Powersave mode"
-    ;;
-  "Balance (force)")
-    cmd="sudo auto-cpufreq --force=balance"
-    label="Balance mode"
     ;;
   "Performance (force)")
     cmd="sudo auto-cpufreq --force=performance"
