@@ -76,7 +76,7 @@
                         volume = 5.0;       # This is percentage of volume, avoid going over 10%
                     };
                     fixYoutubeEmbeds.enable = true;
-                    friendsSince.enable = true;
+                    #friendsSince.enable = true;
                     fullSearchContext.enable = true;
                     memberCount.enable = true;
                     messageLogger = {

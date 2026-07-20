@@ -36,7 +36,7 @@ in
         "caveman-commit"
         "caveman-help"
         "caveman-review"
-        "compress"
+        "caveman-compress"
       ];
 
       targets.opencode = {

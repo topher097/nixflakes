@@ -1,5 +1,5 @@
 # Help LINK: https://discourse.nixos.org/t/nvidia-docker-container-runtime-doesnt-detect-my-gpu/51336/2
-{ pkgs, username, ... }:
+{ pkgs, username, config, ... }:
 {
   environment.systemPackages = with pkgs; [ docker-compose ];
 
@@ -13,4 +13,8 @@
 
   # Enable for GPU access in docker containers
   hardware.nvidia-container-toolkit.enable = true;
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "docker-28.5.2"
+  ];
 }
