@@ -8,7 +8,7 @@ pkgs.stdenv.mkDerivation {
 
   # These packages are mostly from the nixpkgs filezilla derivation
   buildInputs = with pkgs; [
-    wxGTK32
+    wxwidgets_3_2
     gtk3
     glib
     libidn2
@@ -34,9 +34,9 @@ pkgs.stdenv.mkDerivation {
     expat
     fontconfig
     freetype
-    xorg.libX11
-    xorg.libXcursor
-    xorg.libXrandr
+    libx11
+    libxcursor
+    libxrandr
     libxcrypt-legacy
   ];
 

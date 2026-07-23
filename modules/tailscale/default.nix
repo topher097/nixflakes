@@ -40,11 +40,11 @@
       ForwardAgent yes
     '';      
     
-    matchBlocks = {
+    settings = {
       # Use a wildcard for default settings (typically placed at the end due to SSH config order rules)
       "*" = {
-        serverAliveInterval = 120;
-        compression = true;
+        ServerAliveInterval = 120;
+        Compression = true;
       };
     };
   };

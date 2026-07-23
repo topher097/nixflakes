@@ -3,7 +3,7 @@
   # Required to run Windows applications ie World of Warcraft
   users.users.${username} = {
    packages = with pkgs; [ 
-     (wineWowPackages.full.override {
+     (wineWow64Packages.full.override {
        wineRelease = "staging";
        mingwSupport = true;
       })

@@ -15,8 +15,6 @@
   networking.firewall.allowedTCPPorts = [ 4747 ];
   networking.firewall.allowedUDPPorts = [ 4747 ];
 
-  programs.adb.enable = true; # enable android proper data tethering
-
   environment.systemPackages = with pkgs; [
     # Webcam packages
     v4l-utils

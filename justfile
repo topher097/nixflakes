@@ -18,19 +18,19 @@ weather:
 
 # NixOS flake test
 test:
-    sudo nixos-rebuild test --flake . --show-trace --impure
+    NIXPKGS_ALLOW_UNFREE=1 sudo --preserve-env=NIXPKGS_ALLOW_UNFREE nixos-rebuild test --flake . --show-trace --impure
     hyprctl reload
     bash sh/launch_waybar.sh
 
 # NixOS flake
 switch:
-    sudo nixos-rebuild switch --flake . --show-trace --impure
+    NIXPKGS_ALLOW_UNFREE=1 sudo --preserve-env=NIXPKGS_ALLOW_UNFREE nixos-rebuild switch --flake . --show-trace --impure
     hyprctl reload
     bash sh/launch_waybar.sh
 
 # NixOS flake build (without switching or adding to GRUB menu)
 build:
-    sudo nixos-rebuild build --flake . --show-trace --impure
+    NIXPKGS_ALLOW_UNFREE=1 sudo --preserve-env=NIXPKGS_ALLOW_UNFREE nixos-rebuild build --flake . --show-trace --impure
     hyprctl reload
     bash sh/launch_waybar.sh
 
@@ -40,11 +40,11 @@ preview-composite $filepath:
 
 # NixOS flake test when in WSL
 wsl-test:
-    sudo nixos-rebuild test --flake .#winix --show-trace
+    NIXPKGS_ALLOW_UNFREE=1 sudo --preserve-env=NIXPKGS_ALLOW_UNFREE nixos-rebuild test --flake .#winix --show-trace --impure
 
 # NixOS flake switch when in WSL
 wsl-switch:
-    sudo nixos-rebuild switch --flake .#winix --show-trace
+    NIXPKGS_ALLOW_UNFREE=1 sudo --preserve-env=NIXPKGS_ALLOW_UNFREE nixos-rebuild switch --flake .#winix --show-trace --impure
 
 # Update the flake inputs and the nix channel
 update:
