@@ -1,6 +1,7 @@
-{ 
+{
   pkgs,
   config,
+  lib,
   username,
   home-manager,
   ...
@@ -28,6 +29,36 @@
 
   # For gpu use in containers
   hardware.nvidia-container-toolkit.enable = true;
+
+  # Tolerate NVIDIA driver version mismatch during live upgrades.
+  # The CDI generator fails when userspace libs (new) don't match the
+  # running kernel module (old). Exit 0 with a warning so nixos-rebuild
+  # doesn't report a failed service. Resolves after reboot.
+  systemd.services.nvidia-container-toolkit-cdi-generator.serviceConfig.ExecStart =
+    lib.mkForce
+    (let
+      generator = pkgs.writeScriptBin "nvidia-cdi-generator-safe" ''
+        #!${pkgs.runtimeShell}
+        set -euo pipefail
+        if ! ${pkgs.nvidia-container-toolkit}/bin/nvidia-ctk cdi generate \
+          --format json \
+          --discovery-mode auto \
+          --device-name-strategy index \
+          --disable-hook create-symlinks \
+          --ldconfig-path ${pkgs.glibc}/bin/ldconfig \
+          --library-search-path ${config.hardware.nvidia.package}/lib \
+          --nvidia-cdi-hook-path ${pkgs.nvidia-container-toolkit}/bin/nvidia-cdi-hook \
+          > "$RUNTIME_DIRECTORY/nvidia-container-toolkit.json" 2>/tmp/cdi-err; then
+          if grep -q "Driver/library version mismatch" /tmp/cdi-err 2>/dev/null; then
+            echo "nvidia-cdi-generator: Driver/library version mismatch — reboot required to complete NVIDIA upgrade. Skipping CDI generation."
+            exit 0
+          fi
+          cat /tmp/cdi-err >&2
+          exit 1
+        fi
+      '';
+    in
+    lib.getExe generator);
 
   # Define nvidia settings
   hardware.nvidia = {

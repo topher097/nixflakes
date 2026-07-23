@@ -1,0 +1,37 @@
+NIXPKGS_ALLOW_UNFREE=1 nixos-rebuild test --flake . --show-trace --impure --sudo
+warning: Git tree '/home/topher/Documents/nixflakes' is dirty
+building the system configuration...
+warning: Git tree '/home/topher/Documents/nixflakes' is dirty
+evaluation warning: neovimUtils.makeNeovimConfig is deprecated. Use wrapNeovim or wrapNeovimUnstable directly.
+[sudo] password for topher:
+Checking switch inhibitors... done
+stopping the following units: accounts-daemon.service, acpid.service, auto-cpufreq.service, avahi-daemon.service, avahi-daemon.socket, cups-browsed.service, cups.service, cups.socket, docker.service, docker.socket, kmod-static-nodes.service, logrotate-checkconf.service, NetworkManager.service, nscd.service, nvidia-container-toolkit-cdi-generator.service, powertop.service, rtkit-daemon.service, spice-vdagentd.service, systemd-machined.service, systemd-modules-load.service, systemd-oomd.service, systemd-oomd.socket, systemd-sysctl.service, systemd-timesyncd.service, systemd-vconsole-setup.service, thermald.service
+NOT restarting the following changed units: bluetooth.service, display-manager.service, libvirt-guests.service, systemd-backlight@backlight:intel_backlight.service, systemd-fsck@dev-disk-by\x2duuid-F135\x2d5D71.service, systemd-journal-flush.service, systemd-logind.service, systemd-random-seed.service, systemd-remount-fs.service, systemd-update-utmp.service, systemd-user-sessions.service, user-runtime-dir@1000.service, user@1000.service
+activating the configuration...
+reviving group 'mandb' with GID 981
+reviving group 'wpa_supplicant' with GID 980
+warning: not applying UID change of user ‘gdm-greeter-2’ (60580 -> 60579) in /etc/passwd
+warning: not applying UID change of user ‘gdm-greeter-3’ (60581 -> 60580) in /etc/passwd
+warning: not applying UID change of user ‘gdm-greeter-4’ (60582 -> 60581) in /etc/passwd
+reviving user 'mandb' with UID 988
+reviving user 'wpa_supplicant' with UID 987
+removing user ‘gdm-greeter-1’
+setting up /etc...
+removing obsolete symlink ‘/etc/pam.d/gdm-fingerprint’...
+uid=60580(gdm-greeter-2) gid=132(gdm) groups=132(gdm)
+uid=60581(gdm-greeter-3) gid=132(gdm) groups=132(gdm)
+uid=60582(gdm-greeter-5) gid=132(gdm) groups=132(gdm)
+uid=60582(gdm-greeter-5) gid=132(gdm) groups=132(gdm)
+restarting systemd...
+reloading user units for topher...
+stopping the following user units: gcr-ssh-agent.service, gcr-ssh-agent.socket, pipewire-pulse.service, pipewire-pulse.socket, pipewire.service, pipewire.socket, wireplumber.service, xdg-desktop-portal-gtk.service, xdg-desktop-portal-hyprland.service, xdg-desktop-portal.service, xdg-document-portal.service, xdg-permission-store.service
+NOT restarting the following user units: systemd-tmpfiles-setup.service
+reloading the following user units: dbus.service
+starting the following user units: gcr-ssh-agent.socket, pipewire-pulse.socket, pipewire.socket, wireplumber.service, xdg-desktop-portal-gtk.service, xdg-desktop-portal-hyprland.service, xdg-desktop-portal.service, xdg-document-portal.service, xdg-permission-store.service
+restarting the following user units: nixos-activation.service
+Failed to reload user unit dbus-broker.service
+warning: the following user units failed: dbus-broker.service
+See `systemctl --user status dbus-broker.service` for details.
+warning: user activation for topher failed
+restarting sysinit-reactivation.target
+reloading the following units: dbus.service, firewall.service, reload-systemd-vconsole-setup.service, usr-bin.mount
