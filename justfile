@@ -17,20 +17,20 @@ weather:
     bash modules/hyprland/waybar/scripts/waybar-wttr.sh
 
 # NixOS flake test
-test:
-    NIXPKGS_ALLOW_UNFREE=1 NIXOS_NO_CHECK=1 nixos-rebuild test --flake . --show-trace --impure --sudo
+test name:
+    NIXPKGS_ALLOW_UNFREE=1 NIXOS_NO_CHECK=1 nixos-rebuild test --flake .#{{name}} --show-trace --impure --sudo
     hyprctl reload
     bash sh/launch_waybar.sh
 
 # NixOS flake
-switch:
-    NIXPKGS_ALLOW_UNFREE=1 NIXOS_NO_CHECK=1 nixos-rebuild switch --flake . --show-trace --impure --sudo
+switch name:
+    NIXPKGS_ALLOW_UNFREE=1 NIXOS_NO_CHECK=1 nixos-rebuild switch --flake .#{{name}} --show-trace --impure --sudo
     hyprctl reload
     bash sh/launch_waybar.sh
 
 # NixOS flake build (without switching or adding to GRUB menu)
-build:
-    NIXPKGS_ALLOW_UNFREE=1 nixos-rebuild build --flake . --show-trace --impure
+build name:
+    NIXPKGS_ALLOW_UNFREE=1 nixos-rebuild build --flake .#{{name}} --show-trace --impure
     hyprctl reload
     bash sh/launch_waybar.sh
 
@@ -58,7 +58,7 @@ lockfile-pin:
     git push
 
 # Upgrade the inputs and update the lockfile
-upgrade: update test lockfile-pin
+upgrade name: update (test name)
 
 # Add all changes to the git repository
 gadd:
