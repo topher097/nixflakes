@@ -221,12 +221,12 @@ in
   #     wayland = true;
   #   };
   # };
+  services.xserver.enable = true;
   services.desktopManager.gnome = {
     enable = true;
   };
   services.displayManager.gdm = {
     enable = true;
-    wayland = true;
   };
   services.gnome = {
     evolution-data-server.enable = true;

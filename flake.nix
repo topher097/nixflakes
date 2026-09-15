@@ -175,16 +175,16 @@
               hostName = "topher-laptop";
               hyprlandConfig = "laptop";
               hyprlandScale = "1.0";
-              DE = "hyprland";
+              DE = "gnome";
               inherit system outputs attrs;
               inputs = attrs;
             }
             // attrs;
             modules = [
               ./.
-              ./modules/apps/ms-teams # teams-for-linux
-              ./modules/hardware/nvidia # Nvidia hardware
-              ./modules/virt # Virtualization tools
+              #./modules/apps/ms-teams # teams-for-linux
+              #./modules/hardware/nvidia # Nvidia hardware
+              #./modules/virt # Virtualization tools
               nix-index-database.nixosModules.default
             ];
           }; # topher-laptop
