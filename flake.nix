@@ -189,6 +189,29 @@
             ];
           }; # topher-laptop
 
+        endwell-server =
+          let
+            system = "x86_64-linux";
+          in
+          nixpkgs.lib.nixosSystem {
+            specialArgs = {
+              username = "topher";
+              hostName = "endwell-server";
+              hyprlandConfig = "desktop";
+              hyprlandScale = "1.0";
+              DE = "hyprland"; # options: gnome, hyprland
+              inherit system outputs attrs;
+              inputs = attrs;
+            }
+            // attrs;
+            modules = [
+              ./.
+              ./modules/hardware/nvidia # Nvidia hardware
+              ./modules/virt # Virtualization tools
+              nix-index-database.nixosModules.default
+            ];
+          }; # endwell-server
+
         live-image =
           let
             system = "x86_64-linux";
