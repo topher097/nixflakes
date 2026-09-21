@@ -63,7 +63,11 @@
     ];
   };
 
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    package = pkgs.hyprland;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
+  };
   programs.dconf.enable = true;
 
   services.gnome = {
@@ -73,6 +77,7 @@
   services.displayManager.gdm = {
     enable = true;
   };
+  services.displayManager.defaultSession = "hyprland";
 
   system.activationScripts.gdm-greeter-cleanup.text = ''
     # One-time cleanup: NixOS 26.05 shifted gdm-greeter UIDs down by 1.
@@ -100,5 +105,4 @@
       pkgs.xdg-desktop-portal-gtk
     ];
   };
-  programs.hyprland.portalPackage = pkgs.xdg-desktop-portal-hyprland;   
 }
