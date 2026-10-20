@@ -68,6 +68,20 @@ let
             '');
 in {
     home-manager.users.${username} = _: {
+        # Hyprland never activates graphical-session.target itself, and that
+        # target refuses manual start. This intermediate target is started by
+        # exec.conf and pulls in graphical-session.target via a dependency, so
+        # services WantedBy=graphical-session.target (tomat, redshift, ...)
+        # actually start with the session.
+        systemd.user.targets.hyprland-session = {
+            Unit = {
+                Description = "Hyprland compositor session";
+                BindsTo = [ "graphical-session.target" ];
+                Wants = [ "graphical-session.target" ];
+                After = [ "graphical-session.target" ];
+            };
+        };
+
         home.file = {
             ".config/wallpapers".source = "${configDir}/wallpapers";
             ".config/hypr".source = "${configDir}/hypr";

@@ -139,6 +139,9 @@
 #custom-tomat.long-break-paused {
   background-color: #74c0db;
 }
+#custom-tomat.offline {
+  background-color: #6c7086;
+}
 
 #waybar.hidden {
   opacity: 0.5;
