@@ -1,5 +1,11 @@
+{ config, ... }:
 {
   imports = [./hardware-configuration.nix];
+
+  # This laptop's GPU is a GTX 1060 Max-Q (Pascal). The 595+ driver branch
+  # dropped Pascal support, so `stable` fails to bind ("NVRM: No NVIDIA GPU
+  # found") and NVML reports "Driver Not Loaded". Pin the 580 legacy branch.
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
 
   #----Host specific config ----
   boot.kernelParams = [

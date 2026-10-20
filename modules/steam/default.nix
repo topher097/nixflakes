@@ -2,7 +2,7 @@
 {
   # Required to run Windows applications ie World of Warcraft
   users.users.${username} = {
-   packages = with pkgs; [ 
+   packages = with pkgs; [
      (wineWow64Packages.full.override {
        wineRelease = "staging";
        mingwSupport = true;
@@ -11,13 +11,14 @@
    ];
   };
 
-  environment.systemPackages = with pkgs; [ 
+  environment.systemPackages = with pkgs; [
     #unstable.lutris
     steamcmd
     protonup-qt
+    protontricks
   ];
 
-  # This can optionally be installed via flatpack. 
+  # This can optionally be installed via flatpack.
   # Proton Experimental is pretty sweet
   programs = {
     steam.enable = true;

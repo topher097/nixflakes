@@ -68,7 +68,9 @@
     open = false;
     nvidiaSettings = true;
     # https://nixos.wiki/wiki/Nvidia#Running_the_new_RTX_SUPER_on_nixos_stable
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    # mkDefault so hosts with GPUs unsupported by `stable` (e.g. Pascal, which
+    # needs a legacy branch) can override this in their host config.
+    package = lib.mkDefault (config.boot.kernelPackages.nvidiaPackages.stable);
   };
 
   # # Include nvtop for GPU usage monitoring
