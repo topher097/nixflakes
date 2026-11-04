@@ -18,10 +18,14 @@
   # When applied, the unstable nixpkgs set (declared in the flake attrs) will
   # be accessible through 'pkgs.unstable'
   unstable-packages = final: _prev: {
-    unstable = import attrs.nixpkgs-unstable {
+    unstable = (import attrs.nixpkgs-unstable {
       system = final.stdenv.hostPlatform.system;
       config.allowUnfree = true;
-    };
+    }).extend (ufinal: uprev: {
+      # Local copy with fixed node_modules outputHash
+      # (upstream fix pending: https://github.com/NixOS/nixpkgs/pull/582675)
+      opencode = uprev.callPackage ../pkgs/opencode/package.nix {};
+    });
   };
 }
 
