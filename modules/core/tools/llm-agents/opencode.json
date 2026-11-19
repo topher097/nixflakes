@@ -4,6 +4,10 @@
     "@mohak34/opencode-notifier@latest",
     "@dietrichgebert/ponytail"
   ],
+  "plugin": [
+    "oh-my-opencode-slim"
+  ],
+  "lsp": true,
   "skills": [
     "~/.config/opencode/skills-local"
   ],
