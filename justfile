@@ -17,13 +17,13 @@ weather:
     bash modules/hyprland/waybar/scripts/waybar-wttr.sh
 
 # NixOS flake test
-test name: skills-update
+test name: opencode-skill-update
     NIXPKGS_ALLOW_UNFREE=1 NIXOS_NO_CHECK=1 nixos-rebuild test --flake .#{{name}} --show-trace --impure --sudo
     hyprctl reload
     bash sh/launch_waybar.sh
 
 # NixOS flake
-switch name: skills-update
+switch name: opencode-skill-update
     NIXPKGS_ALLOW_UNFREE=1 NIXOS_NO_CHECK=1 nixos-rebuild switch --flake .#{{name}} --show-trace --impure --sudo
     hyprctl reload
     bash sh/launch_waybar.sh
@@ -39,21 +39,21 @@ preview-composite $filepath:
     python3 ./modules/core/tools/ranger/preview_composite.py --preview ${filepath}
 
 # NixOS flake test when in WSL
-wsl-test: skills-update
+wsl-test: opencode-skill-update
     NIXPKGS_ALLOW_UNFREE=1 NIXOS_NO_CHECK=1 nixos-rebuild test --flake .#winix --show-trace --impure --sudo
 
 # NixOS flake switch when in WSL
-wsl-switch: skills-update
+wsl-switch: opencode-skill-update
     NIXPKGS_ALLOW_UNFREE=1 NIXOS_NO_CHECK=1 nixos-rebuild switch --flake .#winix --show-trace --impure --sudo
 
 # Update agent skill flake inputs (installed into ~/.config/opencode/skills by
 # agent-skills-nix) so every rebuild picks up the latest upstream revision
-skills-update:
+opencode-skill-update:
     nix flake update caveman pstack
 
 # Update the opencode plugin version pins in
 # modules/core/tools/llm-agents/opencode.json to the latest npm releases
-pins-update:
+opencode-plugin-update:
     bash modules/core/tools/llm-agents/update_latest_pins.sh
 
 # Update the flake inputs and the nix channel
