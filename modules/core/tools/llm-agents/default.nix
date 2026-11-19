@@ -75,14 +75,9 @@ in
           mkdir -p "$HOME/.config/opencode/skills-local"
         '';
 
-    # opencode caches npm plugin resolutions (@latest) under ~/.cache/opencode/npm
-    # and keeps serving stale copies across rebuilds. Purge the whole cache so
-    # every rebuild re-resolves all plugins to the newest version from npm on
-    # the next plugin load.
-    home.activation.refreshOpencodePlugins =
-      inputs.home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ]
-        ''
-          rm -rf "$HOME/.cache/opencode/npm"
-        '';
+    # Plugin versions are pinned in opencode.json, so the npm cache
+    # (~/.cache/opencode/npm) holds exactly those versions. Bumping a pin
+    # changes the cache key, so the new version installs itself; no purge
+    # needed, and nothing is re-downloaded on every rebuild.
   };
 }
