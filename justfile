@@ -51,6 +51,11 @@ wsl-switch: skills-update
 skills-update:
     nix flake update caveman pstack
 
+# Update the opencode plugin version pins in
+# modules/core/tools/llm-agents/opencode.json to the latest npm releases
+pins-update:
+    bash modules/core/tools/llm-agents/update_latest_pins.sh
+
 # Update the flake inputs and the nix channel
 update:
     sudo nix-channel --update
