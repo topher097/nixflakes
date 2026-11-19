@@ -6,6 +6,7 @@
     ./hosts
     ./modules/core/terminal
     ./modules/core/nix
+    ./modules/core/tools/llm-agents
   ];
 
   # https://nix-community.github.io/NixOS-WSL/how-to/vscode.html

@@ -66,6 +66,15 @@ in
       ".config/opencode/AGENTS.md".source = ./AGENTS.md;
     };
 
+    # opencode.json points "skills" at ~/.config/opencode/skills-local; create it
+    # here so the path resolves on every machine (skills themselves go in via
+    # home.file, never by hand).
+    home.activation.createOpencodeSkillsLocal =
+      inputs.home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ]
+        ''
+          mkdir -p "$HOME/.config/opencode/skills-local"
+        '';
+
     # opencode caches npm plugin resolutions (@latest) under ~/.cache/opencode/npm
     # and keeps serving stale copies across rebuilds. Purge the whole cache so
     # every rebuild re-resolves all plugins to the newest version from npm on
