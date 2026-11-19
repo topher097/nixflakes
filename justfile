@@ -17,13 +17,13 @@ weather:
     bash modules/hyprland/waybar/scripts/waybar-wttr.sh
 
 # NixOS flake test
-test name:
+test name: skills-update
     NIXPKGS_ALLOW_UNFREE=1 NIXOS_NO_CHECK=1 nixos-rebuild test --flake .#{{name}} --show-trace --impure --sudo
     hyprctl reload
     bash sh/launch_waybar.sh
 
 # NixOS flake
-switch name:
+switch name: skills-update
     NIXPKGS_ALLOW_UNFREE=1 NIXOS_NO_CHECK=1 nixos-rebuild switch --flake .#{{name}} --show-trace --impure --sudo
     hyprctl reload
     bash sh/launch_waybar.sh
@@ -39,12 +39,17 @@ preview-composite $filepath:
     python3 ./modules/core/tools/ranger/preview_composite.py --preview ${filepath}
 
 # NixOS flake test when in WSL
-wsl-test:
+wsl-test: skills-update
     NIXPKGS_ALLOW_UNFREE=1 NIXOS_NO_CHECK=1 nixos-rebuild test --flake .#winix --show-trace --impure --sudo
 
 # NixOS flake switch when in WSL
-wsl-switch:
+wsl-switch: skills-update
     NIXPKGS_ALLOW_UNFREE=1 NIXOS_NO_CHECK=1 nixos-rebuild switch --flake .#winix --show-trace --impure --sudo
+
+# Update agent skill flake inputs (installed into ~/.config/opencode/skills by
+# agent-skills-nix) so every rebuild picks up the latest upstream revision
+skills-update:
+    nix flake update caveman pstack
 
 # Update the flake inputs and the nix channel
 update:

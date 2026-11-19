@@ -99,6 +99,14 @@
       flake = false;
     };
 
+    # pstack skills (53) + subagent definitions (poteto-agent, comment-sicko).
+    # Skills via agent-skills-nix into ~/.config/opencode/skills;
+    # agents via home.file into ~/.config/opencode/agents.
+    pstack = {
+      url = "github:painhardcore/pstack";
+      flake = false;
+    };
+
   };
 
   outputs =
